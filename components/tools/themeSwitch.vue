@@ -1,6 +1,5 @@
 <template>
-
-<button class="theme-toggle " :class="{'theme-toggle--toggled':theme=='dark'}" @click="switchTheme()" title="Toggle theme">
+<button class="theme-toggle " :class="{'theme-toggle--toggled':myStore.theme=='dark'}" @click="switchTheme()" title="Toggle theme">
   
   <span class="theme-toggle-sr">Switch theme</span>
   <svg
@@ -25,15 +24,14 @@
 import { useMyStore } from '~/stores/myStore.js';
 const myStore=useMyStore();
 
-const theme = ref('dark');
 
 const switchTheme = () => {
-  theme.value = theme.value === 'dark' ? 'light' : 'dark';
-  document.documentElement.setAttribute('data-theme', theme.value);
+  myStore.theme = myStore.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', myStore.theme);
 };
 
 onMounted(() => {
-  document.documentElement.setAttribute('data-theme', theme.value);
+  document.documentElement.setAttribute('data-theme', myStore.theme);
 });
 useHead({
   link: [{ rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/npm/theme-toggles@4.10.1/css/simple.min.css' }]

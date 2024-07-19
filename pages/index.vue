@@ -3,9 +3,9 @@
         <IndexHeader></IndexHeader>
     <IndexHeroBanner></IndexHeroBanner>
     <div class="test">
-    
-      
-    </div>  
+    test {{ myStore.theme }}
+
+</div>
     <IndexAnimation></IndexAnimation>
     </div>
 
@@ -14,6 +14,8 @@
 
 <script setup>
 
+import { useMyStore } from '~/stores/myStore.js';
+const myStore=useMyStore();
 
 
 </script>
@@ -21,6 +23,8 @@
 <style scoped>
 .page-container{
 }
+
+
 .test{
     min-height: 200vh;
 }

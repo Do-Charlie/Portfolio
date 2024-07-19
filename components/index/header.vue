@@ -2,9 +2,15 @@
     <header>
         <div class="title-container">
             
-            <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink>
+            <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
+            <NuxtLink to="/" class="title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }">
+                <NuxtImg v-if="myStore.theme=='light'" class="pointer" src="/logo_light.png"></NuxtImg> 
+                <NuxtImg v-else class="pointer" src="/logo.png"></NuxtImg> 
+
+            </NuxtLink>
+
         </div>
-        <nav :class="{ 'is-scrolled': isScrolled }">
+        <nav >
             <NuxtLink to="/" class="linear "> Projets</NuxtLink>
             <NuxtLink to="/" class="linear "> CV</NuxtLink>
             <NuxtLink to="/" class="linear "> Contact</NuxtLink>
@@ -29,10 +35,11 @@ const myStore=useMyStore();
 header {
     padding: var(--small-padding);
     position: fixed;
+    top: 0;
     width: 100vw;
     display: flex;
     flex-flow: row nowrap;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     z-index: 100;
     box-sizing: border-box;
@@ -45,7 +52,7 @@ header {
     height: 22px;
     width: 10px;
 }
-.title-logo {
+/* .title-logo {
     top: 20px;
     position: absolute;
     font-size: 100px;
@@ -64,7 +71,29 @@ header {
     font-size: 24px;
     top:-3px;
     font-weight: 300;
+} */
+
+.title-logo{
+    position: relative;
+
 }
+
+.title-logo img{
+    top: 200px;
+    left: 100px;
+    position: absolute;
+    width: 600px ;
+    max-width: 50vw;
+    height: auto;
+    transition: width calc(var(--duration-opacity)/2) ease-out,top calc(var(--duration-opacity)/2) ease-out,left calc(var(--duration-opacity)/2) ease-out ;
+}
+
+
+.title-logo.is-scrolled img{
+    top:0px;
+    width: 200px;
+    left: 0px;
+} 
 
 nav{
     display:flex;
