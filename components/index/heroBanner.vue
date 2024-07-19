@@ -1,6 +1,5 @@
 <template>
 <div class="container hero">
-    <h2 class="linear"> Charlie <span >Do</span></h2>
     <div class="discover linear"> Discover</div>
 </div>
 
@@ -14,15 +13,7 @@
 .home-banner{
 position: relative;
 }
-h2{
-    font-weight: 300;
-    font-size: 64px;
-    text-transform: uppercase;
-    width: fit-content;
-}
-h2>span{
 
-}
 .discover{
     position: absolute;
     display:flex;
