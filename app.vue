@@ -3,7 +3,7 @@
     <NuxtLayout :name="myStore.layout">
     <NuxtPage></NuxtPage>
   </NuxtLayout>
-  <button @click="co()">azfezf</button>
+  <ToolsCursor></ToolsCursor>
   </div>
 </template>
 
@@ -19,19 +19,27 @@ function co(){
 </script>
 
 <style>
-body,html{
+body,html,*{
   margin: 0;
   padding: 0;
     font-family: 'Source Serif 4', serif;
     box-sizing: border-box;
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+     cursor: none; 
+
 }
+
 
 
 body::-webkit-scrollbar,html::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+a, a:link, a:visited, a:focus, a:hover, a:active{
+  cursor: none ;
+}
+
 
 :root{
 --background:#0a0a0a;
@@ -41,6 +49,8 @@ body::-webkit-scrollbar,html::-webkit-scrollbar {
 --main-color-linear: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 70%,  var(--second-color) 100%);
 
 --small-padding:1.5vw;
+--duration-opacity:0.8s;
+--padding-width:0px 10vw;
 }
 
 
@@ -55,11 +65,12 @@ html[data-theme='light'] {
 
 
 body{
-  transition: background-color 1s, color 1s;
+  transition: background-color var(--duration-opacity), color var(--duration-opacity);
 
   background-color: var(--background);
   color:var(--color);
 } 
+
 .linear{
   background: linear-gradient(90deg,var(--color) 0%, var(--color) 60%, var(--main-color) 80%,  var(--second-color) 100%);
   background-size: 200% 200%;

@@ -1,6 +1,6 @@
 <template>
 
-<div class="theme-toggle " :class="{'theme-toggle--toggled':theme=='dark'}" @click="switchTheme()" title="Toggle theme">
+<button class="theme-toggle " :class="{'theme-toggle--toggled':theme=='dark'}" @click="switchTheme()" title="Toggle theme">
   
   <span class="theme-toggle-sr">Toggle theme</span>
   <svg
@@ -18,7 +18,7 @@
       <circle cx="16" cy="16" r="15" />
     </g>
   </svg>
-</div>
+</button>
 </template>
 
 <script setup>
@@ -47,6 +47,7 @@ useHead({
 
 .theme-toggle{
  width: 25px;
+ cursor: none;
 }
 
 .theme-toggle__simple{

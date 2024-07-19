@@ -1,10 +1,10 @@
 <template>
     <header>
-        <div class="title-logo-container">
-            <NuxtLink to="/" class="linear title-logo"> Charlie Do</NuxtLink>
-
+        <div class="title-container">
+            
+            <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': isScrolled }"> Charlie Do</NuxtLink>
         </div>
-        <nav>
+        <nav :class="{ 'is-scrolled': isScrolled }">
             <NuxtLink to="/" class="linear "> Projets</NuxtLink>
             <NuxtLink to="/" class="linear "> CV</NuxtLink>
             <NuxtLink to="/" class="linear "> Contact</NuxtLink>
@@ -16,8 +16,28 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 
+const isScrolled = ref(false);
 
+const handleScroll = () => {
+  if (window.scrollY > 50) {
+    isScrolled.value = true;
+  } else {
+    isScrolled.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+  console.log('mount')
+
+});
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+  console.log('unmount')
+});
 </script>
 
 <style scoped>
@@ -31,22 +51,34 @@ header {
     justify-content: space-between;
     z-index: 100;
     box-sizing: border-box;
+    height: 22px;
+
 }
-.title-logo-container{
+.title-container{
     position: relative;
-
+    display:flex;
+    height: 22px;
+    width: 10px;
 }
-
 .title-logo {
+    top: 20px;
     position: absolute;
-    top: 0px;
-    font-size: 70px;
+    font-size: 100px;
     font-weight: 100;
     text-wrap: nowrap;
     text-transform: uppercase;
     word-spacing: 10px;
+    transition: font-size calc(var(--duration-opacity)/2) ease-out,top calc(var(--duration-opacity)/2) ease-out,font-weight calc(var(--duration-opacity)/2) ease-out ;
+    box-sizing: border-box;
+    
 
+    
+}
 
+.title-logo.is-scrolled{
+    font-size: 24px;
+    top:-3px;
+    font-weight: 300;
 }
 
 nav{
@@ -55,9 +87,15 @@ nav{
     gap: 20px;
     font-weight: 100;
     text-transform: uppercase;
+    font-size: 16px;
+}
+
+nav.is-scrolled{
 }
 
 nav a:hover{
     font-weight: 300;
 }
+
+
 </style>
