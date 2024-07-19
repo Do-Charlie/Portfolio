@@ -31,7 +31,15 @@ const myStore=useMyStore();
     padding: var(--small-padding);
     bottom:  0;
 }
+.socials{
+    transition: opacity var(--duration-opacity) ease-out;
+    opacity: 0;
 
+
+}
+.socials.is-scrolled{
+    opacity: 1;
+}
 .socials-icons{
     fill:var(--second-color);
 }
