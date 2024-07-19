@@ -11,10 +11,18 @@
 import { useMyStore } from '~/stores/myStore.js';
 const myStore=useMyStore();
 
-function co(){
-  console.log(`Current theme: ${document.documentElement.getAttribute('data-theme')}`);
+const handleScroll = () => {
+  myStore.scrollY=window.scrollY;
 
-}
+  };
+  
+  onMounted(() => {
+    window.addEventListener('scroll', handleScroll);
+  });
+  
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll);
+  });
 
 </script>
 

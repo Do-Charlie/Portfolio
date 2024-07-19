@@ -109,11 +109,11 @@ html[data-theme='light'] #custom-cursor{
   /* transform: scale(2); */
   width: 30px;
   height: 30px;
-  background-color: rgba(92, 98, 147, 0.301);
+  background-color: rgba(92, 98, 147, 0.2);
 
 }
 html[data-theme='light'] #custom-cursor.hover .circle{
-    background-color: rgba(92, 98, 147, 0.205);
+    background-color: rgba(92, 98, 147, 0.2);
 
 }
 

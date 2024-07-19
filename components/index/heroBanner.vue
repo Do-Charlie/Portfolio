@@ -1,29 +1,16 @@
 <template>
     <div class="container hero">
-      <div class="discover linear" :class="{ 'hide': isHidden }">Scroll</div>
+      <div class="discover linear" :class="{ 'hide': myStore.scrollY>100 }">Scroll</div>
     </div>
   </template>
   
   <script setup>
   import { ref, onMounted, onUnmounted } from 'vue';
   
-  const isHidden = ref(false);
-  
-  const handleScroll = () => {
-    if (window.scrollY > 100) {
-      isHidden.value = true;
-    } else {
-      isHidden.value = false;
-    }
-  };
-  
-  onMounted(() => {
-    window.addEventListener('scroll', handleScroll);
-  });
-  
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-  });
+  import { useMyStore } from '~/stores/myStore.js';
+const myStore=useMyStore();
+
+ 
   </script>
   
   <style scoped>

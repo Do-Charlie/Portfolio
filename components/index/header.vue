@@ -2,7 +2,7 @@
     <header>
         <div class="title-container">
             
-            <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': isScrolled }"> Charlie Do</NuxtLink>
+            <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink>
         </div>
         <nav :class="{ 'is-scrolled': isScrolled }">
             <NuxtLink to="/" class="linear "> Projets</NuxtLink>
@@ -17,27 +17,12 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useMyStore } from '~/stores/myStore.js';
+const myStore=useMyStore();
 
-const isScrolled = ref(false);
 
-const handleScroll = () => {
-  if (window.scrollY > 50) {
-    isScrolled.value = true;
-  } else {
-    isScrolled.value = false;
-  }
-};
 
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  console.log('mount')
 
-});
-
-onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-  console.log('unmount')
-});
 </script>
 
 <style scoped>
