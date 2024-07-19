@@ -49,7 +49,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 --main-color-linear: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 70%,  var(--second-color) 100%);
 
 --small-padding:1.5vw;
---duration-opacity:0.8s;
+--duration-opacity:1s;
 --padding-width:0px 10vw;
 }
 

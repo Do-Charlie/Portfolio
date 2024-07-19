@@ -65,6 +65,7 @@ onUnmounted(() => {
 }
 
 #custom-cursor {
+    --animation-duration-cursor:0.3s;
   position: fixed;
   width: 20px;
   height: 20px;
@@ -73,7 +74,7 @@ onUnmounted(() => {
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition:  box-shadow 0.1s ease-out,width 0.1s ease-out,height 0.1s ease-out;
+  transition:  box-shadow var(--animation-duration-cursor) ease-out,width var(--animation-duration-cursor) ease-out,height var(--animation-duration-cursor) ease-out;
   box-shadow: 0px 0px 12px rgba(151, 151, 243, 0.3);
 
 }
@@ -93,7 +94,7 @@ html[data-theme='light'] #custom-cursor{
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: width 0.3s ease-in-out,height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  transition: width var(--animation-duration-cursor) ease-in-out,height var(--animation-duration-cursor) ease-in-out, background-color var(--animation-duration-cursor) ease-in-out;
 
 }
 

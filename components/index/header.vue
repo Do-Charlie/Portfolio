@@ -85,7 +85,7 @@ nav{
     display:flex;
     flex-flow: row nowrap;
     gap: 20px;
-    font-weight: 100;
+    font-weight: 300;
     text-transform: uppercase;
     font-size: 16px;
 }
@@ -94,7 +94,7 @@ nav.is-scrolled{
 }
 
 nav a:hover{
-    font-weight: 300;
+    font-weight: 400;
 }
 
 

@@ -2,7 +2,7 @@
 
 <button class="theme-toggle " :class="{'theme-toggle--toggled':theme=='dark'}" @click="switchTheme()" title="Toggle theme">
   
-  <span class="theme-toggle-sr">Toggle theme</span>
+  <span class="theme-toggle-sr">Switch theme</span>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     aria-hidden="true"
@@ -48,10 +48,20 @@ useHead({
 .theme-toggle{
  width: 25px;
  cursor: none;
+ transition: transform 0.3s ease-in-out;
+
+}
+
+.theme-toggle:hover{
+  transform: scale(1.2);
+  
 }
 
 .theme-toggle__simple{
     fill:var(--second-color);
 }
-        
+.theme-toggle__simple:hover{
+  fill:var(--main-color);
+
+}       
 </style>
