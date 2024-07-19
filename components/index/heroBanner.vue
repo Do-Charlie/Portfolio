@@ -2,9 +2,9 @@
   <div class="container hero">
     <div class="content-hero">
       <nav>
-        <NuxtLink class="linear" to="#"> Développeur Web</NuxtLink>
-        <NuxtLink class="linear" to="#"> Stacks</NuxtLink>
-        <NuxtLink class="linear" to="#"> Projets</NuxtLink>
+        <NuxtLink class="linear" to="#"> Développeur</NuxtLink>
+        <NuxtLink class="linear" to="#"> Front end</NuxtLink>
+        <NuxtLink class="linear" to="#"> Back end</NuxtLink>
 
 
       </nav>
@@ -54,11 +54,10 @@ const myStore = useMyStore();
 }
 
 .content-hero {
-  padding-left: 15vw;
   display:flex;
-  flex-flow: row nowrap;
+  flex-flow: column;
   gap: 200px;
-  padding-top: 400px;
+  padding-top: 350px;
 
 }
 
@@ -69,11 +68,15 @@ const myStore = useMyStore();
   font-weight: 100;
   gap: 30px;
   text-transform: uppercase;
+  padding-left: 15vw;
+
 }
 
 .slider-projet{
   width: 100%;
+  height: 700px;
   display:flex;
   align-items: center;
+  position: relative;
 }
 </style>

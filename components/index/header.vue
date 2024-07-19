@@ -12,7 +12,7 @@
         </div>
         <nav >
             <NuxtLink to="/" class="linear "> Projets</NuxtLink>
-            <NuxtLink to="/" class="linear "> CV</NuxtLink>
+            <NuxtLink to="/" class="linear "> FRONT</NuxtLink>
             <NuxtLink to="/" class="linear "> Contact</NuxtLink>
             <NuxtLink to="/" class="linear "> Lang</NuxtLink>
 
@@ -79,7 +79,7 @@ header {
 }
 
 .title-logo img{
-    top: 200px;
+    top: 150px;
     left: 100px;
     position: absolute;
     width: 600px ;

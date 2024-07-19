@@ -51,7 +51,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 
 :root{
 --background:#0a0a0a;
---color:#F3F3F3;
+--color:#d6d2d2;
 --main-color:#929CBF;
 --second-color:#5C6293;
 --main-color-linear: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 70%,  var(--second-color) 100%);

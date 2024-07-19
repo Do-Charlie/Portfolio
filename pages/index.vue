@@ -3,7 +3,6 @@
         <IndexHeader></IndexHeader>
     <IndexHeroBanner></IndexHeroBanner>
     <div class="test">
-    test {{ myStore.theme }}
 
 </div>
     <IndexAnimation></IndexAnimation>
