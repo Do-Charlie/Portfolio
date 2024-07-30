@@ -3,7 +3,7 @@
         <div class="title-container">
             
             <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
-            <NuxtLink to="/" class="title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }">
+            <NuxtLink to="/" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY<-10 }">
                 <NuxtImg v-if="myStore.theme=='light'" class="pointer" src="/logo_light.png"></NuxtImg> 
                 <NuxtImg v-else class="pointer" src="/logo.png"></NuxtImg> 
 
@@ -79,10 +79,11 @@ header {
 }
 
 .title-logo img{
-    top: 150px;
-    left: 100px;
+    top:0px;
+    width: 200px;
+    left: 0px;
     position: absolute;
-    width: 600px ;
+    
     max-width: 50vw;
     height: auto;
     transition: width calc(var(--duration-opacity)/2) ease-out,top calc(var(--duration-opacity)/2) ease-out,left calc(var(--duration-opacity)/2) ease-out ;
@@ -90,23 +91,27 @@ header {
 
 
 .title-logo.is-scrolled img{
-    top:0px;
-    width: 200px;
-    left: 0px;
+
+    top: 150px;
+    left: 100px;
+    width: 600px ;
 } 
 
 nav{
     display:flex;
     flex-flow: row nowrap;
     gap: 20px;
-    font-weight: 300;
+    font-weight: 400;
     text-transform: uppercase;
     font-size: 16px;
 }
 
 nav.is-scrolled{
 }
+nav a {
+    text-decoration: none ;
 
+}
 nav a:hover{
     font-weight: 400;
 }

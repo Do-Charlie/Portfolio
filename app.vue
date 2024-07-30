@@ -35,6 +35,7 @@ body,html,*{
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
      cursor: none; 
+     scroll-behavior: smooth;
 
 }
 
@@ -55,7 +56,6 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 --main-color:#929CBF;
 --second-color:#5C6293;
 --main-color-linear: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 70%,  var(--second-color) 100%);
-
 --small-padding:1.5vw;
 --duration-opacity:1s;
 --padding-width:0px 10vw;
@@ -80,7 +80,16 @@ body{
 } 
 
 .linear{
-  background: linear-gradient(90deg,var(--color) 0%, var(--color) 60%, var(--main-color) 80%,  var(--second-color) 100%);
+  color:var(--main-color);
+  transition: color  .2s ease-in-out;
+}
+.linear:hover{
+   color: var(--color);
+
+}
+
+.linear-title{
+  background: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 80%,  var(--second-color) 100%);
   background-size: 200% 200%;
   background-clip: text;
   -webkit-background-clip:text;
@@ -91,7 +100,7 @@ body{
       animation: no-rainbow 0.3s ease-in-out ;
     animation-fill-mode: forwards;
 }
-.linear:hover{
+.linear-title:hover{
     animation: rainbow 0.3s ease-in-out ;
     animation-fill-mode: forwards;
 

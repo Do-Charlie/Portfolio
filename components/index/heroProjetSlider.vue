@@ -1,13 +1,13 @@
 <template>
-  <div class="banner" :class="{ 'is-scrolled': myStore.scrollY > 300 }">
+  <div class="banner" :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1300 }">
     <div class="slider" :style="{ '--quantity': images.length }">
-   
-      <div v-for="(image, index) in images" :key="index" class="item" :style="{ '--position': index + 1 }">
+
+      <div v-for="(image, index) in images" :key="index" class="item" :style="{ '--position': index }">
         <NuxtImg :src="image.src" :alt="image.alt" />
       </div>
-      <div v-if="myStore.scrollY <=300"  :key="0" class="item" :style="{ '--position':  images.length + 1 }">
-        <NuxtImg src="/slider_projet/0.jpg" alt="image.alt" />
-      </div>  
+      <div v-if="myStore.scrollY <= 300" :key="0" class="item" :style="{ '--position': images.length + 1 }">
+        <NuxtImg src="/slider_projet/5.jpg" alt="image.alt" />
+      </div>
     </div>
   </div>
 
@@ -18,47 +18,56 @@
 
 <style scoped>
 .banner {
-  width: 50%;
-  height: 450px;
+  --translate: 500px;
+
+  width: 0px;
+  height: 0px;
+  left: 0;
   text-align: center;
   overflow: hidden;
   position: absolute;
   filter: brightness(60%);
-  top: -55vh;
-  right: 5%;
-  transition: top 1s ease-in-out, right 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
+  top: 50%;
+  /* right: 5%; */
+  transition: top 1s ease-in-out, left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
 }
 
 .banner.is-scrolled {
-  top: 0;
-  right: 0;
-  height: 700px;
+  height: 100%;
   width: 100%;
-
+  top: 10%;
+  left: 0%;
 
 
 }
 
 .banner .slider {
-  --duration-slider: 40s;
+  --duration-slider: 60s;
   position: absolute;
-  width: 300px;
-  height: 200px;
-  top: 10%;
+  width: 0px;
+  height: 0px;
+
   /* left: calc(50% + 600px); */
-  left: calc(50% - 75px);
+  /* left: calc(50% - 75px); */
+  left: calc(50%);
 
   transform-style: preserve-3d;
   transform: perspective(1000px);
-  animation: autoRun var(--duration-slider) linear infinite;
   transition: left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
+  animation: autoRun var(--duration-slider) linear infinite;
+
 
 }
-.banner.is-scrolled .slider{
 
+.banner.is-scrolled .slider {
   width: 300px;
   height: 200px;
-  left: calc(50% - 150px);
+  --slider-width:calc(100% / 5);
+
+  top: 10%;
+  width: var(--slider-width);
+  height: calc(var(--slider-width) );
+  left: calc(50% - var(--slider-width) / 2);
 
 }
 
@@ -76,8 +85,8 @@
 .banner .slider .item {
   position: absolute;
   inset: 0 0 0 0;
-  transform:
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ();
+  /* transform:
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(); */
 
   transition: transform 1s ease-in-out;
 
@@ -85,7 +94,7 @@
 
 .banner.is-scrolled .slider .item {
   transform:
-    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(500px);
+    rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ( var(--translate) );
 }
 
 .banner .slider .item img {
@@ -97,7 +106,10 @@
   transition: transform 0.2s ease-in-out;
 
 }
+
 .banner.is-scrolled .slider .item img {
+  width: 100%;
+  height: 100%;
 }
 
 .banner.is-scrolled .slider .item img:hover {
@@ -106,10 +118,44 @@
   transform: scale(1.02);
 
 }
+
+
+@media only screen and (max-width: 1400px) {
+
+.banner{
+  --translate: 400px;
+
+}
+}
+
+
+@media only screen and (max-width: 1024px) {
+
+.banner{
+  --translate: 300px;
+
+}
+}
+
+@media only screen and (max-width: 768px) {
+
+  .banner{
+    --translate: 200px;
+
+  }
+}
+@media only screen and (max-width: 480px) {
+
+.banner{
+  --translate: 100px;
+
+}
+}
+
 </style>
 
 <script setup>
-import { ref,watchEffect ,watch} from 'vue';
+import { ref, watchEffect, watch } from 'vue';
 import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 
@@ -117,11 +163,13 @@ const myStore = useMyStore();
 //   console.log('watchEffect is running');
 // });
 
+const props = defineProps({
+  cover: Object,
+});
 
 
 
-
-const images =[
+const images = [
   {
     src: "/slider_projet/1.jpg",
     title: "Projet 1",

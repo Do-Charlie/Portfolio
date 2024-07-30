@@ -1,30 +1,52 @@
 <template>
   <div class="container hero">
     <div class="content-hero">
-      <nav>
+      <!-- <nav ref="navPos">
         <NuxtLink class="linear" to="#"> Développeur</NuxtLink>
         <NuxtLink class="linear" to="#"> Front end</NuxtLink>
         <NuxtLink class="linear" to="#"> Back end</NuxtLink>
 
 
-      </nav>
-    
+      </nav> -->
+      <div class="title-container">
+        <span class="linear-title"> Développeur
+          <div class="fullstack" ref="navPos">Fullstack
+            <div class="tech"> <ToolsFlipTech></ToolsFlipTech></div>
+          </div>
+        </span>
 
-      <div class="slider-projet">
-      <IndexHeroProjetSlider></IndexHeroProjetSlider>
+      </div>
+
+
+
     </div>
 
-    </div>
-
-    <div class="discover linear" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
+    <div class="discover linear-title" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
   </div>
+
+
+
+
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 
 import { useMyStore } from '~/stores/myStore.js';
+
 const myStore = useMyStore();
+
+const navPos = ref();
+const cover = ref();
+
+function getPosition(position) {
+  if (!position) return
+  const pos = position.getBoundingClientRect();
+  // const top = position.clientHeight;
+  return pos;
+
+}
+
 
 
 </script>
@@ -33,6 +55,7 @@ const myStore = useMyStore();
 .hero {
   height: 100svh;
   position: relative;
+
 }
 
 .discover {
@@ -43,7 +66,7 @@ const myStore = useMyStore();
   transform: translateX(-50%);
   bottom: 32px;
   text-transform: uppercase;
-  font-weight: 100;
+  font-weight: 300;
   transition: opacity var(--duration-opacity) ease-out;
 }
 
@@ -54,11 +77,29 @@ const myStore = useMyStore();
 }
 
 .content-hero {
-  display:flex;
+  display: flex;
   flex-flow: column;
   gap: 200px;
-  padding-top: 350px;
+  align-items: center;
+  justify-content: center;
+  /* padding-top: 350px; */
+  height: 100%;
+}
 
+
+
+.title-container {
+  display: flex;
+
+  font-size: 10vw;
+  font-weight: 300;
+  text-transform: uppercase;
+  z-index: 1;
+}
+
+.title-container>span {
+  flex-direction: column;
+  display: flex;
 }
 
 .content-hero nav {
@@ -69,14 +110,38 @@ const myStore = useMyStore();
   gap: 30px;
   text-transform: uppercase;
   padding-left: 15vw;
+  z-index: 1;
 
 }
 
-.slider-projet{
-  width: 100%;
-  height: 700px;
-  display:flex;
+
+
+.fullstack {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  gap: 20px;
+}
+
+.tech{
+  display:flex;
+  flex:1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+ 
+}
+
+.projet-container {
   position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: transform 1s ease-in-out width 1s ease-in-out;
+}
+
+.projet-container.is-scrolled {
+  transform: translateX(var(--projet-position));
+
 }
 </style>
