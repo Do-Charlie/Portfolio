@@ -1,8 +1,6 @@
 <template>
   <div id="custom-cursor"><span class="circle"></span></div>
-    <a href="#"> Test Link</a>
 
-    <button> Test</button>
 </template>
 
 <script setup>

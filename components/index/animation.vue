@@ -29,7 +29,7 @@ onMounted(() => {
 
 <template>
   <div class="container">
-    <h1>Intersection Observer Demo</h1>
+    <h1 class="pointer">Intersection Observer Demo</h1>
     <div class="wrapper">Scroll down a bit 👇</div>
     <div>
     <!-- this works just as easy inside a v-for loop -->

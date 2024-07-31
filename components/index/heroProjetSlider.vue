@@ -1,13 +1,11 @@
 <template>
-  <div class="banner" :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1300 }">
-    <div class="slider" :style="{ '--quantity': images.length }">
+  <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1300 }">
+    <div class="slider " ref="slider" :style="{ '--quantity': images.length }">
 
-      <div v-for="(image, index) in images" :key="index" class="item" :style="{ '--position': index }">
-        <NuxtImg :src="image.src" :alt="image.alt" />
+      <div  v-for="(image, index) in images" :key="index" class="item pointer" :style="{ '--position': index }">
+        <NuxtImg  :src="image.src" :alt="image.alt" />
       </div>
-      <div v-if="myStore.scrollY <= 300" :key="0" class="item" :style="{ '--position': images.length + 1 }">
-        <NuxtImg src="/slider_projet/5.jpg" alt="image.alt" />
-      </div>
+
     </div>
   </div>
 
@@ -30,6 +28,7 @@
   top: 50%;
   /* right: 5%; */
   transition: top 1s ease-in-out, left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
+  
 }
 
 .banner.is-scrolled {
@@ -42,8 +41,9 @@
 }
 
 .banner .slider {
-  --duration-slider: 60s;
-  position: absolute;
+  --duration-slider: 90s;
+  --speed-multiplier: 1;
+    position: absolute;
   width: 0px;
   height: 0px;
 
@@ -54,8 +54,13 @@
   transform-style: preserve-3d;
   transform: perspective(1000px);
   transition: left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
-  animation: autoRun var(--duration-slider) linear infinite;
+  animation: autoRun calc(var(--duration-slider) / var(--speed-multiplier)) linear infinite;
 
+
+}
+
+.banner .slider:hover{
+  /* --speed-multiplier: 2; */
 
 }
 
@@ -155,7 +160,7 @@
 </style>
 
 <script setup>
-import { ref, watchEffect, watch } from 'vue';
+import { ref, onMounted, onBeforeUnmount  } from 'vue';
 import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 
@@ -169,9 +174,13 @@ const props = defineProps({
 
 
 
+
+
+
+
 const images = [
   {
-    src: "/slider_projet/1.jpg",
+    src: "/slider_projet/1.png",
     title: "Projet 1",
     alt: "Description de l'image 1"
   },
@@ -191,7 +200,7 @@ const images = [
     alt: "Description de l'image 4"
   },
   {
-    src: "/slider_projet/5.jpg",
+    src: "/slider_projet/planning.jpg",
     title: "Projet 5",
     alt: "Description de l'image 5"
   },

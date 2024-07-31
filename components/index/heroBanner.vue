@@ -1,5 +1,7 @@
 <template>
   <div class="container hero">
+    <BackgroundPopSquare></BackgroundPopSquare>
+
     <div class="content-hero">
       <!-- <nav ref="navPos">
         <NuxtLink class="linear" to="#"> Développeur</NuxtLink>
@@ -10,8 +12,8 @@
       </nav> -->
       <div class="title-container">
         <span class="linear-title"> Développeur
-          <div class="fullstack" ref="navPos">Fullstack
-            <div class="tech"> <ToolsFlipTech></ToolsFlipTech></div>
+          <div class="fullstack" >Fullstack
+            <div class="tech" > <ToolsFlipTech ></ToolsFlipTech></div>
           </div>
         </span>
 
@@ -22,6 +24,7 @@
     </div>
 
     <div class="discover linear-title" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
+
   </div>
 
 
@@ -37,15 +40,6 @@ import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 
 const navPos = ref();
-const cover = ref();
-
-function getPosition(position) {
-  if (!position) return
-  const pos = position.getBoundingClientRect();
-  // const top = position.clientHeight;
-  return pos;
-
-}
 
 
 

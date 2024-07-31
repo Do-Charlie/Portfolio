@@ -9,6 +9,7 @@
 
 </div>
     <IndexAnimation></IndexAnimation>
+
     </div>
 
 </template>
@@ -27,6 +28,7 @@ onMounted(() => {
 <style scoped>
 .page-container{
     scroll-behavior: smooth;
+    position: relative;
 }
 
 .slider-projet {
