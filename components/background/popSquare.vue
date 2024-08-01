@@ -103,7 +103,10 @@ onMounted(() => {
     /* box-shadow: rgba(64, 73, 155, 0.1) 0px 8px 24px, rgba(64, 73, 155, 0.1) 0px 16px 56px, rgba(64, 73, 155, 0.1) 0px 24px 80px; */
 
 }
+html[data-theme='light'] .circles li{
+    background: rgba(206, 210, 248, 0.2);
 
+}
 
 
 @keyframes animate {

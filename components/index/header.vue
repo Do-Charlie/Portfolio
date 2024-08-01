@@ -4,8 +4,8 @@
             
             <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
             <NuxtLink to="/" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY<-10 }">
-                <NuxtImg v-if="myStore.theme=='light'" class="pointer" src="/logo_light.png"></NuxtImg> 
-                <NuxtImg v-else class="pointer" src="/logo.png"></NuxtImg> 
+                <!-- <NuxtImg v-if="myStore.theme=='light'" class="pointer" src="/logo_light.png"></NuxtImg> 
+                <NuxtImg v-else class="pointer" src="/logo.png"></NuxtImg>  -->
 
             </NuxtLink>
 

@@ -17,7 +17,7 @@
 
     </div>
 
-    <div class="discover linear-title" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
+    <div class="discover linear pointer" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
 
   </div>
 
@@ -40,7 +40,7 @@ const currentTitleClass = ref('');
 const updateTitleClass = () => {
   // currentTitleClass.value = 'linear-title-animation';
 
-  // currentTitleClass.value = 'linear-title-animation';
+   currentTitleClass.value = '';
   setTimeout(() => {
     currentTitleClass.value = 'tracking-in-contract';
   }, 500); // Duration of both animations combined
@@ -56,6 +56,13 @@ onMounted(() => {
   // interval.value = setInterval(updateTitleClass, 5000);
 });
 
+watchEffect(()=>{
+  if(myStore.theme){
+    updateTitleClass();
+
+  }
+
+ })
 // onUnmounted(() => {
 //   clearInterval(interval.value);
 // });
@@ -80,7 +87,9 @@ onMounted(() => {
   text-transform: uppercase;
   font-weight: 300;
   transition: opacity var(--duration-opacity) ease-out;
+  opacity: 1;
 }
+
 
 
 
@@ -146,7 +155,7 @@ onMounted(() => {
 
 
 .linear-title{
-  background: linear-gradient(90deg,var(--color) 30%, var(--animation-color) 40% ,var(--color) 60% 100%);
+  background: linear-gradient(90deg,var(--main-color) 30%, var(--animation-color) 40% ,var(--main-color) 60% 100%);
   background-size: 300% 300%;
   background-clip: text;
   -webkit-background-clip:text;

@@ -68,11 +68,18 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 html[data-theme='light'] {
   --background: rgb(245, 244, 241);
   --color:#0a0a0a;
-  --animation-color:#6777b1;
+
+  --animation-color:#1b2b64;
 
 }
 
+html[data-theme='dark'] {
+  --background:#0a0a0a;
+--color:#d6d2d2;
 
+--animation-color:#1f2a52;
+
+}
 
 
 body{
