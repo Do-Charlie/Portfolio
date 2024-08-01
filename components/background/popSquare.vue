@@ -33,13 +33,25 @@ function getRandomInt(mini, maxi) {
 
 // Générer les styles pour chaque cercle une fois que le composant est monté
 onMounted(() => {
-  circleStyles.value = Array.from({ length: circles.value }, () => ({
+      // Ajoute 10 cercles supplémentaires avec un '--delay' de 0
+  const additionalCircles = Array.from({ length: 5 }, () => ({
     '--size': `${getRandomInt(1, 5)}vw`,
     '--left': `${getRandomInt(1, 102)}vw`,
     '--duration': `${getRandomInt(20, 60)}s`,
-    '--delay': `${getRandomInt(0,60)}s`,
-    '--top':  `${getRandomInt(80, 100)}%`,
+    '--delay': '0s',
+    '--top': `${getRandomInt(50, 100)}%`,
   }));
+
+    circleStyles.value = Array.from({ length: circles.value }, () => ({
+    '--size': `${getRandomInt(1, 5)}vw`,
+    '--left': `${getRandomInt(1, 102)}vw`,
+    '--duration': `${getRandomInt(20, 60)}s`,
+    '--delay': `${getRandomInt(2,20)}s`,
+    '--top':  `${getRandomInt(50, 100)}%`,
+  }));
+
+  // Combine les deux tableaux de styles de cercles
+  circleStyles.value = [...additionalCircles, ...circleStyles.value];
 });
 
 </script>
@@ -99,13 +111,13 @@ onMounted(() => {
 0%{
     transform:  rotate(0deg);
     opacity: 0;
-    border-radius: 4%;
+    border-radius: 10%;
     /* top: 100%; */
 }
 10%{
     transform:  rotate(0deg);
     opacity: 1;
-    border-radius: 4%;
+    border-radius: 20%;
     /* top: calc(100% - 50vh); */
 }
 90%{

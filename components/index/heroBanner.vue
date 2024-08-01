@@ -1,17 +1,11 @@
 <template>
   <div class="container hero">
-    <BackgroundPopSquare></BackgroundPopSquare>
+    <BackgroundPopSquare v-if="myStore.scrollY < 2000"></BackgroundPopSquare>
 
     <div class="content-hero">
-      <!-- <nav ref="navPos">
-        <NuxtLink class="linear" to="#"> Développeur</NuxtLink>
-        <NuxtLink class="linear" to="#"> Front end</NuxtLink>
-        <NuxtLink class="linear" to="#"> Back end</NuxtLink>
-
-
-      </nav> -->
+   
       <div class="title-container">
-        <span class="linear-title"> Développeur
+        <span v-if="currentTitleClass" class="linear-title " :class="currentTitleClass"> Développeur
           <div class="fullstack" >Fullstack
             <div class="tech" > <ToolsFlipTech ></ToolsFlipTech></div>
           </div>
@@ -39,9 +33,32 @@ import { useMyStore } from '~/stores/myStore.js';
 
 const myStore = useMyStore();
 
-const navPos = ref();
+const interval = ref(null);
+
+const currentTitleClass = ref('');
+
+const updateTitleClass = () => {
+  // currentTitleClass.value = 'linear-title-animation';
+
+  // currentTitleClass.value = 'linear-title-animation';
+  setTimeout(() => {
+    currentTitleClass.value = 'tracking-in-contract';
+  }, 500); // Duration of both animations combined
+
+  setTimeout(() => {
+    currentTitleClass.value= 'linear-title-animation';
+  }, 2500); // Duration of both animations combined
+};
 
 
+onMounted(() => {
+  updateTitleClass();
+  // interval.value = setInterval(updateTitleClass, 5000);
+});
+
+// onUnmounted(() => {
+//   clearInterval(interval.value);
+// });
 
 </script>
 
@@ -49,6 +66,7 @@ const navPos = ref();
 .hero {
   height: 100svh;
   position: relative;
+  --animation-text-duration:2s;
 
 }
 
@@ -126,16 +144,63 @@ const navPos = ref();
  
 }
 
-.projet-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  transition: transform 1s ease-in-out width 1s ease-in-out;
+
+.linear-title{
+  background: linear-gradient(90deg,var(--color) 30%, var(--animation-color) 40% ,var(--color) 60% 100%);
+  background-size: 300% 300%;
+  background-clip: text;
+  -webkit-background-clip:text;
+  width:fit-content;
+  transition: color  .2s ease-in-out;
+    color:rgba(0,0,0,0);
+  background-position:right;
+      /* animation: no-rainbow 1.5s ease-in-out ; */
+      /* animation-fill-mode: forwards; */
+
+}
+.linear-title-animation{
+    animation: rainbow 3s ease-in-out ;
+
+}
+@keyframes rainbow { 
+    0%{background-position:right}
+    100%{background-position:left}
+
 }
 
-.projet-container.is-scrolled {
-  transform: translateX(var(--projet-position));
-
+.tracking-in-contract {
+	-webkit-animation: tracking-in-contract var(--animation-text-duration) cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+	        animation: tracking-in-contract var(--animation-text-duration) cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
+
+
+ @-webkit-keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+@keyframes tracking-in-contract {
+  0% {
+    letter-spacing: 1em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}
+
+
+
 </style>

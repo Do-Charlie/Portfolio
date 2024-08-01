@@ -51,17 +51,17 @@ const updateImageAndFlipClass = () => {
       setTimeout(() => {
     currentImageIndex.value = (currentImageIndex.value + 1) % techs.value.length;
     currentImage.value = techs.value[currentImageIndex.value];
-  }, 1000); // Duration of flip-1 animation
+  }, 500); // Duration of flip-1 animation
 
   setTimeout(() => {
     currentFlipClass.value = '';
-  }, 2000); // Duration of both animations combined
+  }, 1000); // Duration of both animations combined
 };
 
 const interval = ref(null);
 
 onMounted(() => {
-  interval.value = setInterval(updateImageAndFlipClass, 5000);
+  interval.value = setInterval(updateImageAndFlipClass, 3000);
 });
 
 onUnmounted(() => {
@@ -82,8 +82,8 @@ img {
 }
 
 .flip-1 {
-  -webkit-animation: flip-1 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  animation: flip-1 2s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  -webkit-animation: flip-1 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: flip-1 1s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
 }
 
 

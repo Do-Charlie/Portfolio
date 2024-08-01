@@ -55,6 +55,7 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 --color:#d6d2d2;
 --main-color:#929CBF;
 --second-color:#5C6293;
+--animation-color:#1f2a52;
 --main-color-linear: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 70%,  var(--second-color) 100%);
 --small-padding:1.5vw;
 --duration-opacity:1s;
@@ -67,6 +68,8 @@ a, a:link, a:visited, a:focus, a:hover, a:active{
 html[data-theme='light'] {
   --background: rgb(245, 244, 241);
   --color:#0a0a0a;
+  --animation-color:#6777b1;
+
 }
 
 
@@ -88,38 +91,12 @@ body{
 
 }
 
-.linear-title{
-  background: linear-gradient(90deg,var(--color) 0%, var(--color) 50%, var(--main-color) 80%,  var(--second-color) 100%);
-  background-size: 200% 200%;
-  background-clip: text;
-  -webkit-background-clip:text;
-  width:fit-content;
-  transition: color  .2s ease-in-out;
-    color:rgba(0,0,0,0);
-  background-position:right;
-      animation: no-rainbow 0.3s ease-in-out ;
-    animation-fill-mode: forwards;
-}
-.linear-title:hover{
-    animation: rainbow 0.3s ease-in-out ;
-    animation-fill-mode: forwards;
-
-}
 
 
 
 
-@keyframes rainbow { 
-    0%{background-position:right}
-    100%{background-position:left}
 
-}
 
-@keyframes no-rainbow { 
-    0%{background-position:left}
-    100%{background-position:right}
-
-}
 
 
 </style>
