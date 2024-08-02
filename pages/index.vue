@@ -6,7 +6,7 @@
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
   </div>
     <div class="test">
-
+azef <input type="text">
 </div>
     <IndexAnimation></IndexAnimation>
 

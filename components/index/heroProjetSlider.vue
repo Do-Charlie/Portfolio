@@ -1,12 +1,21 @@
 <template>
+
   <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1300 }">
-    <div class="slider" ref="slider" :style="{ '--quantity': images.length }" >
-      <div @click="focusElement(index)" v-for="(image, index) in images" :key="index" 
-      class="item pointer" :style="{ '--position': index }">
-        <NuxtImg  :src="image.src" :alt="image.alt" />
+    <div class="slider" :style="{ '--quantity': images.length }">
+      <div @click="focusElement(index)" v-for="(image, index) in images" :key="index" class="item pointer"
+        :style="{ '--position': index }">
+        <NuxtImg :src="image.src" :alt="image.alt" />
+        {{ index }}
       </div>
     </div>
   </div>
+  <div id="rota">
+
+    <input type="number" v-model="rotationAngle">
+    {{ targetIndex }}
+
+  </div>
+
 </template>
 
 <script setup>
@@ -21,23 +30,47 @@ const props = defineProps({
 
 
 let rotationAngle = ref(0);
-const defaultSpeedMultiplier=0.1;
+const defaultSpeedMultiplier = 0.05;
 const speedMultiplier = ref(defaultSpeedMultiplier);
 const slider = ref();
-const targetIndex=ref(null);
+const targetIndex = ref(null);
+
 
 const rotateSlider = () => {
-  // rotationAngle.value += (360 / images.length) / 60 * speedMultiplier.value/1;
+  if (targetIndex.value || targetIndex.value == 0) {
+    const targetAngle = targetIndex.value === 0 ? 0 : (targetIndex.value * (360 / images.length));
+    const currentAngle = Math.abs(rotationAngle.value % 360);
+    if ((targetIndex.value!=0 && targetAngle - speedMultiplier.value - 5 <= currentAngle && targetAngle + speedMultiplier.value + (360 / 2 / images.length) >= currentAngle) 
+    || (targetIndex.value==0) && 360 - speedMultiplier.value - 5 <= currentAngle && targetAngle + speedMultiplier.value + (360 / 2 / images.length) <=currentAngle) {
+
+      // speedMultiplier.value = 0;
+      targetIndex.value = null;
+      speedMultiplier.value=defaultSpeedMultiplier;
+
+
+    } else {
+      speedMultiplier.value = 10;
+
+
+    }
+  } else {
+      speedMultiplier.value=defaultSpeedMultiplier;
+
+  }
+  rotationAngle.value -= (360 / images.length) / 60 * speedMultiplier.value / 1;
+
   slider.value.style.transform = `perspective(1000px) rotateX(-16deg) rotateY(${rotationAngle.value}deg)`;
+
+
   requestAnimationFrame(rotateSlider);
 };
 
-const focusElement= (index)=>{
-  rotationAngle.value+=10;
-  const targetAngle = (targetIndex.value * (360 / images.length)) % 360;
-    const currentAngle = rotationAngle.value % 360;
+const focusElement = (index) => {
+  targetIndex.value = index;
+
 }
 onMounted(() => {
+  slider.value = document.querySelector('.slider');
 
   rotateSlider(); // Start the animation
 
@@ -83,6 +116,11 @@ const images = [
 </script>
 
 <style scoped>
+#rota {
+  position: absolute;
+  z-index: 50;
+}
+
 .banner {
   --translate: 500px;
 
@@ -133,7 +171,7 @@ const images = [
 }
 
 .banner.is-scrolled .slider .item {
-  transform: rotateY(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(var(--translate));
+  transform: rotateY(calc((var(--position)) * (360 / var(--quantity)) * 1deg)) translateZ(var(--translate));
 }
 
 .banner .slider .item img {
@@ -179,5 +217,3 @@ const images = [
   }
 }
 </style>
-
-
