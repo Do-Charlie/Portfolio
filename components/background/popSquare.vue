@@ -34,12 +34,12 @@ function getRandomInt(mini, maxi) {
 // Générer les styles pour chaque cercle une fois que le composant est monté
 onMounted(() => {
       // Ajoute 10 cercles supplémentaires avec un '--delay' de 0
-  const additionalCircles = Array.from({ length: 5 }, () => ({
+  const additionalCircles = Array.from({ length:  circles.value/2 }, () => ({
     '--size': `${getRandomInt(1, 5)}vw`,
     '--left': `${getRandomInt(1, 102)}vw`,
     '--duration': `${getRandomInt(20, 60)}s`,
     '--delay': '0s',
-    '--top': `${getRandomInt(50, 100)}%`,
+    '--top': `${getRandomInt(30, 80)}%`,
   }));
 
     circleStyles.value = Array.from({ length: circles.value }, () => ({
