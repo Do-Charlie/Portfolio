@@ -5,14 +5,14 @@
       <div @click="focusElement(index)" v-for="(image, index) in images" :key="index" class="item pointer"
         :style="{ '--position': index }">
         <NuxtImg :src="image.src" :alt="image.alt" />
-        {{ index }}
+        <!-- {{ index }} -->
       </div>
     </div>
   </div>
   <div id="rota">
-
+<!-- 
     <input type="number" v-model="rotationAngle">
-    {{ targetIndex }}
+    {{ targetIndex }} -->
 
   </div>
 
@@ -30,18 +30,24 @@ const props = defineProps({
 
 
 let rotationAngle = ref(0);
-const defaultSpeedMultiplier = 0.05;
+const defaultSpeedMultiplier = 0.02;
+
 const speedMultiplier = ref(defaultSpeedMultiplier);
 const slider = ref();
 const targetIndex = ref(null);
 
 
 const rotateSlider = () => {
+  const fastSpeedMultiplier=10;
+  const imageAngle=360/images.length;
+  const margeAngle=5;
   if (targetIndex.value || targetIndex.value == 0) {
-    const targetAngle = targetIndex.value === 0 ? 0 : (targetIndex.value * (360 / images.length));
+    const targetAngle = targetIndex.value === 0 ? 0 : (targetIndex.value * imageAngle);
     const currentAngle = Math.abs(rotationAngle.value % 360);
-    if ((targetIndex.value!=0 && targetAngle - speedMultiplier.value - 5 <= currentAngle && targetAngle + speedMultiplier.value + (360 / 2 / images.length) >= currentAngle) 
-    || (targetIndex.value==0) && 360 - speedMultiplier.value - 5 <= currentAngle && targetAngle + speedMultiplier.value + (360 / 2 / images.length) <=currentAngle) {
+    if ((targetIndex.value!=0 && targetAngle - fastSpeedMultiplier - margeAngle <= currentAngle 
+    && targetAngle + fastSpeedMultiplier + (imageAngle/2) >= currentAngle) 
+    || (targetIndex.value==0) && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
+    && targetAngle + fastSpeedMultiplier + (imageAngle/2) <=currentAngle) {
 
       // speedMultiplier.value = 0;
       targetIndex.value = null;
@@ -49,7 +55,7 @@ const rotateSlider = () => {
 
 
     } else {
-      speedMultiplier.value = 10;
+      speedMultiplier.value = fastSpeedMultiplier;
 
 
     }

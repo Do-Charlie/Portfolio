@@ -88,6 +88,14 @@ body{
   background-color: var(--background);
   color:var(--color);
 } 
+a{
+  color:var(--main-color) ;
+
+}
+
+a:hover{
+  color: var(--color);
+}
 
 .linear{
   color:var(--main-color);

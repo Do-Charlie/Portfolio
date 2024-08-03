@@ -4,15 +4,21 @@
 
     <div class="content-hero">
    
-      <div class="title-container">
-        <span v-if="currentTitleClass" class="linear-title " :class="currentTitleClass"> Développeur
+      <div v-if="currentTitleClass" class="title-container">
+        <span  class="linear-title " :class="currentTitleClass"> Développeur
           <div class="fullstack" >Fullstack
-            <div class="tech" > <ToolsFlipTech ></ToolsFlipTech></div>
+            <div class="tech " > <ToolsFlipTech ></ToolsFlipTech></div>
           </div>
         </span>
+        <nav :class="currentTitleClass">
+        <nuxtLink> [ Projet ]</nuxtLink>
+        <nuxtLink> [ Experience ]</nuxtLink>
+        <nuxtLink> [ CV ]</nuxtLink>
 
+
+      </nav>
       </div>
-
+  
 
 
     </div>
@@ -100,7 +106,7 @@ watchEffect(()=>{
 .content-hero {
   display: flex;
   flex-flow: column;
-  gap: 200px;
+  /* gap: 200px; */
   align-items: center;
   justify-content: center;
   /* padding-top: 350px; */
@@ -111,11 +117,20 @@ watchEffect(()=>{
 
 .title-container {
   display: flex;
-
+flex-direction: column;
   font-size: 10vw;
   font-weight: 300;
   text-transform: uppercase;
   z-index: 1;
+}
+
+.title-container nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 14px;
+  gap: 30px;
+  text-transform: uppercase;
 }
 
 .title-container>span {
@@ -123,17 +138,6 @@ watchEffect(()=>{
   display: flex;
 }
 
-.content-hero nav {
-  display: flex;
-  flex-direction: column;
-  font-size: 60px;
-  font-weight: 100;
-  gap: 30px;
-  text-transform: uppercase;
-  padding-left: 15vw;
-  z-index: 1;
-
-}
 
 
 

@@ -7,12 +7,18 @@ onMounted(() => {
   let delay = 0.2;
 
   const observer = new IntersectionObserver(
+
     (entries) => {
+
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.style.animationDelay = `${delay}s`;
           entry.target.classList.add('animate-delay');
           delay += 0.2; // increment the delay for each element
+          console.log(delay)
+        }else{
+          entry.target.classList.remove('animate-delay');
+
         }
       });
     },
