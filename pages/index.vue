@@ -2,7 +2,9 @@
     <div class="page-container">
         <IndexHeader></IndexHeader>
     <IndexHeroBanner></IndexHeroBanner>
-    <div class="slider-projet">
+    <div class="slider-projet" id="projets">
+      <BackgroundPopSquare ></BackgroundPopSquare>
+
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
   </div>
     <div class="test">

@@ -128,7 +128,7 @@ const images = [
 }
 
 .banner {
-  --translate: 500px;
+  --translate: 400px;
 
   width: 0px;
   height: 0px;

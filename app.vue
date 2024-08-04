@@ -90,6 +90,7 @@ body{
 } 
 a{
   color:var(--main-color) ;
+  text-decoration: none;
 
 }
 

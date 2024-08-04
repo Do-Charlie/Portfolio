@@ -126,14 +126,14 @@ html[data-theme='light'] .circles li{
 90%{
     transform: rotate(300deg);
     opacity: 1;
-    top: 0px;
+    top: 3%;
     border-radius: 50%;
 }
 
 100%{
     transform: rotate(350deg);
     opacity: 0;
-    top: -50px;
+    top: 0%;
     border-radius: 50%;
 }
 

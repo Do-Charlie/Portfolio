@@ -11,10 +11,10 @@
 
         </div>
         <nav >
-            <NuxtLink to="/" class="linear "> Projets</NuxtLink>
+            <!-- <NuxtLink to="/" class="linear "> Projets</NuxtLink>
             <NuxtLink to="/" class="linear "> FRONT</NuxtLink>
             <NuxtLink to="/" class="linear "> Contact</NuxtLink>
-            <NuxtLink to="/" class="linear "> Lang</NuxtLink>
+            <NuxtLink to="/" class="linear "> Lang</NuxtLink> -->
 
         </nav>
     </header>
@@ -51,69 +51,6 @@ header {
     display:flex;
     height: 22px;
     width: 10px;
-}
-/* .title-logo {
-    top: 20px;
-    position: absolute;
-    font-size: 100px;
-    font-weight: 100;
-    text-wrap: nowrap;
-    text-transform: uppercase;
-    word-spacing: 10px;
-    transition: font-size calc(var(--duration-opacity)/2) ease-out,top calc(var(--duration-opacity)/2) ease-out,font-weight calc(var(--duration-opacity)/2) ease-out ;
-    box-sizing: border-box;
-    
-
-    
-}
-
-.title-logo.is-scrolled{
-    font-size: 24px;
-    top:-3px;
-    font-weight: 300;
-} */
-
-.title-logo{
-    position: relative;
-
-}
-
-.title-logo img{
-    top:0px;
-    width: 200px;
-    left: 0px;
-    position: absolute;
-    
-    max-width: 50vw;
-    height: auto;
-    transition: width calc(var(--duration-opacity)/2) ease-out,top calc(var(--duration-opacity)/2) ease-out,left calc(var(--duration-opacity)/2) ease-out ;
-}
-
-
-.title-logo.is-scrolled img{
-
-    top: 150px;
-    left: 100px;
-    width: 600px ;
-} 
-
-nav{
-    display:flex;
-    flex-flow: row nowrap;
-    gap: 20px;
-    font-weight: 400;
-    text-transform: uppercase;
-    font-size: 16px;
-}
-
-nav.is-scrolled{
-}
-nav a {
-    text-decoration: none ;
-
-}
-nav a:hover{
-    font-weight: 400;
 }
 
 
