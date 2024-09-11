@@ -22,20 +22,25 @@ const handleMouseOut = () => {
   cursor.classList.remove('hover');
 };
 
+
 onMounted(() => {
+
+
+
   window.addEventListener('mousemove', handleMouseMove);
   
-  const hoverElements = document.querySelectorAll('a, button,.pointer');
+  const hoverElements = document.querySelectorAll('a, button, .pointer');
   hoverElements.forEach(el => {
     el.addEventListener('mouseover', handleMouseOver);
     el.addEventListener('mouseout', handleMouseOut);
   });
+
 });
 
 onUnmounted(() => {
   window.removeEventListener('mousemove', handleMouseMove);
   
-  const hoverElements = document.querySelectorAll('a, button');
+  const hoverElements = document.querySelectorAll('a, button, .pointer');
   hoverElements.forEach(el => {
     el.removeEventListener('mouseover', handleMouseOver);
     el.removeEventListener('mouseout', handleMouseOut);

@@ -1,11 +1,12 @@
 <template>
 
-  <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1300 }">
+  <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1400 }">
     <div class="slider" :style="{ '--quantity': images.length }">
       <div @click="focusElement(index)" v-for="(image, index) in images" :key="index" class="item pointer"
         :style="{ '--position': index }">
-        <NuxtImg :src="image.src" :alt="image.alt" />
-        <!-- {{ index }} -->
+
+
+        <IndexHeroProjetCard :card="image"></IndexHeroProjetCard>
       </div>
     </div>
   </div>
@@ -85,32 +86,32 @@ onMounted(() => {
 
 const images = [
   {
-    src: "/slider_projet/1.png",
-    title: "Projet 1",
+    src: "/slider_projet/valeos.jpg",
+    title: "Valeos",
     alt: "Description de l'image 1"
   },
   {
-    src: "/slider_projet/2.jpeg",
-    title: "Projet 2",
+    src: "/slider_projet/viaresp.webp",
+    title: "Viaresp",
     alt: "Description de l'image AFFEZA"
   },
   {
-    src: "/slider_projet/3.jpg",
-    title: "Projet 3",
+    src: "/slider_projet/topgameserver.jpg",
+    title: "Top-Game-Server",
     alt: "Description de l'image 3"
   },
   {
-    src: "/slider_projet/4.jpg",
-    title: "Projet 4",
+    src: "/slider_projet/niceweb.jpg",
+    title: "NiceWeb",
     alt: "Description de l'image 4"
   },
   {
     src: "/slider_projet/planning.jpg",
-    title: "Projet 5",
-    alt: "Description de l'image 5"
+    title: "Rplanning",
+    alt: "Application de plannification d'équipe pour Rcarré"
   },
   {
-    src: "/slider_projet/6.jpg",
+    src: "/slider_projet/portfolio.jpg",
     title: "Projet 6",
     alt: "Description de l'image 6"
   }
@@ -180,24 +181,17 @@ const images = [
   transform: rotateY(calc((var(--position)) * (360 / var(--quantity)) * 1deg)) translateZ(var(--translate));
 }
 
-.banner .slider .item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 4px;
-  border: 1px var(--second-color) solid;
-  transition: transform 0.2s ease-in-out;
+
+
+
+
+
+@media only screen and (min-width: 2000px) {
+  .banner {
+    --translate: 500px;
+  }
 }
 
-.banner.is-scrolled .slider .item img {
-  width: 100%;
-  height: 100%;
-}
-
-.banner.is-scrolled .slider .item img:hover {
-  border: 1px var(--main-color) solid;
-  transform: scale(1.02);
-}
 
 @media only screen and (max-width: 1400px) {
   .banner {

@@ -39,6 +39,12 @@ const techs = ref([
     title: "Projet 1",
     alt: "Description de l'image 1"
   },
+  {
+    id:6,
+    src: "/techs/mysql.png",
+    title: "Projet 1",
+    alt: "Description de l'image 1"
+  },
 ]);
 
 const currentImageIndex = ref(0);

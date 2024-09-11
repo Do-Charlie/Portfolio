@@ -12,14 +12,14 @@
             </div>
           </div>
         </span>
-        <nav>
-          <NuxtLink to="#projets" class="nav-link">
+        <nav >
+          <NuxtLink to="#projets" class="nav-link pointer">
             [ Projet ]
           </NuxtLink>
-          <NuxtLink class="nav-link">
+          <a class="nav-link pointer">
             [ Experience ]
-          </NuxtLink>
-          <NuxtLink class="nav-link ">
+          </a>
+          <NuxtLink class="nav-link pointer">
             [ CV ]
           </NuxtLink>
         </nav>
