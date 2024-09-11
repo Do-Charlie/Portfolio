@@ -2,11 +2,11 @@
 
   <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1400 }">
     <div class="slider" :style="{ '--quantity': images.length }">
-      <div @click="focusElement(index)" v-for="(image, index) in images" :key="index" class="item pointer"
-        :style="{ '--position': index }">
+      <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item pointer"
+        :style="{ '--position': image.id }">
 
 
-        <IndexHeroProjetCard :card="image"></IndexHeroProjetCard>
+        <IndexHeroProjetCard :card="image" :selectedIndex="selectedIndex"></IndexHeroProjetCard>
       </div>
     </div>
   </div>
@@ -36,41 +36,68 @@ const defaultSpeedMultiplier = 0.02;
 const speedMultiplier = ref(defaultSpeedMultiplier);
 const slider = ref();
 const targetIndex = ref(null);
+const selectedIndex=ref(0);
 
 
-const rotateSlider = () => {
-  const fastSpeedMultiplier=10;
-  const imageAngle=360/images.length;
-  const margeAngle=5;
+
+
+// Fonction pour gérer la rotation vers l'élément ciblé
+const handleTargetRotation = (currentAngle, imageAngle, fastSpeedMultiplier, margeAngle) => {
   if (targetIndex.value || targetIndex.value == 0) {
     const targetAngle = targetIndex.value === 0 ? 0 : (targetIndex.value * imageAngle);
-    const currentAngle = Math.abs(rotationAngle.value % 360);
-    if ((targetIndex.value!=0 && targetAngle - fastSpeedMultiplier - margeAngle <= currentAngle 
-    && targetAngle + fastSpeedMultiplier + (imageAngle/2) >= currentAngle) 
-    || (targetIndex.value==0) && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
-    && targetAngle + fastSpeedMultiplier + (imageAngle/2) <=currentAngle) {
-
-      // speedMultiplier.value = 0;
+    if (
+      (targetIndex.value !== 0 && targetAngle - fastSpeedMultiplier - margeAngle <= currentAngle 
+      && targetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
+      (targetIndex.value === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
+      && targetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle)
+    ) {
       targetIndex.value = null;
-      speedMultiplier.value=defaultSpeedMultiplier;
-
-
+      speedMultiplier.value = defaultSpeedMultiplier;
     } else {
       speedMultiplier.value = fastSpeedMultiplier;
-
-
     }
   } else {
-      speedMultiplier.value=defaultSpeedMultiplier;
-
+    speedMultiplier.value = defaultSpeedMultiplier;
   }
-  rotationAngle.value -= (360 / images.length) / 60 * speedMultiplier.value / 1;
+};
 
+// Fonction pour mettre à jour l'élément situé devant
+const updateSelectedIndex = (currentAngle, imageAngle, fastSpeedMultiplier, margeAngle) => {
+  images.forEach((image) => {
+    const imageTargetAngle = image.id * imageAngle;
+    
+    if (
+      (image.id !== 0 && imageTargetAngle - fastSpeedMultiplier - margeAngle <= currentAngle + 15
+      && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
+      (image.id === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
+      && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle + 15)
+    ) {
+      selectedIndex.value = image.id;
+    }
+  });
+};
+
+//Animation
+const rotateSlider = () => {
+  const imageAngle = 360 / images.length;
+  const margeAngle = 5;
+  const fastSpeedMultiplier = 10;
+  const currentAngle = Math.abs(rotationAngle.value % 360);
+
+  // Gérer la rotation vers l'élément ciblé
+  handleTargetRotation(currentAngle, imageAngle, fastSpeedMultiplier, margeAngle);
+
+  // Mise à jour de l'élément situé devant
+  updateSelectedIndex(currentAngle, imageAngle, fastSpeedMultiplier, margeAngle);
+
+  // Mise à jour de l'angle de rotation et du style du slider
+  rotationAngle.value -= (360 / images.length) / 60 * speedMultiplier.value;
   slider.value.style.transform = `perspective(1000px) rotateX(-16deg) rotateY(${rotationAngle.value}deg)`;
 
-
+  // Boucle d'animation
   requestAnimationFrame(rotateSlider);
 };
+
 
 const focusElement = (index) => {
   targetIndex.value = index;
@@ -86,31 +113,37 @@ onMounted(() => {
 
 const images = [
   {
+    id:0,
     src: "/slider_projet/valeos.jpg",
     title: "Valeos",
     alt: "Description de l'image 1"
   },
   {
+    id:1,
     src: "/slider_projet/viaresp.webp",
     title: "Viaresp",
     alt: "Description de l'image AFFEZA"
   },
   {
+    id:2,
     src: "/slider_projet/topgameserver.jpg",
     title: "Top-Game-Server",
     alt: "Description de l'image 3"
   },
   {
+    id:3,
     src: "/slider_projet/niceweb.jpg",
     title: "NiceWeb",
     alt: "Description de l'image 4"
   },
   {
+    id:4,
     src: "/slider_projet/planning.jpg",
     title: "Rplanning",
     alt: "Application de plannification d'équipe pour Rcarré"
   },
   {
+    id:5,
     src: "/slider_projet/portfolio.jpg",
     title: "Projet 6",
     alt: "Description de l'image 6"
@@ -137,7 +170,6 @@ const images = [
   text-align: center;
   overflow: hidden;
   position: absolute;
-  filter: brightness(60%);
   top: 50%;
   transition: top 1s ease-in-out, left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
 }

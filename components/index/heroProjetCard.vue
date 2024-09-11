@@ -1,7 +1,10 @@
 <template>
        <div class="card-container" :style="{ backgroundImage: `url(${card.src})` }">
+        <div class="card-info">
+        {{ card.title }}
+        </div>
 
-
+        <span v-if="selectedIndex==card.id"> TOTALEMENT CAAA</span>
 </div>
 </template>
 
@@ -14,6 +17,7 @@ const myStore = useMyStore();
 
 const props = defineProps({
   card: Object,
+  selectedIndex: Number,
 });
 </script>
 
@@ -23,6 +27,7 @@ const props = defineProps({
   background-position: center; 
   width: 100%; 
   height: 100%; 
+  filter: brightness(70%);
 
   /* */
 
@@ -34,5 +39,17 @@ const props = defineProps({
 .card-container:hover{
   /* border: 1px var(--main-color) solid; */
   transform: scale(1.02);
+}
+
+.card-info{
+    background-color: rgba(0, 0, 0, 0.158);
+    height: 0%;
+    overflow-y: hidden;
+    transition: height 0.5s ease-in-out;
+
+}
+
+.card-container:hover .card-info{
+    height: 100%;
 }
 </style>
