@@ -6,6 +6,7 @@ export const useMyStore = defineStore('myStore', {
     theme:'light',
    layout:'default',
    scrollY:0,
+   refreshHoverCursor:false, //Refresh le cursor et les elements survolés
   }),
   getters: {
   },

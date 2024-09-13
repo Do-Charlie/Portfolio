@@ -3,7 +3,7 @@
         <IndexHeader></IndexHeader>
     <IndexHeroBanner></IndexHeroBanner>
     <div class="slider-projet" id="projets">
-      <BackgroundPopSquare ></BackgroundPopSquare>
+      <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
 
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
   </div>

@@ -4,8 +4,10 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted,watchEffect } from 'vue';
+import { useMyStore } from '~/stores/myStore.js';
 
+const myStore = useMyStore();
 const handleMouseMove = (e) => {
   const cursor = document.getElementById('custom-cursor');
   cursor.style.left = `${e.clientX}px`;
@@ -22,30 +24,64 @@ const handleMouseOut = () => {
   cursor.classList.remove('hover');
 };
 
+const refreshHoverListeners = () => {
+    // Supprimez les anciens événements pour éviter des duplications
+    const oldHoverElements = document.querySelectorAll('a, button, .pointer');
+    oldHoverElements.forEach(el => {
+      el.removeEventListener('mouseover', handleMouseOver);
+      el.removeEventListener('mouseout', handleMouseOut);
+    });
+
+    // Ajouter les événements aux nouveaux éléments avec la classe 'pointer'
+    const hoverElements = document.querySelectorAll('a, button, .pointer');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseover', handleMouseOver);
+      el.addEventListener('mouseout', handleMouseOut);
+    });
+
+    // Supprimer les événements pour les éléments sans la classe 'pointer'
+    const allElements = document.querySelectorAll('.no-pointer');
+    allElements.forEach(el => {
+        el.removeEventListener('mouseover', handleMouseOver);
+        el.removeEventListener('mouseout', handleMouseOut);
+      
+    });
+
+    // Log uniquement les éléments ayant la classe 'pointer' après mise à jour
+    console.log('Updated hoverElements:', hoverElements);
+  };
+
 
 onMounted(() => {
-
-
-
+ 
+  // Rafraîchit toutes les 2 secondes (2000ms)
+  // const interval = setInterval(refreshHoverListeners, 10000);
+  refreshHoverListeners()
+  // Ajoutez le listener au mouvement de la souris (s'il est nécessaire)
   window.addEventListener('mousemove', handleMouseMove);
-  
-  const hoverElements = document.querySelectorAll('a, button, .pointer');
-  hoverElements.forEach(el => {
-    el.addEventListener('mouseover', handleMouseOver);
-    el.addEventListener('mouseout', handleMouseOut);
-  });
 
-});
+  // Ne pas oublier de nettoyer l'intervalle et les écouteurs d'événements lors de la destruction du composant
+  onBeforeUnmount(() => {
+    // clearInterval(interval); // Arrêter de rafraîchir
+    window.removeEventListener('mousemove', handleMouseMove);
 
-onUnmounted(() => {
-  window.removeEventListener('mousemove', handleMouseMove);
-  
-  const hoverElements = document.querySelectorAll('a, button, .pointer');
-  hoverElements.forEach(el => {
-    el.removeEventListener('mouseover', handleMouseOver);
-    el.removeEventListener('mouseout', handleMouseOut);
+    // Supprimer les événements des éléments encore présents
+    const hoverElements = document.querySelectorAll('a, button, .pointer');
+    hoverElements.forEach(el => {
+      el.removeEventListener('mouseover', handleMouseOver);
+      el.removeEventListener('mouseout', handleMouseOut);
+    });
   });
 });
+
+watchEffect(()=>{
+  if(myStore.refreshHoverCursor){
+    refreshHoverListeners();
+    myStore.refreshHoverCursor=false;
+  }
+})
+
+
 </script>
 
 <style scoped>

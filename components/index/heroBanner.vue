@@ -78,7 +78,6 @@ const appearNav = () => {
 
     let delay = 0;
     navLinks.forEach((link) => {
-      console.log(link)
 
       link.style.animationDelay = `${delay}s`;
       link.classList.add('appear');

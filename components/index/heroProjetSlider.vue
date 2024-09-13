@@ -2,7 +2,7 @@
 
   <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1400 }">
     <div class="slider" :style="{ '--quantity': images.length }">
-      <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item pointer"
+      <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item"
         :style="{ '--position': image.id }">
 
 
@@ -72,13 +72,23 @@ const updateSelectedIndex = (currentAngle, imageAngle, fastSpeedMultiplier, marg
       (image.id === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
       && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle + 15)
     ) {
+      const tmpIndex= selectedIndex.value;
       selectedIndex.value = image.id;
+      if(tmpIndex!=selectedIndex.value){
+        setTimeout(function (){
+  
+          myStore.refreshHoverCursor=true; //Refresh le hover du curseur
+            
+}, 250); // 
+
+      }
     }
   });
 };
 
 //Animation
 const rotateSlider = () => {
+  if(myStore.scrollY <= 300 && myStore.scrollY >= 1400) return;
   const imageAngle = 360 / images.length;
   const margeAngle = 5;
   const fastSpeedMultiplier = 10;
@@ -114,39 +124,50 @@ onMounted(() => {
 const images = [
   {
     id:0,
-    src: "/slider_projet/valeos.jpg",
+    src: "/slider_projet/valeos.webp",
     title: "Valeos",
-    alt: "Description de l'image 1"
+    alt: "Description de l'image 1",
+    tags:['Vitrine','Energies','Nuxt']
   },
   {
     id:1,
     src: "/slider_projet/viaresp.webp",
     title: "Viaresp",
-    alt: "Description de l'image AFFEZA"
+    alt: "Description de l'image AFFEZA",
+    tags:['Site','Viager','Nuxt']
+
   },
   {
     id:2,
-    src: "/slider_projet/topgameserver.jpg",
-    title: "Top-Game-Server",
-    alt: "Description de l'image 3"
+    src: "/slider_projet/topgameserver.webp",
+    title: "Top-Game-Servers",
+    alt: "Description de l'image 3",
+    tags:['Site','Serveurs','Nuxt']
+
   },
   {
     id:3,
-    src: "/slider_projet/niceweb.jpg",
+    src: "/slider_projet/niceweb.webp",
     title: "NiceWeb",
-    alt: "Description de l'image 4"
+    alt: "Description de l'image 4",
+    tags:['ERP','Interne','PHP']
+
   },
   {
     id:4,
-    src: "/slider_projet/planning.jpg",
+    src: "/slider_projet/planning.webp",
     title: "Rplanning",
-    alt: "Application de plannification d'équipe pour Rcarré"
+    alt: "Application de plannification d'équipe pour Rcarré",
+    tags:['Application','Planning','Laravel']
+
   },
   {
     id:5,
-    src: "/slider_projet/portfolio.jpg",
-    title: "Projet 6",
-    alt: "Description de l'image 6"
+    src: "/slider_projet/portfolio.webp",
+    title: "Portfolio",
+    alt: "Description de l'image 6",
+    tags:['Vitrine','Portfolio','Nuxt']
+
   }
 ];
 
