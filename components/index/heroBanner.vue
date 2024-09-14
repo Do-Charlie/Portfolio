@@ -64,16 +64,17 @@ const updateTitleClass = () => {
   }, 2500); // Duration of both animations combined
 };
 
-const appearNav = () => {
-  setTimeout(() => {
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach((link) => {
+const appearNav = async () => {
+  // setTimeout(() => {
+  //   const navLinks = document.querySelectorAll('.nav-link');
+  //   navLinks.forEach((link) => {
 
-      link.classList.remove('appear');
-    });
-  }, 0); // Duration of both animations combined
+  //     link.classList.remove('appear');
+  //   });
+  // }, 0); // Duration of both animations combined
 
   setTimeout(() => {
+    if(!document) return;
     const navLinks = document.querySelectorAll('.nav-link');
 
     let delay = 0;
@@ -88,24 +89,21 @@ const appearNav = () => {
 
 }
 
-onMounted(() => {
-
-  appearNav()
-});
-
-onMounted(() => {
+onMounted( async () => {
+  
+  //  appearNav()
   updateTitleClass();
 
-
-
-  // interval.value = setInterval(updateTitleClass, 5000);
 });
+
 
 watchEffect(() => {
   if (myStore.theme) {
-    updateTitleClass();
-    appearNav()
+      appearNav()
 
+
+
+  updateTitleClass();
 
   }
 

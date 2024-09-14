@@ -48,7 +48,6 @@ const refreshHoverListeners = () => {
     });
 
     // Log uniquement les éléments ayant la classe 'pointer' après mise à jour
-    console.log('Updated hoverElements:', hoverElements);
   };
 
 
