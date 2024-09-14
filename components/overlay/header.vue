@@ -3,9 +3,8 @@
         <div class="title-container">
             
             <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
-            <NuxtLink to="/" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY<-10 }">
-                <!-- <NuxtImg v-if="myStore.theme=='light'" class="pointer" src="/logo_light.png"></NuxtImg> 
-                <NuxtImg v-else class="pointer" src="/logo.png"></NuxtImg>  -->
+            <NuxtLink to="/#heroBanner" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY>10 }">
+             Charlie Do
 
             </NuxtLink>
 
@@ -49,9 +48,22 @@ header {
 .title-container{
     position: relative;
     display:flex;
-    height: 22px;
-    width: 10px;
+    flex-direction: row;
 }
 
 
+.title-logo{
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    color:rgba(128, 128, 128, 0.316);
+}
+.title-logo:hover{
+    color: var(--main-color);
+}
+.title-logo.is-scrolled{
+    opacity: 1;
+}
 </style>

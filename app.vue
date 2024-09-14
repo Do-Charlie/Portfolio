@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NuxtLayout :name="myStore.layout">
+    <NuxtLayout :name="myStore.layout || 'default'">
     <NuxtPage></NuxtPage>
   </NuxtLayout>
   <ToolsCursor></ToolsCursor>
@@ -27,6 +27,7 @@ const handleScroll = () => {
 </script>
 
 <style>
+
 body,html,*{
   margin: 0;
   padding: 0;
@@ -106,10 +107,6 @@ a:hover{
    color: var(--color);
 
 }
-
-
-
-
 
 
 

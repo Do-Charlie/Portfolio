@@ -1,5 +1,5 @@
 <template>
-  <div class="container hero">
+  <div class="container hero" id="heroBanner">
     <BackgroundPopSquare v-if="myStore.scrollY < 2000"></BackgroundPopSquare>
 
     <div class="content-hero">
@@ -89,10 +89,10 @@ const appearNav = async () => {
 
 }
 
-onMounted( async () => {
+onMounted(  () => {
   
   //  appearNav()
-  updateTitleClass();
+  // updateTitleClass();
 
 });
 

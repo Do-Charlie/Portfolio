@@ -127,22 +127,25 @@ const images = [
     src: "/slider_projet/valeos.webp",
     title: "Valeos",
     alt: "Description de l'image 1",
-    tags:['Vitrine','Energies','Nuxt']
+    tags:['Vitrine','Energies','Nuxt'],
+    link:'/projets/valeos'
   },
   {
     id:1,
     src: "/slider_projet/viaresp.webp",
     title: "Viaresp",
     alt: "Description de l'image AFFEZA",
-    tags:['Site','Viager','Nuxt']
+    tags:['Site','Viager','Nuxt'],
+    link:'/projets/viaresp'
 
   },
   {
     id:2,
     src: "/slider_projet/topgameserver.webp",
-    title: "Top-Game-Servers",
+    title: "VPS",
     alt: "Description de l'image 3",
-    tags:['Site','Serveurs','Nuxt']
+    tags:['Site','Serveurs','Nuxt'],
+    link:'/projets/topgameserver'
 
   },
   {
@@ -150,7 +153,9 @@ const images = [
     src: "/slider_projet/niceweb.webp",
     title: "NiceWeb",
     alt: "Description de l'image 4",
-    tags:['ERP','Interne','PHP']
+    tags:['ERP','Interne','PHP'],
+    link:'/projets/niceweb',
+
 
   },
   {
@@ -158,7 +163,8 @@ const images = [
     src: "/slider_projet/planning.webp",
     title: "Rplanning",
     alt: "Application de plannification d'équipe pour Rcarré",
-    tags:['Application','Planning','Laravel']
+    tags:['Application','Planning','Laravel'],
+    link:'/projets/rcarre'
 
   },
   {
@@ -166,7 +172,9 @@ const images = [
     src: "/slider_projet/portfolio.webp",
     title: "Portfolio",
     alt: "Description de l'image 6",
-    tags:['Vitrine','Portfolio','Nuxt']
+    tags:['Vitrine','Portfolio','Nuxt'],
+    link:'/projets/portfolio'
+
 
   }
 ];

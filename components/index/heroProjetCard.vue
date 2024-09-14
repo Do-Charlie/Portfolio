@@ -12,7 +12,7 @@
                     [{{ tag }}]
                     </span>
                 </div>
-                <NuxtLink to="/" class="pointer">
+                <NuxtLink :to="card.link" class="pointer">
                     Ouvrir
                 </NuxtLink>
         </div>
@@ -92,6 +92,7 @@ html[data-theme='dark'] .card-info{
     font-family: 'Source Serif 4', serif;
     font-weight: 100;
     font-size: 140%;
+    color:var(--color);
 
 }
 .card-description{

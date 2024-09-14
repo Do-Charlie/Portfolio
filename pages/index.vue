@@ -1,6 +1,5 @@
 <template>
     <div class="page-container">
-        <IndexHeader></IndexHeader>
     <IndexHeroBanner></IndexHeroBanner>
     <div class="slider-projet" id="projets">
       <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
@@ -8,7 +7,7 @@
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
   </div>
     <div class="test">
-azef <input type="text">
+ <input type="text">
 </div>
     <IndexAnimation></IndexAnimation>
 
