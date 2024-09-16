@@ -13,12 +13,12 @@
           </div>
         </span>
         <nav >
-          <NuxtLink to="#projets" class="nav-link pointer">
+          <NuxtLink  @click="myStore.scrollTo('projets')" class="nav-link pointer">
             [ Projet ]
           </NuxtLink>
-          <a class="nav-link pointer">
+          <NuxtLink to="/projets/valeos" class="nav-link pointer">
             [ Experience ]
-          </a>
+          </NuxtLink>
           <NuxtLink class="nav-link pointer">
             [ CV ]
           </NuxtLink>
@@ -47,6 +47,8 @@ const myStore = useMyStore();
 
 
 const currentTitleClass = ref('');
+
+
 
 const updateTitleClass = () => {
   // currentTitleClass.value = 'linear-title-animation';

@@ -23,6 +23,7 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useMyStore } from '~/stores/myStore.js';
 
+
 const myStore = useMyStore();
 
 const props = defineProps({

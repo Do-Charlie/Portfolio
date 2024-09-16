@@ -3,7 +3,7 @@
         <div class="title-container">
             
             <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
-            <NuxtLink to="/#heroBanner" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY>10 }">
+            <NuxtLink @click="myStore.scrollTo('heroBanner')" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY>10 }">
              Charlie Do
 
             </NuxtLink>

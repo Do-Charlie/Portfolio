@@ -11,6 +11,10 @@ export const useMyStore = defineStore('myStore', {
   getters: {
   },
   actions: {
+     scrollTo(id){
+      const el = document.getElementById(id);
+          el.scrollIntoView({behavior: "smooth"});
+    }
 
 
   }

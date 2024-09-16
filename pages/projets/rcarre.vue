@@ -1,5 +1,6 @@
 <template>
-    <h1> Rcarré</h1>
+    <ProjetBanner> </ProjetBanner>
+    
 </template>
 
 <script setup>
@@ -7,4 +8,6 @@
 </script>
 
 <style scoped>
+
+
 </style>

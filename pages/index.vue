@@ -1,7 +1,7 @@
 <template>
     <div class="page-container">
     <IndexHeroBanner></IndexHeroBanner>
-    <div class="slider-projet" id="projets">
+    <div  id="projets" class="slider-projet"  >
       <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
 
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
@@ -21,14 +21,25 @@
 import { useMyStore } from '~/stores/myStore.js';
 const myStore=useMyStore();
 
-onMounted(() => {
-    window.scrollTo(0, 0);
-  });
+
+// onMounted(() => {
+//     window.scrollTo(0, 0);
+//   });
 </script>
 
 <style scoped>
+
+/* Define a transition duration during page visits */
+html.is-changing .transition-fade {
+  transition: opacity 0.25s;
+  opacity: 1;
+}
+/* Define the styles for the unloaded pages */
+html.is-animating .transition-fade {
+  opacity: 0;
+}
 .page-container{
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     position: relative;
 }
 
@@ -43,6 +54,12 @@ onMounted(() => {
 .test{
     min-height: 200vh;
 }
+.page-enter-from,.page-leave-to{
+  transform: translateX(-100%);
+
+}
+
+
 
 
 

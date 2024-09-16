@@ -1,7 +1,18 @@
 <template>
   <div id="app">
     <NuxtLayout :name="myStore.layout || 'default'">
-    <NuxtPage></NuxtPage>
+     
+
+
+
+        <NuxtPage>
+      
+
+        </NuxtPage>
+
+
+
+
   </NuxtLayout>
   <ToolsCursor></ToolsCursor>
   </div>
@@ -36,7 +47,7 @@ body,html,*{
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
      cursor: none; 
-     scroll-behavior: smooth;
+     /* scroll-behavior: smooth; */
 
 }
 
@@ -108,7 +119,17 @@ a:hover{
 
 }
 
+.page-enter-active,
+.page-leave-active{
+  transition: transform 0.3s ease-out, opacity 0.5s ease-out;
+}
 
+.page-enter-from ,
+.page-leave-to{
+  transform: translateX(100%);
+  opacity: 0;
+
+}
 
 
 

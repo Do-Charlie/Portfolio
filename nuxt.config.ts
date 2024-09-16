@@ -2,7 +2,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
   modules: ["@nuxtjs/google-fonts", '@pinia/nuxt', "@nuxt/image"],
-  
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' },
+    scrollBehavior: () => false,
+
+  },
+
   googleFonts: {
     families: {
       'Source+Serif+4': {
