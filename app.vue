@@ -39,6 +39,22 @@ const handleScroll = () => {
 
 <style>
 
+@font-face {
+  font-family: 'NeueMontrealRegular';
+  src: url('@/assets/fonts/PPNeueMontreal-Thin.otf') format('opentype');
+  font-weight:100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NeueMontrealRegular';
+  src: url('@/assets/fonts/PPNeueMontreal-Medium.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+
+
 body,html,*{
   margin: 0;
   padding: 0;
@@ -50,7 +66,11 @@ body,html,*{
      /* scroll-behavior: smooth; */
 
 }
+p{
+  font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
+  font-weight: 100;
 
+}
 
 
 body::-webkit-scrollbar,html::-webkit-scrollbar { 
@@ -121,7 +141,7 @@ a:hover{
 
 .page-enter-active,
 .page-leave-active{
-  transition: transform 0.3s ease-out, opacity 0.5s ease-out;
+  transition: transform 0.2s ease-out, opacity 0.3s ease-out;
 }
 
 .page-enter-from ,
