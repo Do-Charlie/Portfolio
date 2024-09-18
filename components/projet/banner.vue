@@ -1,24 +1,26 @@
 <template>
-<div class="banner"> 
+<div class="banner" v-if="banner"> 
     <NuxtImg class="banner-img" src="/projets/rcarre/banner.webp"></NuxtImg>
 
     <div class="banner-content">
-        <NuxtImg class="logo-content" src="/projets/rcarre/logo.webp" > </NuxtImg>
-        <p class="description"> Application dedié au manager leur permettant de gerer le planning de leurs techniciens.
-             Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens
-            ont directement leurs tâches retranscrisent dans leur calendrier Outlook.</p>
+        <NuxtImg class="logo-content" :src="banner.logo" loading="lazy" > </NuxtImg>
+        <p class="description"> {{props.banner.description }}</p>
         <div class="info-content">
             <div class="info">
                 <h3>Date</h3>
-                <p> 2024</p>
+                <p> {{banner.date}}</p>
+            </div>
+            <div class="info">
+                <h3>Role </h3>
+                <p> {{banner.role}} </p>
             </div>
             <div class="info">
                 <h3>Tags </h3>
-                <p> Application, ERP, Interne </p>
+                <p> {{ banner.tags }}</p>
             </div>
             <div class="info">
                 <h3> Techs</h3>
-                <p> Laravel, Vue.js, MySQL, EWS</p>
+                <p> {{banner.techs}}</p>
             </div>
 
         </div>
@@ -29,6 +31,11 @@
 </template>
 
 <script setup>
+
+const props = defineProps({
+  banner: Object,
+});
+const banner=props.banner;
 </script>
 
 <style scoped>

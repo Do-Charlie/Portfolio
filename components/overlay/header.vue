@@ -2,11 +2,11 @@
     <header>
         <div class="title-container">
             
-            <!-- <NuxtLink to="/" class="linear title-logo"  :class="{ 'is-scrolled': myStore.scrollY>50 }"> Charlie Do</NuxtLink> -->
-            <NuxtLink @click="myStore.scrollTo('heroBanner')" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY>10 }">
+            <NuxtLink v-if="isHomePage()" @click="myStore.scrollTo('heroBanner')" class="title-logo "  :class="{ 'is-scrolled': myStore.scrollY>10 }">
              Charlie Do
 
             </NuxtLink>
+            <NuxtLink v-else to="/" class="title-logo is-scrolled" > Charlie Do</NuxtLink>
 
         </div>
         <nav >
@@ -22,10 +22,15 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
+
 import { useMyStore } from '~/stores/myStore.js';
 const myStore=useMyStore();
+const route = useRoute();
 
-
+function isHomePage() {
+    return route.path==='/';
+}
 
 
 </script>

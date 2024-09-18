@@ -1,0 +1,142 @@
+[
+  {
+    "id": 0,
+    "src": "/slider_projet/valeos.webp",
+    "title": "Valeos",
+    "alt": "Description de l'image 1",
+    "tags": [
+      "Vitrine",
+      "Energies",
+      "Nuxt"
+    ],
+    "link": "/projets/valeos",
+    "name": "valeos",
+    "banner": {
+      "title":"Valeos",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Intégration d'une maquette pour le site vitrine d'une entreprise spécialisée dans les énergies.",
+      "date": "2023 - 2 jours",
+      "role": "Développeur, Integrateur",
+      "tags": " Vitrine, Energies, Integration",
+      "techs": "Nuxt.js",
+      "link_site":"https://valeos.fr/"
+    }
+  },
+  {
+    "id": 1,
+    "src": "/slider_projet/viaresp.webp",
+    "title": "Viaresp",
+    "alt": "Description de l'image AFFEZA",
+    "tags": [
+      "Site",
+      "Viager",
+      "Nuxt"
+    ],
+    "link": "/projets/viaresp",
+    "name": "viaresp",
+    "banner": {
+      "title":"Viaresp",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Création d'une marketplace pour l'achat ou la vente de Viager.",
+      "date": "2024",
+      "role": "Développeur FullStack, Integration",
+      "tags": " Site, Viager, API, Simulateur",
+      "techs": "Nuxt.js, Express.js, MySQL",
+      "link_site":"https://viaresp.fr/"
+
+    }
+  },
+  {
+    "id": 2,
+    "src": "/slider_projet/topgameserver.webp",
+    "title": "VPS",
+    "alt": "Description de l'image 3",
+    "tags": [
+      "Site",
+      "Serveurs",
+      "Nuxt"
+    ],
+    "link": "/projets/topgameserver",
+    "name": "topgameserver",
+    "banner": {
+      "title":"Top Game Servers",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Site communautaire de recensement de serveur privé de jeux vidéo",
+      "date": "2023 ",
+      "role": "Développeur FullStack, Integrateur",
+      "tags": " Site, Communautaire,  VPS",
+      "techs": "Nuxt.js, Express.js, MySQL",
+      "link_site":"https://top-gameservers.com/"
+
+    }
+  },
+  {
+    "id": 3,
+    "src": "/slider_projet/niceweb.webp",
+    "title": "NiceWeb",
+    "alt": "Description de l'image 4",
+    "tags": [
+      "ERP",
+      "Interne",
+      "PHP"
+    ],
+    "link": "/projets/niceweb",
+    "name": "niceweb",
+    "banner": {
+      "title":"Niceweb",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Refonte de l'ERP interne",
+      "date": "2022 ",
+      "role": "Développeur FullStack",
+      "tags": " ERP, Interne",
+      "techs": "PHP, MySQL",
+      "link_site":null
+    }
+  },
+  {
+    "id": 4,
+    "src": "/slider_projet/planning.webp",
+    "title": "Rplanning",
+    "alt": "Application de plannification d'équipe pour Rcarré",
+    "tags": [
+      "Application",
+      "Planning",
+      "Laravel"
+    ],
+    "link": "/projets/rcarre",
+    "name": "rcarre",
+    "banner": {
+      "title": "Rcarre",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Application dedié au manager leur permettant de gerer le planning de leurs techniciens. Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens ont directement leurs tâches retranscrisent dans leur calendrier Outlook.",
+      "date": "2024 ",
+      "role": "Développeur FullStack, Designeur",
+      "tags": " Application, Planning, Interne",
+      "techs": "Laravel, Vue.js, API, EWS",
+      "link_site":null
+    }
+  },
+  {
+    "id": 5,
+    "src": "/slider_projet/portfolio.webp",
+    "title": "Portfolio",
+    "alt": "Description de l'image 6",
+    "tags": [
+      "Vitrine",
+      "Portfolio",
+      "Nuxt"
+    ],
+    "link": "/projets/portfolio",
+    "name": "portfolio",
+    "banner": {
+      "title": "Charlie Do",
+      "logo": "/projets/rcarre/logo.webp",
+      "description": "Mon Portfolio",
+      "date": "2024",
+      "role": "Développeur, Designeur",
+      "tags": " Portfolio, Vitrine",
+      "techs": "Nuxt.js",
+      "link_site":null
+    }
+  }
+]

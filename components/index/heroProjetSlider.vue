@@ -23,7 +23,8 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { useMyStore } from '~/stores/myStore.js';
 
-
+import projets from '~/assets/data/projets.json';
+const images = projets;
 const myStore = useMyStore();
 
 const props = defineProps({
@@ -120,65 +121,6 @@ onMounted(() => {
   rotateSlider(); // Start the animation
 
 });
-
-
-const images = [
-  {
-    id:0,
-    src: "/slider_projet/valeos.webp",
-    title: "Valeos",
-    alt: "Description de l'image 1",
-    tags:['Vitrine','Energies','Nuxt'],
-    link:'/projets/valeos'
-  },
-  {
-    id:1,
-    src: "/slider_projet/viaresp.webp",
-    title: "Viaresp",
-    alt: "Description de l'image AFFEZA",
-    tags:['Site','Viager','Nuxt'],
-    link:'/projets/viaresp'
-
-  },
-  {
-    id:2,
-    src: "/slider_projet/topgameserver.webp",
-    title: "VPS",
-    alt: "Description de l'image 3",
-    tags:['Site','Serveurs','Nuxt'],
-    link:'/projets/topgameserver'
-
-  },
-  {
-    id:3,
-    src: "/slider_projet/niceweb.webp",
-    title: "NiceWeb",
-    alt: "Description de l'image 4",
-    tags:['ERP','Interne','PHP'],
-    link:'/projets/niceweb',
-
-
-  },
-  {
-    id:4,
-    src: "/slider_projet/planning.webp",
-    title: "Rplanning",
-    alt: "Application de plannification d'équipe pour Rcarré",
-    tags:['Application','Planning','Laravel'],
-    link:'/projets/rcarre'
-
-  },
-  {
-    id:5,
-    src: "/slider_projet/portfolio.webp",
-    title: "Portfolio",
-    alt: "Description de l'image 6",
-    tags:['Vitrine','Portfolio','Nuxt'],
-    link:'/projets/portfolio'
-
-
-  }
-];
 
 
 
