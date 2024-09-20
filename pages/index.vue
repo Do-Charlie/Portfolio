@@ -1,7 +1,10 @@
 <template>
     <div class="page-container">
     <IndexHeroBanner></IndexHeroBanner>
-    <div  id="projets" class="slider-projet"  >
+    <div   class="slider-projet"  >
+      <div id="projets" class="anchor-projets">
+
+      </div>
       <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
 
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
@@ -49,6 +52,10 @@ html.is-animating .transition-fade {
   display: flex;
   align-items: center;
   position: relative;
+}
+.anchor-projets{
+  position: absolute;
+  top: -25%;
 }
 
 .test{

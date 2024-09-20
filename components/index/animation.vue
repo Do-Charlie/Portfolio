@@ -1,3 +1,18 @@
+
+<template>
+  <div class="container">
+    <h1 class="pointer">Intersection Observer Demo</h1>
+    <div class="wrapper">Scroll down a bit 👇</div>
+    <div>
+    <!-- this works just as easy inside a v-for loop -->
+      <div class="demo">Intersection Observer in Action 👌</div>
+      <div class="demo">Second Item 🤘</div>
+      <div class="demo">Third Item 😎</div>
+    </div>
+  </div>
+</template>
+
+
 <script setup>
 import { onMounted, ref } from 'vue';
 
@@ -33,18 +48,6 @@ onMounted(() => {
 });
 </script>
 
-<template>
-  <div class="container">
-    <h1 class="pointer">Intersection Observer Demo</h1>
-    <div class="wrapper">Scroll down a bit 👇</div>
-    <div>
-    <!-- this works just as easy inside a v-for loop -->
-      <div class="demo">Intersection Observer in Action 👌</div>
-      <div class="demo">Second Item 🤘</div>
-      <div class="demo">Third Item 😎</div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .container {

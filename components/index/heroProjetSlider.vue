@@ -1,6 +1,6 @@
 <template>
 
-  <div class="banner " :class="{ 'is-scrolled': myStore.scrollY > 300 && myStore.scrollY < 1400 }">
+  <div  class="banner " >
     <div class="slider" :style="{ '--quantity': images.length }">
       <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item"
         :style="{ '--position': image.id }">
@@ -115,11 +115,37 @@ const focusElement = (index) => {
   targetIndex.value = index;
 
 }
+
+
+
+
+// Fonction pour observer l'élément avec IntersectionObserver
+const observeScroll = () => {
+  const scrollElements = document.querySelector('.banner');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      // isScrolled.value = entry.isIntersecting;
+      if (entry.isIntersecting) {
+          entry.target.classList.add('is-scrolled');
+        }else{
+          entry.target.classList.remove('is-scrolled');
+
+        }
+    });
+
+    
+  }, { threshold: 0.1});
+
+  observer.observe(scrollElements);
+};
+
+
+
 onMounted(() => {
   slider.value = document.querySelector('.slider');
 
   rotateSlider(); // Start the animation
-
+  observeScroll();
 });
 
 
@@ -135,7 +161,6 @@ onMounted(() => {
 
 .banner {
   --translate: 400px;
-
   width: 0px;
   height: 0px;
   left: 0;
@@ -147,10 +172,13 @@ onMounted(() => {
 }
 
 .banner.is-scrolled {
-  height: 100%;
+  height: 50%;
   width: 100%;
-  top: 10%;
+  transform-origin: center;
+  top: 0%;
   left: 0%;
+  padding: 20% 0;
+  box-sizing: border-box;
 }
 
 .banner .slider {
@@ -171,7 +199,7 @@ onMounted(() => {
   --slider-width: calc(100% / 5);
   top: 10%;
   width: var(--slider-width);
-  height: calc(var(--slider-width));
+  height: calc(var(--slider-width) * 1.5);
   left: calc(50% - var(--slider-width) / 2);
 }
 
@@ -188,11 +216,27 @@ onMounted(() => {
 
 
 
-
-
-@media only screen and (min-width: 2000px) {
+@media only screen and (min-width: 2399px) {
   .banner {
-    --translate: 500px;
+    --translate: 20vw;
+  }
+
+  .banner.is-scrolled .slider {
+
+  --slider-width: calc(100% / 6 );
+
+}
+}
+@media only screen and (max-width: 2400px) {
+  .banner {
+    --translate: 20vw;
+  }
+}
+
+
+@media only screen and (max-width: 2000px) {
+  .banner {
+    --translate: 30vw;
   }
 }
 

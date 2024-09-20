@@ -26,14 +26,22 @@ const handleScroll = () => {
   myStore.scrollY=window.scrollY;
 
   };
+
+
+
+
   
   onMounted(() => {
     window.addEventListener('scroll', handleScroll);
+
   });
   
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll);
-  });
+  onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll); // Enlève l'écouteur de scroll
+});
+
+
+
 
 </script>
 
