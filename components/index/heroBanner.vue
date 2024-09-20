@@ -63,7 +63,7 @@ const updateTitleClass = () => {
 
   setTimeout(() => {
     currentTitleClass.value = 'linear-title-animation';
-  }, 2500); // Duration of both animations combined
+  }, 2000); // Duration of both animations combined
 };
 
 const appearNav = async () => {
@@ -84,9 +84,11 @@ const appearNav = async () => {
 
       link.style.animationDelay = `${delay}s`;
       link.classList.add('appear');
-      delay += 0.5; // Increment the delay for each element
+      delay += 0.3; // Increment the delay for each element
     });
-  }, 1500); // Duration of both animations combined
+    myStore.refreshHoverCursor=true;
+
+  }, 900); // Duration of both animations combined
 
 
 }
@@ -120,7 +122,7 @@ watchEffect(() => {
 .hero {
   height: 100svh;
   position: relative;
-  --animation-text-duration: 2s;
+  --animation-text-duration: 1.5s;
 
 }
 

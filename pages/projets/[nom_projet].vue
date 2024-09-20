@@ -1,6 +1,7 @@
 <template>
     <div v-if="projet">
     <ProjetBanner :banner="projet.banner"> </ProjetBanner>
+    
     </div>
  
 </template>

@@ -3,7 +3,7 @@
     <NuxtImg class="banner-img" src="/projets/rcarre/banner.webp"></NuxtImg>
 
     <div class="banner-content">
-        <NuxtImg class="logo-content" :src="banner.logo" loading="lazy" > </NuxtImg>
+        <NuxtImg class="logo-content" :src="banner.logo" preload > </NuxtImg>
         <p class="description"> {{props.banner.description }}</p>
         <div class="info-content">
             <div class="info">
@@ -27,15 +27,28 @@
 
 
     </div>
+    <div class="discover " :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
+
     </div>
 </template>
 
 <script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
+
+import { useMyStore } from '~/stores/myStore.js';
+
+const myStore = useMyStore();
 
 const props = defineProps({
   banner: Object,
 });
 const banner=props.banner;
+
+
+onMounted(  () => {
+  
+
+});
 </script>
 
 <style scoped>
@@ -112,4 +125,26 @@ h3{
     font-weight: 100;
     font-size: 14px;
 }
+
+.discover {
+  position: absolute;
+  color: grey;
+  display: flex;
+  justify-content: center;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 32px;
+  text-transform: uppercase;
+  font-weight: 300;
+  transition: opacity var(--duration-opacity) ease-out;
+  opacity: 1;
+  z-index: 5;
+}
+
+
+
+.hide {
+  opacity: 0;
+}
+
 </style>
