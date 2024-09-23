@@ -1,7 +1,8 @@
 <template>
     <div v-if="projet">
     <ProjetBanner :banner="projet.banner"> </ProjetBanner>
-    
+                <ProjetMedia></ProjetMedia>
+
     </div>
  
 </template>
@@ -30,6 +31,5 @@ onMounted (()=>{
 </script>
 
 <style scoped>
-
 
 </style>

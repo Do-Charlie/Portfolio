@@ -149,7 +149,7 @@ a:hover{
 
 .page-enter-active,
 .page-leave-active{
-  transition: transform 0.2s ease-out, opacity 0.3s ease-out;
+  transition: transform 0.2s ease-out, opacity 0.6s ease-out;
 }
 
 .page-enter-from ,
