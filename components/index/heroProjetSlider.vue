@@ -16,7 +16,7 @@
     {{ targetIndex }} -->
 
   </div>
-  <ToolsObserveScroll threshold="0.1" element="banner"></ToolsObserveScroll>
+  <ToolsObserveScroll :threshold=0.1 element="banner"></ToolsObserveScroll>
 
 </template>
 

@@ -1,7 +1,7 @@
 <template>
 
     <div class="content-projet-container">
-      <ProjetSeparator text="Media"></ProjetSeparator>
+      <ProjetSeparator v-if="props.content.media" text="Media"></ProjetSeparator>
 
         <div v-for="media in props.content.media">
             <video v-if="media.type=='vod'" class="fadeup" playsinline loop muted autoplay>
@@ -15,7 +15,7 @@
         </div>
       
       
-      <ProjetSeparator text="Grille"></ProjetSeparator>
+      <ProjetSeparator v-if="props.content.grid-media" text="Grille"></ProjetSeparator>
         <div class=" grid-photo" v-if="props.content.grid_media">
           
             <NuxtImg v-for="media in props.content.grid_media" class="fadeup" :src="media.src">
@@ -25,7 +25,7 @@
         </div>
 
 
-        <ToolsObserveScroll threshold="0" element="fadeup"></ToolsObserveScroll>
+        <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
 
     </div>
 </template>

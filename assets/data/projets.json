@@ -13,7 +13,8 @@
     "name": "valeos",
     "banner": {
       "title":"Valeos",
-      "logo": "/projets/rcarre/logo.webp",
+      "src":"/projets/valeos/banner.webp",
+      "logo": "/projets/valeos/logo.webp",
       "description": "Intégration d'une maquette pour le site vitrine d'une entreprise spécialisée dans les énergies.",
       "date": "2023 - 2 jours",
       "role": "Développeur, Integrateur",
@@ -60,14 +61,40 @@
     "name": "viaresp",
     "banner": {
       "title":"Viaresp",
-      "logo": "/projets/rcarre/logo.webp",
+      "src":"/projets/viaresp/banner.webp",
+      "logo": "/projets/viaresp/logo.webp",
       "description": "Création d'une marketplace pour l'achat ou la vente de Viager.",
       "date": "2024",
       "role": "Développeur FullStack, Integration",
       "tags": " Site, Viager, API, Simulateur",
       "techs": "Nuxt.js, Express.js, MySQL",
-      "link_site":"https://viaresp.fr/"
+      "link_site":null
 
+    },
+    "content": {
+      "media":[
+        {
+          "type":"img",
+          "content":"/projets/viaresp/seller_form.webp"
+        },
+        {
+          "type":"vod",
+          "content":"/projets/viaresp/seller.mp4"
+        },
+        {
+          "type":"img",
+          "content":"/projets/viaresp/annonces.webp"
+        },
+        {
+          "type":"vod",
+          "content":"/projets/viaresp/buyer.mp4"
+        },
+  
+        {
+          "type":"img",
+          "content":"/projets/viaresp/annonce.webp"
+        }
+      ]
     }
   },
   {
@@ -84,7 +111,8 @@
     "name": "topgameserver",
     "banner": {
       "title":"Top Game Servers",
-      "logo": "/projets/rcarre/logo.webp",
+      "src":"/projets/topgameservers/banner.webp",
+      "logo": "/projets/topgameservers/logo.webp",
       "description": "Site communautaire de recensement de serveur privé de jeux vidéo",
       "date": "2023 ",
       "role": "Développeur FullStack, Integrateur",
@@ -92,6 +120,35 @@
       "techs": "Nuxt.js, Express.js, MySQL",
       "link_site":"https://top-gameservers.com/"
 
+    },
+    "content": {
+      "media":[
+        {
+          "type":"img",
+          "content":"/projets/topgameservers/homePage.webp"
+        },
+        {
+          "type":"vod",
+          "content":"/projets/topgameservers/presentation.mp4"
+        },
+    
+        {
+          "type":"img",
+          "content":"/projets/topgameservers/list_servers.webp"
+        },
+        {
+          "type":"img",
+          "content":"/projets/topgameservers/list_games.webp"
+        },
+        {
+          "type":"img",
+          "content":"/projets/topgameservers/server.webp"
+        },
+        {
+          "type":"img",
+          "content":"/projets/topgameservers/publish_server.webp"
+        }
+      ]
     }
   },
   {
@@ -132,6 +189,7 @@
     "banner": {
       "title": "Rcarre",
       "logo": "/projets/rcarre/logo.webp",
+      "src": "/projets/rcarre/banner.webp",
       "description": "Application dedié au manager permettant de gerer le planning des techniciens. Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens aient directement leurs tâches retranscrisent dans leur calendrier Outlook.",
       "date": "2024 ",
       "role": "Développeur FullStack, Designeur",

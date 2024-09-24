@@ -1,6 +1,6 @@
 <template>
 <div class="banner" v-if="banner"> 
-    <NuxtImg class="banner-img" src="/projets/rcarre/banner.webp"></NuxtImg>
+    <NuxtImg class="banner-img" :src="banner.src" preload></NuxtImg>
 
     <div class="banner-content">
         <NuxtImg class="logo-content" :src="banner.logo" preload > </NuxtImg>
