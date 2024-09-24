@@ -2,7 +2,7 @@
        <!-- <div class="card-container" :style="{ backgroundImage: `url(${card.src})` }"> -->
         <div class="card-container pointer" :class="{ 'is-selected': selectedIndex==card.id , 'no-pointer': selectedIndex==card.id }" >
 
-        <NuxtImg class="background-card" :src="card.src" loading="lazy"></NuxtImg>
+        <NuxtImg class="background-card" :src="card.src" preload></NuxtImg>
         <div class="card-info"  >
             <span class="card-title">
                 {{ card.title }}

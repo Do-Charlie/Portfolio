@@ -20,6 +20,30 @@
       "tags": " Vitrine, Energies, Integration",
       "techs": "Nuxt.js",
       "link_site":"https://valeos.fr/"
+    },
+    "content": {
+      "media":[
+        {
+          "type":"vod",
+          "src":"/projets/valeos/video.mp4"
+        },
+        {
+          "type":"img",
+          "src":"/projets/valeos/heroBanner.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/valeos/homePage.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/valeos/solaire.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/valeos/contact.webp"
+        }
+      ]
     }
   },
   {
@@ -108,12 +132,38 @@
     "banner": {
       "title": "Rcarre",
       "logo": "/projets/rcarre/logo.webp",
-      "description": "Application dedié au manager leur permettant de gerer le planning de leurs techniciens. Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens ont directement leurs tâches retranscrisent dans leur calendrier Outlook.",
+      "description": "Application dedié au manager permettant de gerer le planning des techniciens. Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens aient directement leurs tâches retranscrisent dans leur calendrier Outlook.",
       "date": "2024 ",
       "role": "Développeur FullStack, Designeur",
       "tags": " Application, Planning, Interne",
       "techs": "Laravel, Vue.js, API, EWS",
       "link_site":null
+    },
+    "content": {
+      "media":[
+        {
+          "type":"vod",
+          "src":"/projets/rcarre/video.mp4"
+        }
+      ],
+      "grid_media":[
+        {
+          "type":"img",
+          "src":"/projets/rcarre/planning.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/rcarre/membres.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/rcarre/jours_alertes.webp"
+        },
+        {
+          "type":"img",
+          "src":"/projets/rcarre/conflits.webp"
+        }
+      ]
     }
   },
   {

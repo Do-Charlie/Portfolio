@@ -1,10 +1,10 @@
 <template>
     <div v-if="projet">
     <ProjetBanner :banner="projet.banner"> </ProjetBanner>
-                <ProjetMedia></ProjetMedia>
-
+    <ProjetContent v-if="projet.content" :content="projet.content"></ProjetContent>
+        <!-- <div class="next-project" style="height: 100vh; width: 100vw;"></div> -->
     </div>
- 
+    
 </template>
 
 <script setup>
