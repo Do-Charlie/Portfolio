@@ -16,6 +16,7 @@
     {{ targetIndex }} -->
 
   </div>
+  <ToolsObserveScroll threshold="0.1" element="banner"></ToolsObserveScroll>
 
 </template>
 
@@ -119,33 +120,12 @@ const focusElement = (index) => {
 
 
 
-// Fonction pour observer l'élément avec IntersectionObserver
-const observeScroll = () => {
-  const scrollElements = document.querySelector('.banner');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      // isScrolled.value = entry.isIntersecting;
-      if (entry.isIntersecting) {
-          entry.target.classList.add('is-scrolled');
-        }else{
-          entry.target.classList.remove('is-scrolled');
-
-        }
-    });
-
-    
-  }, { threshold: 0.1});
-
-  observer.observe(scrollElements);
-};
-
 
 
 onMounted(() => {
   slider.value = document.querySelector('.slider');
 
   rotateSlider(); // Start the animation
-  observeScroll();
 });
 
 

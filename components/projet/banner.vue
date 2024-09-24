@@ -22,7 +22,10 @@
                 <h3> Techs</h3>
                 <p> {{banner.techs}}</p>
             </div>
-
+            <div v-if="banner.link_site" class="info">
+                <h3> Voir</h3>
+                <a :href="banner.link_site" target="_blank"> {{banner.link_site}}</a>
+            </div>
         </div>
 
 
@@ -46,7 +49,8 @@ const banner=props.banner;
 
 
 onMounted(  () => {
-  
+    myStore.refreshHoverCursor=true;
+
 
 });
 </script>
@@ -121,9 +125,17 @@ h3{
 
     
 }
-.info-content p{
+.info-content p, .info-content a{
     font-weight: 100;
     font-size: 14px;
+}
+
+.info-content a{
+    color: white;
+}
+
+.info-content a:hover{
+    color: var(--main-color);
 }
 
 .discover {

@@ -1,19 +1,23 @@
 <template>
-    
 
     <div class="content-projet-container">
+      <ProjetSeparator text="Media"></ProjetSeparator>
 
         <div v-for="media in props.content.media">
             <video v-if="media.type=='vod'" class="fadeup" playsinline loop muted autoplay>
-            <source :src="media.src">
+            <source :src="media.content">
         </video>
-        <NuxtImg v-else-if="media.type=='img'" class="fadeup" loading="lazy" :src="media.src">
+        <NuxtImg v-else-if="media.type=='img'" class="fadeup" loading="lazy" :src="media.content">
 
         </NuxtImg>
+
+        <p v-else-if="media.type=='txt'"> {{ media.content }} </p>
         </div>
       
-
+      
+      <ProjetSeparator text="Grille"></ProjetSeparator>
         <div class=" grid-photo" v-if="props.content.grid_media">
+          
             <NuxtImg v-for="media in props.content.grid_media" class="fadeup" :src="media.src">
 
             </NuxtImg> 
@@ -21,7 +25,8 @@
         </div>
 
 
-        
+        <ToolsObserveScroll threshold="0" element="fadeup"></ToolsObserveScroll>
+
     </div>
 </template>
 
@@ -36,24 +41,7 @@ const props = defineProps({
   content: Object,
 });
 
-// Fonction pour observer l'élément avec IntersectionObserver
-const observeScroll = () => {
-  const scrollElements = document.querySelectorAll('.fadeup');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-scrolled');
-      }else{
-        entry.target.classList.remove('is-scrolled');
 
-      }
-    });
-  }, { threshold: 0 });
-
-  scrollElements.forEach((element) => {
-    observer.observe(element); // Observez chaque élément individuellement
-  });
-};
 
 
 const myStore = useMyStore();
@@ -61,10 +49,6 @@ const myStore = useMyStore();
 
 
 
-onMounted(() => {
-
-  observeScroll();
-});
 </script>
 
 <style scoped>
@@ -102,6 +86,7 @@ video,img{
     width: 100%;
     height: 100%;
 }
+
 
 
 @media only screen and (min-width: 2399px) {

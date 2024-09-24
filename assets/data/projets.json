@@ -25,23 +25,23 @@
       "media":[
         {
           "type":"vod",
-          "src":"/projets/valeos/video.mp4"
+          "content":"/projets/valeos/video.mp4"
         },
         {
           "type":"img",
-          "src":"/projets/valeos/heroBanner.webp"
+          "content":"/projets/valeos/heroBanner.webp"
         },
         {
           "type":"img",
-          "src":"/projets/valeos/homePage.webp"
+          "content":"/projets/valeos/homePage.webp"
         },
         {
           "type":"img",
-          "src":"/projets/valeos/solaire.webp"
+          "content":"/projets/valeos/solaire.webp"
         },
         {
           "type":"img",
-          "src":"/projets/valeos/contact.webp"
+          "content":"/projets/valeos/contact.webp"
         }
       ]
     }
@@ -143,7 +143,7 @@
       "media":[
         {
           "type":"vod",
-          "src":"/projets/rcarre/video.mp4"
+          "content":"/projets/rcarre/video.mp4"
         }
       ],
       "grid_media":[
