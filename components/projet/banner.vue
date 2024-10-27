@@ -59,7 +59,7 @@ onMounted(() => {
 .banner {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    height: 100lvh;
     display: flex;
     color: rgb(229, 225, 225);
     font-family: 'NeueMontrealRegular', serif;
@@ -83,7 +83,7 @@ onMounted(() => {
     width: 20vw;
     min-width: 350px;
     right: 10vw;
-    height: 100vh;
+    height: 100lvh;
     padding: 10vh 0px;
     display: flex;
     flex-direction: column;

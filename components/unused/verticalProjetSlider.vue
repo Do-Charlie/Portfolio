@@ -1,68 +1,63 @@
 <template>
-    <div class="banner">
-        <div class="slider" :style="{ '--quantity': images.length }">
-    <div 
-      v-for="(image, index) in images" 
-      :key="index" 
-      class="item" 
-      :style="{ '--position': index + 1 }"
-    >
-      <NuxtImg :src="image.src" :alt="image.alt" />
+  <div class="banner">
+    <div class="slider" :style="{ '--quantity': images.length }">
+      <div v-for="(image, index) in images" :key="index" class="item" :style="{ '--position': index + 1 }">
+        <NuxtImg :src="image.src" :alt="image.alt" />
+      </div>
     </div>
   </div>
-    </div>
 
-    
+
 </template>
 
 
 
 <style scoped>
 .banner {
-    width: 100%;
-    height: 100vh;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  height: 100lvh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner .slider {
-    position: absolute;
-    width: 300px;
-    height: 200px;
-    top: 10%;
-    /* left: calc(50% + 600px); */
-    left: calc(50% - 100px);
+  position: absolute;
+  width: 300px;
+  height: 200px;
+  top: 10%;
+  /* left: calc(50% + 600px); */
+  left: calc(50% - 100px);
 
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: autoRun 60s linear infinite;
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 60s linear infinite;
 }
 
-@keyframes autoRun{
-    from{
-        transform: perspective(1000px) rotateX(360deg) rotateY(180deg) ;
-    }to{
-        transform: perspective(1000px) rotateX(0deg) rotateY(180deg) ;
-        
-    }
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateX(360deg) rotateY(180deg);
+  }
+
+  to {
+    transform: perspective(1000px) rotateX(0deg) rotateY(180deg);
+
+  }
 }
 
 .banner .slider .item {
-    position: absolute;
-    inset: 0 0 0 0;
-    transform:
-    rotateX(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
-    translateZ(-250px);
+  position: absolute;
+  inset: 0 0 0 0;
+  transform:
+    rotateX(calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)) translateZ(-250px);
 
 }
 
 .banner .slider .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
 </style>
 
 <script setup>

@@ -1,10 +1,9 @@
-
 <template>
   <div class="container">
     <h1 class="pointer">Intersection Observer Demo</h1>
     <div class="wrapper">Scroll down a bit 👇</div>
     <div>
-    <!-- this works just as easy inside a v-for loop -->
+      <!-- this works just as easy inside a v-for loop -->
       <div class="demo">Intersection Observer in Action 👌</div>
       <div class="demo">Second Item 🤘</div>
       <div class="demo">Third Item 😎</div>
@@ -31,7 +30,7 @@ onMounted(() => {
           entry.target.classList.add('animate-delay');
           delay += 0.2; // increment the delay for each element
           console.log(delay)
-        }else{
+        } else {
           entry.target.classList.remove('animate-delay');
 
         }
@@ -53,13 +52,13 @@ onMounted(() => {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 120vh;
+  min-height: 120lvh;
 }
 
 .wrapper {
   flex-grow: 1;
   font-size: 24px;
-  height: 100vh;
+  height: 100lvh;
 }
 
 .demo {
