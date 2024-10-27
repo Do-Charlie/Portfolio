@@ -52,13 +52,13 @@ onMounted(() => {
 .container {
   display: flex;
   flex-direction: column;
-  min-height: 120lvh;
+  min-height: 120dvh;
 }
 
 .wrapper {
   flex-grow: 1;
   font-size: 24px;
-  height: 100lvh;
+  height: 100dvh;
 }
 
 .demo {

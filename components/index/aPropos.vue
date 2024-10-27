@@ -112,7 +112,7 @@ li:hover {
     display: flex;
     flex-direction: row;
     scroll-behavior: smooth;
-    min-height: 100lvh;
+    min-height: 100dvh;
     box-sizing: border-box;
 
 }
