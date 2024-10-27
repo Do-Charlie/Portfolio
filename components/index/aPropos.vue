@@ -37,7 +37,10 @@
                 <IndexContact></IndexContact>
             </div> -->
         </div>
+        <ProjetSeparator text="Contact"></ProjetSeparator>
+        <IndexContact>
 
+        </IndexContact>
         <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
 
     </div>
@@ -71,6 +74,8 @@ function scrollToSection(sectionIndex) {
     flex: 1;
     gap: 50px;
     box-sizing: border-box;
+    padding-bottom: 10dvh;
+
 }
 
 .description {
@@ -112,7 +117,6 @@ li:hover {
     display: flex;
     flex-direction: row;
     scroll-behavior: smooth;
-    min-height: 100dvh;
     box-sizing: border-box;
 
 }

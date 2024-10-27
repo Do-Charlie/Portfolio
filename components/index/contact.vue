@@ -1,5 +1,5 @@
 <template>
-    <div class="container-a-propos">
+    <div class="container-a-propos fadeup">
         <ul class="left"> Email
             <li> <a href="mailto:charlie.do2604@gmail.com"> charlie.do2604@gmail.com</a> </li>
 
@@ -19,6 +19,7 @@
             </li>
 
         </ul>
+        <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
 
 
 
