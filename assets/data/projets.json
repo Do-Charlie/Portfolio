@@ -154,7 +154,7 @@
   {
     "id": 3,
     "src": "/slider_projet/niceweb.webp",
-    "title": "NiceWeb",
+    "title": "ISI NiceWeb",
     "alt": "Description de l'image 4",
     "tags": [
       "ERP",
@@ -165,13 +165,47 @@
     "name": "niceweb",
     "banner": {
       "title":"Niceweb",
-      "logo": "/projets/rcarre/logo.webp",
-      "description": "Refonte de l'ERP interne",
+      "src":"/projets/niceweb/banner.webp",
+      "logo": "/projets/niceweb/logo.webp",
+      "description": "Refonte de l'ERP interne, ajouts de fonctions, comptabilité, statistiques, facturations.",
       "date": "2022 ",
       "role": "Développeur FullStack",
       "tags": " ERP, Interne",
       "techs": "PHP, MySQL",
       "link_site":null
+    },
+    "content": {
+      "media":[
+        {
+          "type":"img",
+          "content":"/projets/niceweb/home_page.webp"
+        },
+        {
+          "type":"txt",
+          "content":"Réalisation d'un logiciel de facturation pour Centre Azur Nice"
+        },
+        {
+          "type":"img",
+          "content":"/projets/niceweb/khemis_home_page.webp"
+        },
+    
+        {
+          "type":"img",
+          "content":"/projets/niceweb/khemis_facture.webp"
+        },
+        {
+          "type":"txt",
+          "content":"Réalisation d'un logiciel de facturation pour le cabinet LVS "
+        },
+        {
+          "type":"img",
+          "content":"/projets/niceweb/lvs_dashboard.webp"
+        },
+        {
+          "type":"img",
+          "content":"/projets/niceweb/lvs_resolution.webp"
+        }
+      ]
     }
   },
   {
@@ -227,17 +261,17 @@
   {
     "id": 5,
     "src": "/slider_projet/portfolio.webp",
-    "title": "Portfolio",
+    "title": "Integrations",
     "alt": "Description de l'image 6",
     "tags": [
       "Vitrine",
-      "Portfolio",
       "Nuxt"
     ],
     "link": "/projets/portfolio",
     "name": "portfolio",
     "banner": {
       "title": "Charlie Do",
+      "src":"/projets/valeos/banner.webp",
       "logo": "/projets/rcarre/logo.webp",
       "description": "Mon Portfolio",
       "date": "2024",

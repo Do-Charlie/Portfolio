@@ -6,7 +6,16 @@
 
       </div>
       <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
-
+      <!-- Preload toutes les banieres -->
+      <div style="display:none">
+      <NuxtImg
+        v-for="(project, index) in projects"
+        :key="index"
+        :src="project.banner.src"
+        preload
+        alt="Preload project banner"
+      />
+    </div>
     <IndexHeroProjetSlider></IndexHeroProjetSlider>
   </div>
     <div class="test">
@@ -24,6 +33,8 @@
 import { useMyStore } from '~/stores/myStore.js';
 const myStore=useMyStore();
 
+import projets from '~/assets/data/projets.json';
+const projects = projets;
 
 // onMounted(() => {
 //     window.scrollTo(0, 0);

@@ -1,6 +1,7 @@
 <template>
 <div class="banner" v-if="banner"> 
-    <NuxtImg class="banner-img" :src="banner.src" preload></NuxtImg>
+    <NuxtImg class="banner-img" :src="banner.src" preload  
+    ></NuxtImg>
 
     <div class="banner-content">
         <NuxtImg class="logo-content" :src="banner.logo" preload > </NuxtImg>
@@ -65,7 +66,6 @@ onMounted(  () => {
     color: rgb(229, 225, 225);
     font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
     letter-spacing: 1px;
-
 }
 
 
@@ -126,6 +126,8 @@ h3{
     
 }
 .info-content p, .info-content a{
+    font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
+
     font-weight: 100;
     font-size: 14px;
 }
