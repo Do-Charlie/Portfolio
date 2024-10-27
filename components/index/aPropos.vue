@@ -3,7 +3,9 @@
         <ProjetSeparator text="A propos"></ProjetSeparator>
 
         <p class="description">
-            Je suis développeur Full Stack diplômé d'école d'ingénieur certifié par l'état.
+            Je suis développeur Full Stack diplômé d'école d'ingénieur certifié par l'état. <br>
+            D'abord freelance en parallèle de mes études , je suis maintenant développeur Freelance Full Stack depuis 3
+            ans disponible à plein temps.
         </p>
 
         <nav>

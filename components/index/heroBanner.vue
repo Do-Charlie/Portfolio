@@ -19,9 +19,9 @@
           <NuxtLink @click="myStore.scrollTo('propos')" class="nav-link pointer">
             [ A propos ]
           </NuxtLink>
-          <NuxtLink class="nav-link pointer">
+          <!-- <NuxtLink class="nav-link pointer">
             [ CV ]
-          </NuxtLink>
+          </NuxtLink> -->
         </nav>
       </div>
 
