@@ -12,12 +12,12 @@
             </div>
           </div>
         </span>
-        <nav >
-          <NuxtLink  @click="myStore.scrollTo('projets')" class="nav-link pointer">
+        <nav>
+          <NuxtLink @click="myStore.scrollTo('projets')" class="nav-link pointer">
             [ Projet ]
           </NuxtLink>
-          <NuxtLink to="/projets/valeos" class="nav-link pointer">
-            [ Experience ]
+          <NuxtLink @click="myStore.scrollTo('propos')" class="nav-link pointer">
+            [ A propos ]
           </NuxtLink>
           <NuxtLink class="nav-link pointer">
             [ CV ]
@@ -76,7 +76,7 @@ const appearNav = async () => {
   // }, 0); // Duration of both animations combined
 
   setTimeout(() => {
-    if(!document) return;
+    if (!document) return;
     const navLinks = document.querySelectorAll('.nav-link');
 
     let delay = 0;
@@ -86,15 +86,15 @@ const appearNav = async () => {
       link.classList.add('appear');
       delay += 0.3; // Increment the delay for each element
     });
-    myStore.refreshHoverCursor=true;
+    myStore.refreshHoverCursor = true;
 
   }, 900); // Duration of both animations combined
 
 
 }
 
-onMounted(  () => {
-  
+onMounted(() => {
+
   //  appearNav()
   // updateTitleClass();
 
@@ -103,11 +103,11 @@ onMounted(  () => {
 
 watchEffect(() => {
   if (myStore.theme) {
-      appearNav()
+    appearNav()
 
 
 
-  updateTitleClass();
+    updateTitleClass();
 
   }
 

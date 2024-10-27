@@ -1,29 +1,34 @@
 <template>
-    <div class="page-container">
+  <div class="page-container">
     <IndexHeroBanner></IndexHeroBanner>
-    <div   class="slider-projet"  >
-      <div id="projets" class="anchor-projets">
+
+    <div class="slider-projet container-component">
+      <div id="projets" class="anchor">
 
       </div>
       <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
       <!-- Preload toutes les banieres -->
       <div style="display:none">
-      <NuxtImg
-        v-for="(project, index) in projects"
-        :key="index"
-        :src="project.banner.src"
-        preload
-        alt="Preload project banner"
-      />
+        <NuxtImg v-for="(project, index) in projects" :key="index" :src="project.banner.src" preload
+          alt="Preload project banner" />
+      </div>
+
+      <IndexHeroProjetSlider></IndexHeroProjetSlider>
     </div>
-    <IndexHeroProjetSlider></IndexHeroProjetSlider>
-  </div>
-    <div class="test">
- <input type="text">
-</div>
-    <IndexAnimation></IndexAnimation>
+    <div class="a-propos container-component">
+      <div id="propos" class="anchor">
+      </div>
+      <IndexAPropos>
+
+      </IndexAPropos>
 
     </div>
+    <div class="test">
+      <input type="text">
+    </div>
+    <IndexAnimation></IndexAnimation>
+
+  </div>
 
 </template>
 
@@ -31,7 +36,7 @@
 <script setup>
 
 import { useMyStore } from '~/stores/myStore.js';
-const myStore=useMyStore();
+const myStore = useMyStore();
 
 import projets from '~/assets/data/projets.json';
 const projects = projets;
@@ -42,44 +47,51 @@ const projects = projets;
 </script>
 
 <style scoped>
-
 /* Define a transition duration during page visits */
 html.is-changing .transition-fade {
   transition: opacity 0.25s;
   opacity: 1;
 }
+
 /* Define the styles for the unloaded pages */
 html.is-animating .transition-fade {
   opacity: 0;
 }
-.page-container{
-    /* scroll-behavior: smooth; */
-    position: relative;
+
+.page-container {
+  /* scroll-behavior: smooth; */
+  position: relative;
 }
 
-.slider-projet {
-  width: 100%;
-    height: 100vh;
+.container-component {
   display: flex;
   align-items: center;
   position: relative;
+  width: 100%;
+
 }
-.anchor-projets{
+
+.a-propos {
+  margin-top: -20vh;
+}
+
+.slider-projet {
+  height: 100vh;
+
+}
+
+.anchor {
   position: absolute;
   top: -25%;
 }
 
-.test{
-    min-height: 200vh;
+.test {
+  min-height: 200vh;
 }
-.page-enter-from,.page-leave-to{
+
+.page-enter-from,
+.page-leave-to {
   transform: translateX(-100%);
 
 }
-
-
-
-
-
-
 </style>

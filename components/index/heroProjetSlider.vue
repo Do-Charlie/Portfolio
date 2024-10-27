@@ -1,6 +1,7 @@
 <template>
 
-  <div  class="banner " >
+  <div class="banner ">
+
     <div class="slider" :style="{ '--quantity': images.length }">
       <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item"
         :style="{ '--position': image.id }">
@@ -11,7 +12,7 @@
     </div>
   </div>
   <div id="rota">
-<!-- 
+    <!-- 
     <input type="number" v-model="rotationAngle">
     {{ targetIndex }} -->
 
@@ -39,7 +40,7 @@ const defaultSpeedMultiplier = 0.02;
 const speedMultiplier = ref(defaultSpeedMultiplier);
 const slider = ref();
 const targetIndex = ref(null);
-const selectedIndex=ref(0);
+const selectedIndex = ref(0);
 
 
 
@@ -49,10 +50,10 @@ const handleTargetRotation = (currentAngle, imageAngle, fastSpeedMultiplier, mar
   if (targetIndex.value || targetIndex.value == 0) {
     const targetAngle = targetIndex.value === 0 ? 0 : (targetIndex.value * imageAngle);
     if (
-      (targetIndex.value !== 0 && targetAngle - fastSpeedMultiplier - margeAngle <= currentAngle 
-      && targetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
-      (targetIndex.value === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
-      && targetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle)
+      (targetIndex.value !== 0 && targetAngle - fastSpeedMultiplier - margeAngle <= currentAngle
+        && targetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
+      (targetIndex.value === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle
+        && targetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle)
     ) {
       targetIndex.value = null;
       speedMultiplier.value = defaultSpeedMultiplier;
@@ -68,21 +69,21 @@ const handleTargetRotation = (currentAngle, imageAngle, fastSpeedMultiplier, mar
 const updateSelectedIndex = (currentAngle, imageAngle, fastSpeedMultiplier, margeAngle) => {
   images.forEach((image) => {
     const imageTargetAngle = image.id * imageAngle;
-    
+
     if (
       (image.id !== 0 && imageTargetAngle - fastSpeedMultiplier - margeAngle <= currentAngle + 15
-      && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
-      (image.id === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle 
-      && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle + 15)
+        && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) >= currentAngle) ||
+      (image.id === 0 && 360 - fastSpeedMultiplier - margeAngle <= currentAngle
+        && imageTargetAngle + fastSpeedMultiplier + (imageAngle / 2) <= currentAngle + 15)
     ) {
-      const tmpIndex= selectedIndex.value;
+      const tmpIndex = selectedIndex.value;
       selectedIndex.value = image.id;
-      if(tmpIndex!=selectedIndex.value){
-        setTimeout(function (){
-  
-          myStore.refreshHoverCursor=true; //Refresh le hover du curseur
-            
-}, 250); // 
+      if (tmpIndex != selectedIndex.value) {
+        setTimeout(function () {
+
+          myStore.refreshHoverCursor = true; //Refresh le hover du curseur
+
+        }, 250); // 
 
       }
     }
@@ -91,7 +92,7 @@ const updateSelectedIndex = (currentAngle, imageAngle, fastSpeedMultiplier, marg
 
 //Animation
 const rotateSlider = () => {
-  if(myStore.scrollY <= 300 && myStore.scrollY >= 1400) return;
+  if (myStore.scrollY <= 300 && myStore.scrollY >= 1400) return;
   const imageAngle = 360 / images.length;
   const margeAngle = 5;
   const fastSpeedMultiplier = 10;
@@ -203,10 +204,11 @@ onMounted(() => {
 
   .banner.is-scrolled .slider {
 
-  --slider-width: calc(100% / 6 );
+    --slider-width: calc(100% / 6);
 
+  }
 }
-}
+
 @media only screen and (max-width: 2400px) {
   .banner {
     --translate: 20vw;
