@@ -74,7 +74,7 @@ html.is-animating .transition-fade {
 }
 
 .a-propos {
-  margin-top: -20dvh;
+  margin-top: -20svh;
 }
 
 .a-propos .anchor {
@@ -82,7 +82,7 @@ html.is-animating .transition-fade {
 }
 
 .slider-projet {
-  height: 100dvh;
+  height: 100svh;
 }
 
 .anchor {
@@ -91,7 +91,7 @@ html.is-animating .transition-fade {
 }
 
 .test {
-  min-height: 200dvh;
+  min-height: 200svh;
 }
 
 .page-enter-from,

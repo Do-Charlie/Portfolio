@@ -74,7 +74,7 @@ function scrollToSection(sectionIndex) {
     flex: 1;
     gap: 50px;
     box-sizing: border-box;
-    padding-bottom: 10dvh;
+    padding-bottom: 10svh;
 
 }
 
