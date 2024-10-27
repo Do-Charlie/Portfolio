@@ -23,7 +23,14 @@
       </IndexAPropos>
 
     </div>
+    <div class="a-propos container-component">
+      <div id="contact" class="anchor">
+      </div>
+      <IndexContact>
 
+      </IndexContact>
+
+    </div>
 
     <!-- <div class="test">
       <input type="text">

@@ -1,5 +1,7 @@
 <template>
     <div class="container-a-propos fadeup">
+        <ProjetSeparator text="Contact"></ProjetSeparator>
+
         <ul class="left"> Email
             <li> <a href="mailto:charlie.do2604@gmail.com"> charlie.do2604@gmail.com</a> </li>
 
@@ -32,6 +34,8 @@
 
 <style scoped>
 .container-a-propos {
+    padding: 5svh 15vw;
+
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -64,6 +68,17 @@ li {
 ul:nth-child(2n) {
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+.fadeup {
+    transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.fadeup.is-scrolled {
+    opacity: 1;
+    transform: translateY(0px);
 }
 
 @media only screen and (max-width: 768px) {

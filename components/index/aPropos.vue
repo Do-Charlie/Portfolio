@@ -37,10 +37,7 @@
                 <IndexContact></IndexContact>
             </div> -->
         </div>
-        <ProjetSeparator text="Contact"></ProjetSeparator>
-        <IndexContact>
 
-        </IndexContact>
         <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
 
     </div>
