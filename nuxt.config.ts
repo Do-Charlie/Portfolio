@@ -19,5 +19,8 @@ export default defineNuxtConfig({
     display: 'swap',
     preload: true,
 
+  },
+  image: {
+    provider: 'static'
   }
 })
