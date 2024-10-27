@@ -4,7 +4,7 @@
 </template>
 
 <script setup>
-import { onMounted, onUnmounted,watchEffect } from 'vue';
+import { onMounted, onUnmounted, watchEffect } from 'vue';
 import { useMyStore } from '~/stores/myStore.js';
 
 const myStore = useMyStore();
@@ -25,34 +25,34 @@ const handleMouseOut = () => {
 };
 
 const refreshHoverListeners = () => {
-    // Supprimez les anciens événements pour éviter des duplications
-    const oldHoverElements = document.querySelectorAll('a, button, .pointer');
-    oldHoverElements.forEach(el => {
-      el.removeEventListener('mouseover', handleMouseOver);
-      el.removeEventListener('mouseout', handleMouseOut);
-    });
+  // Supprimez les anciens événements pour éviter des duplications
+  const oldHoverElements = document.querySelectorAll('a, button, .pointer');
+  oldHoverElements.forEach(el => {
+    el.removeEventListener('mouseover', handleMouseOver);
+    el.removeEventListener('mouseout', handleMouseOut);
+  });
 
-    // Ajouter les événements aux nouveaux éléments avec la classe 'pointer'
-    const hoverElements = document.querySelectorAll('a, button, .pointer');
-    hoverElements.forEach(el => {
-      el.addEventListener('mouseover', handleMouseOver);
-      el.addEventListener('mouseout', handleMouseOut);
-    });
+  // Ajouter les événements aux nouveaux éléments avec la classe 'pointer'
+  const hoverElements = document.querySelectorAll('a, button, .pointer');
+  hoverElements.forEach(el => {
+    el.addEventListener('mouseover', handleMouseOver);
+    el.addEventListener('mouseout', handleMouseOut);
+  });
 
-    // Supprimer les événements pour les éléments sans la classe 'pointer'
-    const allElements = document.querySelectorAll('.no-pointer');
-    allElements.forEach(el => {
-        el.removeEventListener('mouseover', handleMouseOver);
-        el.removeEventListener('mouseout', handleMouseOut);
-      
-    });
+  // Supprimer les événements pour les éléments sans la classe 'pointer'
+  const allElements = document.querySelectorAll('.no-pointer');
+  allElements.forEach(el => {
+    el.removeEventListener('mouseover', handleMouseOver);
+    el.removeEventListener('mouseout', handleMouseOut);
 
-    // Log uniquement les éléments ayant la classe 'pointer' après mise à jour
-  };
+  });
+
+  // Log uniquement les éléments ayant la classe 'pointer' après mise à jour
+};
 
 
 onMounted(() => {
- 
+
   // Rafraîchit toutes les 2 secondes (2000ms)
   // const interval = setInterval(refreshHoverListeners, 10000);
   refreshHoverListeners()
@@ -73,10 +73,10 @@ onMounted(() => {
   });
 });
 
-watchEffect(()=>{
-  if(myStore.refreshHoverCursor){
+watchEffect(() => {
+  if (myStore.refreshHoverCursor) {
     refreshHoverListeners();
-    myStore.refreshHoverCursor=false;
+    myStore.refreshHoverCursor = false;
   }
 })
 
@@ -84,8 +84,6 @@ watchEffect(()=>{
 </script>
 
 <style scoped>
-
-
 .discover {
   position: absolute;
   display: flex;
@@ -103,7 +101,7 @@ watchEffect(()=>{
 }
 
 #custom-cursor {
-    --animation-duration-cursor:0.3s;
+  --animation-duration-cursor: 0.3s;
   position: fixed;
   width: 20px;
   height: 20px;
@@ -112,27 +110,28 @@ watchEffect(()=>{
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition:  box-shadow var(--animation-duration-cursor) ease-out,width var(--animation-duration-cursor) ease-out,height var(--animation-duration-cursor) ease-out;
+  transition: box-shadow var(--animation-duration-cursor) ease-out, width var(--animation-duration-cursor) ease-out, height var(--animation-duration-cursor) ease-out;
   box-shadow: 0px 0px 12px rgba(151, 151, 243, 0.3);
 
 }
-html[data-theme='light'] #custom-cursor{
-    box-shadow: 0px 0px 5px rgba(92, 98, 147, 1);
-    border: 1px solid rgba(92, 98, 147, 0.3);
+
+html[data-theme='light'] #custom-cursor {
+  box-shadow: 0px 0px 5px rgba(92, 98, 147, 1);
+  border: 1px solid rgba(92, 98, 147, 0.3);
 }
 
-#custom-cursor .circle{
-    position: fixed;
-    left: 50%;
-    top: 50%;
+#custom-cursor .circle {
+  position: fixed;
+  left: 50%;
+  top: 50%;
   width: 5px;
   height: 5px;
-  background-color: rgba(92, 98 ,147, 0.8);
+  background-color: rgba(92, 98, 147, 0.8);
   border-radius: 50%;
   pointer-events: none;
   transform: translate(-50%, -50%);
   z-index: 9999;
-  transition: width var(--animation-duration-cursor) ease-in-out,height var(--animation-duration-cursor) ease-in-out, background-color var(--animation-duration-cursor) ease-in-out;
+  transition: width var(--animation-duration-cursor) ease-in-out, height var(--animation-duration-cursor) ease-in-out, background-color var(--animation-duration-cursor) ease-in-out;
 
 }
 
@@ -150,9 +149,15 @@ html[data-theme='light'] #custom-cursor{
   background-color: rgba(92, 98, 147, 0.2);
 
 }
-html[data-theme='light'] #custom-cursor.hover .circle{
-    background-color: rgba(92, 98, 147, 0.2);
+
+html[data-theme='light'] #custom-cursor.hover .circle {
+  background-color: rgba(92, 98, 147, 0.2);
 
 }
 
+@media only screen and (max-width: 768px) {
+  #custom-cursor {
+    display: none;
+  }
+}
 </style>

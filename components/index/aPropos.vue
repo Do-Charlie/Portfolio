@@ -19,9 +19,7 @@
                 <li class="pointer" :class="{ select: menu == 2 }" @click="scrollToSection(2)">
                     [ Services ]
                 </li>
-                <li class="pointer" :class="{ select: menu == 3 }" @click="scrollToSection(3)">
-                    [ Contact ]
-                </li>
+
             </ul>
         </nav>
 
@@ -35,9 +33,9 @@
             <div class="content-container">
                 <IndexServices></IndexServices>
             </div>
-            <div class="content-container">
+            <!-- <div class="content-container">
                 <IndexContact></IndexContact>
-            </div>
+            </div> -->
         </div>
 
         <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
@@ -72,6 +70,7 @@ function scrollToSection(sectionIndex) {
     padding: 0 15vw;
     flex: 1;
     gap: 50px;
+    box-sizing: border-box;
 }
 
 .description {
@@ -89,11 +88,13 @@ ul {
     list-style: none;
     font-weight: 100;
     font-size: 18px;
+    gap: 10px;
 }
 
 li {
-    padding: 2px 10px;
     cursor: pointer;
+    box-sizing: border-box;
+    text-wrap: nowrap;
 }
 
 li:hover {
@@ -106,7 +107,7 @@ li:hover {
 }
 
 .content {
-    width: 100%;
+    max-width: 70vw;
     overflow-x: hidden;
     display: flex;
     flex-direction: row;
@@ -134,5 +135,25 @@ li:hover {
 .fadeup.is-scrolled {
     opacity: 1;
     transform: translateY(0px);
+}
+
+@media only screen and (max-width: 768px) {
+
+    .container {
+        gap: 20px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    li {
+        font-size: 12px;
+    }
+
+    ul {
+        gap: 5px;
+
+    }
 }
 </style>

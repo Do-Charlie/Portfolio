@@ -3,12 +3,14 @@
         <ul class="left"> Rcarré
             <li> 2024</li>
             <li> Laravel - Vue.js</li>
-            <li> Web Application de Planning - API - EWS</li>
+            <li> Web Application de Planning </li>
+            <li>API - EWS</li>
         </ul>
 
         <ul class="left"> Agence Kameo
             <li> 2023 - 2024</li>
-            <li> Intégration - Site Vitrine - Hébergements</li>
+            <li> Intégration - Site Vitrine</li>
+            <li> Hébergements</li>
             <li> Nuxt.js</li>
         </ul>
         <ul class="right"> Nexus
@@ -77,5 +79,22 @@ li {
 ul:nth-child(2n) {
     justify-content: flex-end;
     align-items: flex-end;
+}
+
+@media only screen and (max-width: 768px) {
+    .container-a-propos {
+        gap: 10px;
+    }
+
+    ul {
+
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    li {
+        font-size: 10px;
+    }
+
 }
 </style>

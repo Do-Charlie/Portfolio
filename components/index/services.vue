@@ -73,4 +73,21 @@ ul:nth-child(2n) {
     justify-content: flex-end;
     align-items: flex-end;
 }
+
+@media only screen and (max-width: 768px) {
+    .container-a-propos {
+        gap: 10px;
+    }
+
+    ul {
+
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    li {
+        font-size: 10px;
+    }
+
+}
 </style>
