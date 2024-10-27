@@ -233,6 +233,14 @@ onMounted(() => {
   .banner {
     --translate: 300px;
   }
+
+  .banner.is-scrolled .slider {
+
+    --slider-width: calc(150% / 5);
+    width: var(--slider-width);
+    height: calc(var(--slider-width) * 1.5);
+
+  }
 }
 
 @media only screen and (max-width: 768px) {
@@ -243,7 +251,15 @@ onMounted(() => {
 
 @media only screen and (max-width: 480px) {
   .banner {
-    --translate: 100px;
+    --translate: 130px;
+  }
+
+  .banner.is-scrolled .slider {
+
+    --slider-width: calc(150% / 5);
+    width: var(--slider-width);
+    height: calc(var(--slider-width) * 1.5);
+
   }
 }
 </style>

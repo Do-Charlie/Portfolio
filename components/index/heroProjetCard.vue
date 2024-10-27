@@ -1,23 +1,24 @@
 <template>
-       <!-- <div class="card-container" :style="{ backgroundImage: `url(${card.src})` }"> -->
-        <div class="card-container pointer" :class="{ 'is-selected': selectedIndex==card.id , 'no-pointer': selectedIndex==card.id }" >
+    <!-- <div class="card-container" :style="{ backgroundImage: `url(${card.src})` }"> -->
+    <div class="card-container pointer"
+        :class="{ 'is-selected': selectedIndex == card.id, 'no-pointer': selectedIndex == card.id }">
 
         <NuxtImg class="background-card" :src="card.src" preload></NuxtImg>
-        <div class="card-info"  >
+        <div class="card-info">
             <span class="card-title">
                 {{ card.title }}
             </span>
             <div class="card-description">
                 <span v-for="tag in card.tags">
                     [{{ tag }}]
-                    </span>
-                </div>
-                <NuxtLink :to="card.link" class="pointer">
-                    Ouvrir
-                </NuxtLink>
+                </span>
+            </div>
+            <NuxtLink :to="card.link" class="pointer">
+                Ouvrir
+            </NuxtLink>
         </div>
 
-</div>
+    </div>
 </template>
 
 
@@ -28,22 +29,23 @@ import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 
 const props = defineProps({
-  card: Object,
-  selectedIndex: Number,
+    card: Object,
+    selectedIndex: Number,
 });
 </script>
 
 <style scoped>
 .card-container {
 
-  width: 100%; 
-  height: 100%; 
+    width: 100%;
+    height: 100%;
     position: relative;
     overflow: hidden;
-  border-radius: 4px;
-  transition: transform 0.2s ease-in-out;
+    border-radius: 4px;
+    transition: transform 0.2s ease-in-out;
 }
-.background-card{
+
+.background-card {
     pointer-events: none;
 
     width: 100%;
@@ -58,19 +60,19 @@ const props = defineProps({
 
 }
 
-.is-selected .background-card{
+.is-selected .background-card {
     opacity: 0.7;
     filter: blur(2px);
 }
 
 
 
-.card-info{
+.card-info {
     background-color: rgba(226, 226, 226, 0.5);
     height: 0%;
     overflow-y: hidden;
     transition: height 0.5s ease-in-out;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -78,30 +80,34 @@ const props = defineProps({
     color: var(--color);
 }
 
-html[data-theme='dark'] .card-info{
+html[data-theme='dark'] .card-info {
     background-color: rgba(0, 0, 0, 0.695);
 }
 
 
-.is-selected .card-info{
+.is-selected .card-info {
     height: 100%;
 }
 
-.card-title{
+.card-title {
     text-transform: uppercase;
     font-family: 'Source Serif 4', serif;
     font-weight: 100;
     font-size: 140%;
-    color:var(--color);
+    color: var(--color);
 
 }
-.card-description{
+
+.card-description {
     font-weight: 300;
     font-size: 8px;
     text-transform: uppercase;
+    text-wrap: wrap;
+    padding: 0 10%;
+
 }
 
-.card-info a{
+.card-info a {
     color: var(--color);
     font-weight: 100;
     text-transform: uppercase;
@@ -109,8 +115,20 @@ html[data-theme='dark'] .card-info{
     transition: transform ease-in-out 0.2s;
 }
 
-.card-info a:hover{
+.card-info a:hover {
     transform: scale(1.2);
     color: var(--second-color);
+}
+
+
+@media only screen and (max-width: 768px) {
+    .card-title {
+        text-transform: uppercase;
+        font-family: 'Source Serif 4', serif;
+        font-weight: 100;
+        font-size: 12px;
+        color: var(--color);
+
+    }
 }
 </style>

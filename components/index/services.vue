@@ -45,6 +45,7 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
+    gap: 50px;
 }
 
 ul {
@@ -59,7 +60,6 @@ ul {
     max-width: 400px;
     min-width: 200px;
     text-transform: uppercase;
-    padding: 25px 0;
 }
 
 li {
@@ -83,6 +83,7 @@ ul:nth-child(2n) {
 
         font-size: 12px;
         gap: 5px;
+
     }
 
     li {

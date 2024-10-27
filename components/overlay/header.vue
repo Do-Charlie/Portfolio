@@ -75,4 +75,11 @@ header {
 .title-logo.is-scrolled {
     opacity: 1;
 }
+
+@media only screen and (max-width: 768px) {
+    .title-logo {
+        margin-top: 5px;
+        font-size: 18px;
+    }
+}
 </style>

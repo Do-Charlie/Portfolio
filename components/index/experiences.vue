@@ -67,6 +67,7 @@ ul {
     max-width: 400px;
     min-width: 200px;
     text-transform: uppercase;
+
 }
 
 li {

@@ -1,37 +1,36 @@
 <template>
-<div class="banner" v-if="banner"> 
-    <NuxtImg class="banner-img" :src="banner.src" preload  
-    ></NuxtImg>
+    <div class="banner" v-if="banner">
+        <NuxtImg class="banner-img" :src="banner.src" preload></NuxtImg>
 
-    <div class="banner-content">
-        <NuxtImg class="logo-content" :src="banner.logo" preload > </NuxtImg>
-        <p class="description"> {{props.banner.description }}</p>
-        <div class="info-content">
-            <div class="info">
-                <h3>Date</h3>
-                <p> {{banner.date}}</p>
+        <div class="banner-content">
+            <NuxtImg class="logo-content" :src="banner.logo" preload> </NuxtImg>
+            <p class="description"> {{ props.banner.description }}</p>
+            <div class="info-content">
+                <div class="info">
+                    <h3>Date</h3>
+                    <p> {{ banner.date }}</p>
+                </div>
+                <div class="info">
+                    <h3>Role </h3>
+                    <p> {{ banner.role }} </p>
+                </div>
+                <div class="info">
+                    <h3>Tags </h3>
+                    <p> {{ banner.tags }}</p>
+                </div>
+                <div class="info">
+                    <h3> Techs</h3>
+                    <p> {{ banner.techs }}</p>
+                </div>
+                <div v-if="banner.link_site" class="info">
+                    <h3> Voir</h3>
+                    <a :href="banner.link_site" target="_blank"> {{ banner.link_site }}</a>
+                </div>
             </div>
-            <div class="info">
-                <h3>Role </h3>
-                <p> {{banner.role}} </p>
-            </div>
-            <div class="info">
-                <h3>Tags </h3>
-                <p> {{ banner.tags }}</p>
-            </div>
-            <div class="info">
-                <h3> Techs</h3>
-                <p> {{banner.techs}}</p>
-            </div>
-            <div v-if="banner.link_site" class="info">
-                <h3> Voir</h3>
-                <a :href="banner.link_site" target="_blank"> {{banner.link_site}}</a>
-            </div>
+
+
         </div>
-
-
-    </div>
-    <div class="discover " :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
+        <div class="discover " :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
 
     </div>
 </template>
@@ -44,32 +43,32 @@ import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 
 const props = defineProps({
-  banner: Object,
+    banner: Object,
 });
-const banner=props.banner;
+const banner = props.banner;
 
 
-onMounted(  () => {
-    myStore.refreshHoverCursor=true;
+onMounted(() => {
+    myStore.refreshHoverCursor = true;
 
 
 });
 </script>
 
 <style scoped>
-
-.banner{
+.banner {
     position: relative;
     width: 100vw;
     height: 100vh;
-    display:flex;
+    display: flex;
     color: rgb(229, 225, 225);
-    font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
+    font-family: 'NeueMontrealRegular', serif;
+    /* Police personnalisée pour les paragraphes */
     letter-spacing: 1px;
 }
 
 
-.banner-img{
+.banner-img {
     position: absolute;
     object-fit: cover;
     height: 100%;
@@ -79,7 +78,7 @@ onMounted(  () => {
     z-index: -1;
 }
 
-.banner-content{
+.banner-content {
     position: absolute;
     width: 20vw;
     min-width: 350px;
@@ -91,8 +90,8 @@ onMounted(  () => {
     gap: 20px;
 }
 
-.info-content{
-    display:flex;
+.info-content {
+    display: flex;
     flex-direction: column;
     margin-top: 30px;
     gap: 30px;
@@ -100,65 +99,81 @@ onMounted(  () => {
 
 }
 
-.logo-content{
-}
+.logo-content {}
 
-.info{
-    display:flex;
+.info {
+    display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.description{
+.description {
     font-size: 14px;
     line-height: 120%;
     word-spacing: 1px;
 
 }
 
-h3{
+h3 {
     font-weight: 300;
     text-transform: uppercase;
     font-size: 14px;
-    font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
+    font-family: 'NeueMontrealRegular', serif;
+    /* Police personnalisée pour les paragraphes */
     color: rgb(255, 255, 255);
 
-    
+
 }
-.info-content p, .info-content a{
-    font-family: 'NeueMontrealRegular', serif; /* Police personnalisée pour les paragraphes */
+
+.info-content p,
+.info-content a {
+    font-family: 'NeueMontrealRegular', serif;
+    /* Police personnalisée pour les paragraphes */
 
     font-weight: 100;
     font-size: 14px;
 }
 
-.info-content a{
+.info-content a {
     color: white;
 }
 
-.info-content a:hover{
+.info-content a:hover {
     color: var(--main-color);
 }
 
 .discover {
-  position: absolute;
-  color: grey;
-  display: flex;
-  justify-content: center;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 32px;
-  text-transform: uppercase;
-  font-weight: 300;
-  transition: opacity var(--duration-opacity) ease-out;
-  opacity: 1;
-  z-index: 5;
+    position: absolute;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 32px;
+    text-transform: uppercase;
+    font-weight: 300;
+    transition: opacity var(--duration-opacity) ease-out;
+    opacity: 1;
+    z-index: 5;
 }
 
 
 
 .hide {
-  opacity: 0;
+    opacity: 0;
 }
 
+@media only screen and (max-width: 768px) {
+    .banner-content {
+
+        padding: 10vh 10%;
+        box-sizing: border-box;
+
+    }
+
+    .logo-content {
+        width: 80%;
+        margin: 0 auto;
+    }
+}
 </style>
