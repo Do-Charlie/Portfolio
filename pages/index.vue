@@ -75,6 +75,10 @@ html.is-animating .transition-fade {
   margin-top: -20vh;
 }
 
+.a-propos .anchor {
+  top: -10%;
+}
+
 .slider-projet {
   height: 100vh;
 
