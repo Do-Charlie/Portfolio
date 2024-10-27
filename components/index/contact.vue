@@ -71,7 +71,7 @@ ul:nth-child(2n) {
 }
 
 .fadeup {
-    transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0;
     transform: translateY(100px);
 }

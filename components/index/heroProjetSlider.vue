@@ -35,7 +35,7 @@ const props = defineProps({
 
 
 let rotationAngle = ref(0);
-const defaultSpeedMultiplier = 0.02;
+const defaultSpeedMultiplier = 0.04;
 
 const speedMultiplier = ref(defaultSpeedMultiplier);
 const slider = ref();
@@ -142,6 +142,7 @@ onMounted(() => {
 
 .banner {
   --translate: 400px;
+  --slider-apparition: 0.5s;
   width: 0px;
   height: 0px;
   left: 0;
@@ -149,7 +150,7 @@ onMounted(() => {
   overflow: hidden;
   position: absolute;
   top: 50%;
-  transition: top 1s ease-in-out, left 1s ease-in-out, height 1s ease-in-out, width 1s ease-in-out;
+  transition: top var(--slider-apparition) ease-in-out, left var(--slider-apparition) ease-in-out, height var(--slider-apparition) ease-in-out, width var(--slider-apparition) ease-in-out;
 }
 
 .banner.is-scrolled {
