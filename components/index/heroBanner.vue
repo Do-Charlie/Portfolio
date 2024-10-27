@@ -120,7 +120,7 @@ watchEffect(() => {
 
 <style scoped>
 .hero {
-  height: 100slvh;
+  height: 100lvh;
   position: relative;
   --animation-text-duration: 1.5s;
 
