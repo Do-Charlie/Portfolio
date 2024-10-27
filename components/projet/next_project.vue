@@ -34,7 +34,7 @@ const banner = props.banner;
 .banner {
     position: relative;
     width: 100vw;
-    height: 100svh;
+    height: 100dvh;
     display: flex;
     color: rgb(229, 225, 225);
     font-family: 'NeueMontrealRegular', serif;
@@ -63,7 +63,7 @@ const banner = props.banner;
 }
 
 .logo {
-    height: 100svh;
+    height: 100dvh;
 }
 
 .banner-content.next {
@@ -78,12 +78,12 @@ const banner = props.banner;
 }
 
 .banner.is-scrolled .banner-content.next {
-    height: 100svh;
+    height: 100dvh;
     pointer-events: none
 }
 
 .banner.is-scrolled .banner-content.logo {
-    height: 0svh;
+    height: 0dvh;
 }
 
 
