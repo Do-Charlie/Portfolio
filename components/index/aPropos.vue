@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container fadeup">
         <ProjetSeparator text="A propos"></ProjetSeparator>
 
         <p class="description">
@@ -37,6 +37,9 @@
                 <IndexContact></IndexContact>
             </div>
         </div>
+
+        <ToolsObserveScroll :threshold=0 element="fadeup"></ToolsObserveScroll>
+
     </div>
 </template>
 
@@ -118,5 +121,16 @@ li:hover {
     justify-content: center;
     font-size: 2em;
 
+}
+
+.fadeup {
+    transition: transform 0.5s ease-in-out, opacity 1s ease-in-out;
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.fadeup.is-scrolled {
+    opacity: 1;
+    transform: translateY(0px);
 }
 </style>

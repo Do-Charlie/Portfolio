@@ -261,24 +261,41 @@
   {
     "id": 5,
     "src": "/slider_projet/portfolio.webp",
-    "title": "Integrations",
+    "title": "Ecompetence",
     "alt": "Description de l'image 6",
     "tags": [
       "Vitrine",
       "Nuxt"
     ],
-    "link": "/projets/portfolio",
-    "name": "portfolio",
+    "link": "/projets/ecompetence",
+    "name": "ecompetence",
     "banner": {
-      "title": "Charlie Do",
-      "src":"/projets/valeos/banner.webp",
-      "logo": "/projets/rcarre/logo.webp",
-      "description": "Mon Portfolio",
-      "date": "2024",
-      "role": "Développeur, Designeur",
-      "tags": " Portfolio, Vitrine",
+      "title": "Ecompetence",
+      "src":"/projets/integrations/banner.webp",
+      "logo": "/projets/integrations/logo.webp",
+      "description": "Réalisation d'un site vitrine",
+      "date": "2023",
+      "role": "Développeur, Integrateur",
+      "tags": " Vitrine",
       "techs": "Nuxt.js",
       "link_site":null
+    },
+    "content": {
+      "media":[
+        {
+          "type":"img",
+          "content":"/projets/integrations/ecompetence_homepage.webp"
+        },
+        {
+          "type":"img",
+          "content":"/projets/integrations/ecompetence_grid.webp"
+        },
+    
+        {
+          "type":"img",
+          "content":"/projets/integrations/ecompetence_contact.webp"
+        }
+      ]
     }
   }
 ]

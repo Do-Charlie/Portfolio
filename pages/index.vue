@@ -23,10 +23,10 @@
       </IndexAPropos>
 
     </div>
-    <div class="test">
+    <!-- <div class="test">
       <input type="text">
     </div>
-    <IndexAnimation></IndexAnimation>
+    <IndexAnimation></IndexAnimation> -->
 
   </div>
 
