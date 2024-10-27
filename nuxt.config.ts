@@ -20,7 +20,5 @@ export default defineNuxtConfig({
     preload: true,
 
   },
-  image: {
-    provider: 'static'
-  }
+  
 })
