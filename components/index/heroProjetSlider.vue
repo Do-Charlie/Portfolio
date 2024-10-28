@@ -154,7 +154,7 @@ onMounted(() => {
 }
 
 .banner.is-scrolled {
-  height: 70%;
+  height: 50%;
   width: 100%;
   transform-origin: center;
   top: 0%;
@@ -199,7 +199,7 @@ onMounted(() => {
 
 
 @media only screen and (min-width: 2399px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 20vw;
   }
 
@@ -225,8 +225,9 @@ onMounted(() => {
 
 
 @media only screen and (max-width: 1400px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 400px;
+    height: 70%;
   }
 
   .banner.is-scrolled .slider {
@@ -239,8 +240,10 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 1024px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 300px;
+    height: 70%;
+
   }
 
   .banner.is-scrolled .slider {
@@ -253,8 +256,9 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 768px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 200px;
+    height: 50%;
   }
 }
 
