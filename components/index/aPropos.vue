@@ -71,7 +71,7 @@ function scrollToSection(sectionIndex) {
     flex: 1;
     gap: 50px;
     box-sizing: border-box;
-    padding-bottom: 10dvh;
+    padding-bottom: 10lvh;
 
 }
 
@@ -137,6 +137,8 @@ li:hover {
     opacity: 1;
     transform: translateY(0px);
 }
+
+
 
 @media only screen and (max-width: 768px) {
 

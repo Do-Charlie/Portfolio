@@ -120,7 +120,7 @@ watchEffect(() => {
 
 <style scoped>
 .hero {
-  height: 100dvh;
+  height: 100lvh;
   position: relative;
   --animation-text-duration: 1.5s;
 
@@ -286,6 +286,17 @@ watchEffect(() => {
 
   100% {
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  nav a {
+    font-size: 12px;
+  }
+
+  .title-container nav {
+    gap: 0px;
+    justify-content: space-around;
   }
 }
 </style>

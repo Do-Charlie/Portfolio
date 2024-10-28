@@ -81,6 +81,18 @@ ul:nth-child(2n) {
     transform: translateY(0px);
 }
 
+@media only screen and (max-width: 1440px) {
+    .container-a-propos {
+        gap: 20px;
+    }
+
+    ul {
+        font-size: 16px;
+        gap: 5px;
+
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .container-a-propos {
         gap: 10px;

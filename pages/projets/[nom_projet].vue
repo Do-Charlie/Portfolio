@@ -2,7 +2,7 @@
     <div v-if="projet">
         <ProjetBanner :banner="projet.banner"> </ProjetBanner>
         <ProjetContent v-if="projet.content" :content="projet.content"></ProjetContent>
-        <!-- <div class="next-project" style="height: 100dvh; width: 100vw;"></div> -->
+        <!-- <div class="next-project" style="height: 100lvh; width: 100vw;"></div> -->
 
         <ProjetNextProject :banner="nextProject.banner" :link="nextProject.link"></ProjetNextProject>
 

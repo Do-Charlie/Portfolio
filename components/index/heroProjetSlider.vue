@@ -226,7 +226,7 @@ onMounted(() => {
 
 @media only screen and (max-width: 1400px) {
   .banner {
-    --translate: 400px;
+    --translate: 350px;
   }
 }
 

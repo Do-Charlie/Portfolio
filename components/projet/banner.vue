@@ -59,7 +59,7 @@ onMounted(() => {
 .banner {
     position: relative;
     width: 100vw;
-    height: 100dvh;
+    height: 100lvh;
     display: flex;
     color: rgb(229, 225, 225);
     font-family: 'NeueMontrealRegular', serif;
@@ -83,7 +83,7 @@ onMounted(() => {
     width: 20vw;
     min-width: 350px;
     right: 10vw;
-    height: 100dvh;
+    height: 100lvh;
     padding: 10vh 0px;
     display: flex;
     flex-direction: column;
@@ -168,12 +168,17 @@ h3 {
 
         padding: 10vh 10%;
         box-sizing: border-box;
-
+        gap: 10px;
     }
 
     .logo-content {
-        width: 80%;
+        width: 50%;
         margin: 0 auto;
+    }
+
+    .description {
+        text-align: justify;
+        margin-top: 30px;
     }
 }
 </style>

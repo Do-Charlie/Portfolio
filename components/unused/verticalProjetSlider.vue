@@ -15,7 +15,7 @@
 <style scoped>
 .banner {
   width: 100%;
-  height: 100dvh;
+  height: 100lvh;
   text-align: center;
   overflow: hidden;
   position: relative;
