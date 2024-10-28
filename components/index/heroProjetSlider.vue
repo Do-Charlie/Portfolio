@@ -211,14 +211,14 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 2400px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 20vw;
   }
 }
 
 
 @media only screen and (max-width: 2000px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 30vw;
   }
 }
@@ -263,7 +263,7 @@ onMounted(() => {
 }
 
 @media only screen and (max-width: 480px) {
-  .banner {
+  .banner.is-scrolled {
     --translate: 130px;
   }
 
