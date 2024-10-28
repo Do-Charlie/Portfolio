@@ -70,6 +70,7 @@ html.is-animating .transition-fade {
 .page-container {
   /* scroll-behavior: smooth; */
   position: relative;
+  padding-bottom: 20lvh;
 }
 
 .container-component {

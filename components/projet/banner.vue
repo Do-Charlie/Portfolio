@@ -99,7 +99,11 @@ onMounted(() => {
 
 }
 
-.logo-content {}
+.logo-content {
+    width: auto;
+    height: 10lvh;
+    margin: 0 auto;
+}
 
 .info {
     display: flex;
@@ -173,6 +177,7 @@ h3 {
 
     .logo-content {
         width: 50%;
+        height: auto;
         margin: 0 auto;
     }
 

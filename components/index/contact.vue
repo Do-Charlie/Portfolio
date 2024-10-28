@@ -44,6 +44,7 @@
 }
 
 ul {
+    margin-top: 50px;
     list-style: none;
     display: flex;
     flex-direction: column;

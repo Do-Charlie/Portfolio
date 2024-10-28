@@ -55,7 +55,7 @@ const myStore = useMyStore();
 .content-projet-container {
     display: flex;
     flex-direction: column;
-    padding: 15vh 15vw;
+    padding: 15vh 20vw;
     gap: 5vw;
 }
 
@@ -99,6 +99,13 @@ img {
     .content-projet-container {
 
         padding: 15vh 25vw;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .content-projet-container {
+
+        padding: 15vh 15vw;
     }
 }
 
