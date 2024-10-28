@@ -1,6 +1,6 @@
 <template>
 
-  <div class="banner ">
+  <div class="banner is-scrolled">
 
     <div class="slider" :style="{ '--quantity': images.length }">
       <div @click="focusElement(image.id)" v-for="(image, index) in images" :key="image.id" class="item"
@@ -17,7 +17,7 @@
     {{ targetIndex }} -->
 
   </div>
-  <ToolsObserveScroll :threshold=0.1 element="banner"></ToolsObserveScroll>
+  <!-- <ToolsObserveScroll :threshold=0.1 element="banner"></ToolsObserveScroll> -->
 
 </template>
 
@@ -154,7 +154,7 @@ onMounted(() => {
 }
 
 .banner.is-scrolled {
-  height: 50%;
+  height: 70%;
   width: 100%;
   transform-origin: center;
   top: 0%;
@@ -226,7 +226,15 @@ onMounted(() => {
 
 @media only screen and (max-width: 1400px) {
   .banner {
-    --translate: 350px;
+    --translate: 400px;
+  }
+
+  .banner.is-scrolled .slider {
+
+    --slider-width: calc(130% / 5);
+    width: var(--slider-width);
+    height: calc(var(--slider-width) * 1.5);
+
   }
 }
 
