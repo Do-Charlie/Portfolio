@@ -93,6 +93,8 @@ html.is-animating .transition-fade {
   height: 100lvh;
 }
 
+
+
 .anchor {
   position: absolute;
   top: -25%;

@@ -23,14 +23,15 @@
             </ul>
         </nav>
 
-        <div class="content" ref="contentContainer">
-            <div class="content-container">
+        <div class="content ">
+            <div v-if="menu == 0" class="content-container fadeInRight">
                 <IndexCompetences />
+
             </div>
-            <div class="content-container">
+            <div v-if="menu == 1" class="content-container fadeInRight">
                 <IndexExperiences></IndexExperiences>
             </div>
-            <div class="content-container">
+            <div v-if="menu == 2" class="content-container fadeInRight">
                 <IndexServices></IndexServices>
             </div>
             <!-- <div class="content-container">
@@ -71,8 +72,7 @@ function scrollToSection(sectionIndex) {
     flex: 1;
     gap: 50px;
     box-sizing: border-box;
-    padding-bottom: 10lvh;
-
+    min-height: 100lvh;
 }
 
 .description {
@@ -125,6 +125,21 @@ li:hover {
     justify-content: center;
     font-size: 2em;
 
+
+}
+
+.fadeInRight {
+    opacity: 0;
+    animation: fadeInRight 0.2s linear;
+    -webkit-animation-fill-mode: forwards;
+    /* Chrome 16+, Safari 4+ */
+    -moz-animation-fill-mode: forwards;
+    /* FF 5+ */
+    -o-animation-fill-mode: forwards;
+    /* Not implemented yet */
+    -ms-animation-fill-mode: forwards;
+    /* IE 10+ */
+    animation-fill-mode: forwards;
 }
 
 .fadeup {
@@ -138,7 +153,21 @@ li:hover {
     transform: translateY(0px);
 }
 
+@keyframes fadeInRight {
 
+    0% {
+        opacity: 0;
+        transform: translateX(50vw);
+
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+
+    }
+
+}
 
 @media only screen and (max-width: 768px) {
 
