@@ -3,7 +3,7 @@
         <ProjetSeparator text="Contact"></ProjetSeparator>
 
         <ul class="left"> Email
-            <li> <a href="mailto:charlie.do2604@gmail.com"> charlie.do2604@gmail.com</a> </li>
+            <li> <a href="mailto:charliedo.pro@gmail.com"> charliedo.pro@gmail.com</a> </li>
 
         </ul>
         <ul class="left"> Malt
