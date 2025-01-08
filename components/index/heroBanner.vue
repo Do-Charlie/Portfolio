@@ -141,7 +141,7 @@ watchEffect(() => {
 .title-container {
   display: flex;
   flex-direction: column;
-  font-size: 14vw;
+  font-size: 12vw;
   font-weight: 100;
   text-transform: uppercase;
   z-index: 1;
