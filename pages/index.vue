@@ -2,40 +2,9 @@
   <div class="page-container">
     <IndexHeroBanner></IndexHeroBanner>
 
-    <div class="slider-projet container-component">
-      <div id="projets" class="anchor">
 
-      </div>
-      <!-- <BackgroundPopSquare ></BackgroundPopSquare> -->
-      <!-- Preload toutes les banieres -->
-      <div style="display:none">
-        <NuxtImg v-for="(project, index) in projects" :key="index" :src="project.banner.src" preload
-          alt="Preload project banner" />
-      </div>
 
-      <IndexHeroProjetSlider></IndexHeroProjetSlider>
-    </div>
-    <div class="a-propos container-component">
-      <div id="propos" class="anchor">
-      </div>
-      <IndexAPropos>
 
-      </IndexAPropos>
-
-    </div>
-    <div class="a-propos container-component">
-      <div id="contact" class="anchor">
-      </div>
-      <IndexContact>
-
-      </IndexContact>
-
-    </div>
-
-    <!-- <div class="test">
-      <input type="text">
-    </div>
-    <IndexAnimation></IndexAnimation> -->
 
   </div>
 
@@ -70,7 +39,6 @@ html.is-animating .transition-fade {
 .page-container {
   /* scroll-behavior: smooth; */
   position: relative;
-  padding-bottom: 20lvh;
 }
 
 .container-component {

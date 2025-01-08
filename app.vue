@@ -50,6 +50,11 @@ onBeforeUnmount(() => {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@100;200;300;400;500;600;700;800;900&display=swap');
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Alumni+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @font-face {
   font-family: 'NeueMontrealRegular';
   src: url('@/assets/fonts/PPNeueMontreal-Thin.otf') format('opentype');
@@ -71,7 +76,7 @@ html,
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Source Serif 4', serif;
+  font-family: 'Alumni Sans', 'Source Serif 4', serif;
   box-sizing: border-box;
   -ms-overflow-style: none;
   /* Internet Explorer 10+ */
@@ -85,6 +90,8 @@ html,
 p {
   font-family: 'NeueMontrealRegular', serif;
   /* Police personnalisée pour les paragraphes */
+  letter-spacing: 2px;
+
   font-weight: 100;
 
 }

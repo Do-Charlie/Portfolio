@@ -1,5 +1,6 @@
 <template>
       <OverlayHeader></OverlayHeader>
+      <BackgroundPopSquare></BackgroundPopSquare>
 
       <slot> </slot>
       <OverlayFooter></OverlayFooter>

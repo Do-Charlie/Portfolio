@@ -1,20 +1,17 @@
 <template>
-    <header>
+    <header v-if="!isHomePage()">
         <div class="title-container">
 
-            <NuxtLink v-if="isHomePage()" @click="myStore.scrollTo('heroBanner')" class="title-logo "
-                :class="{ 'is-scrolled': myStore.scrollY > 10 }">
+            <NuxtLink to="/" class="title-logo ">
                 Charlie Do
 
             </NuxtLink>
-            <NuxtLink v-else to="/" class="title-logo is-scrolled"> Charlie Do</NuxtLink>
 
         </div>
         <nav>
-            <!-- <NuxtLink to="/" class="linear "> Projets</NuxtLink>
-            <NuxtLink to="/" class="linear "> FRONT</NuxtLink>
-            <NuxtLink to="/" class="linear "> Contact</NuxtLink>
-            <NuxtLink to="/" class="linear "> Lang</NuxtLink> -->
+            <NuxtLink to="/" class="linear "> Projets</NuxtLink>
+            <NuxtLink to="/" class="linear "> Services</NuxtLink>
+            <NuxtLink to="/" class="linear "> A propos</NuxtLink>
 
         </nav>
     </header>
@@ -53,7 +50,7 @@ header {
 }
 
 .title-container {
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: row;
 }
@@ -62,19 +59,18 @@ header {
 .title-logo {
     font-weight: 100;
     text-transform: uppercase;
-    font-size: 24px;
-    opacity: 0;
+    font-size: 50px;
+    letter-spacing: 2px;
+
     transition: opacity 0.2s ease-in-out;
-    color: rgba(128, 128, 128, 0.853);
+    color: var(--main-color);
+    margin-top: 20px;
 }
 
 .title-logo:hover {
     color: var(--main-color);
 }
 
-.title-logo.is-scrolled {
-    opacity: 1;
-}
 
 @media only screen and (max-width: 768px) {
     .title-logo {

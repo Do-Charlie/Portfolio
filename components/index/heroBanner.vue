@@ -1,6 +1,5 @@
 <template>
   <div class="container hero" id="heroBanner">
-    <BackgroundPopSquare v-if="myStore.scrollY < 2000"></BackgroundPopSquare>
 
     <div class="content-hero">
 
@@ -13,13 +12,13 @@
           </div>
         </span>
         <nav>
-          <NuxtLink @click="myStore.scrollTo('projets')" class="nav-link pointer">
+          <NuxtLink to="/projets" class="nav-link pointer">
             [ Projet ]
           </NuxtLink>
-          <NuxtLink @click="myStore.scrollTo('propos')" class="nav-link pointer">
+          <NuxtLink class="nav-link pointer">
             [ A propos ]
           </NuxtLink>
-          <NuxtLink @click="myStore.scrollTo('contact')" class="nav-link pointer">
+          <NuxtLink class="nav-link pointer">
             [ Contact ]
           </NuxtLink>
         </nav>
@@ -29,7 +28,6 @@
 
     </div>
 
-    <div class="discover linear pointer" :class="{ 'hide': myStore.scrollY > 100 }">Scroll</div>
 
   </div>
 
@@ -126,18 +124,6 @@ watchEffect(() => {
 
 }
 
-.discover {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 32px;
-  text-transform: uppercase;
-  font-weight: 300;
-  transition: opacity var(--duration-opacity) ease-out;
-  opacity: 1;
-}
 
 
 
@@ -161,19 +147,23 @@ watchEffect(() => {
 .title-container {
   display: flex;
   flex-direction: column;
-  font-size: 10vw;
-  font-weight: 300;
+  font-size: 14vw;
+  font-weight: 100;
   text-transform: uppercase;
   z-index: 1;
+
 }
 
 .title-container nav {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: 14px;
-  gap: 30px;
+  font-size: 24px;
+  font-weight: 300;
+  margin-top: 20px;
+  gap: 50px;
   text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .nav-link {
@@ -198,7 +188,8 @@ watchEffect(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+
 }
 
 .tech {
@@ -219,6 +210,9 @@ watchEffect(() => {
   width: fit-content;
   transition: color .2s ease-in-out;
   color: rgba(0, 0, 0, 0);
+  line-height: 90%;
+  letter-spacing: 12px;
+
   background-position: right;
   /* animation: no-rainbow 1.5s ease-in-out ; */
   /* animation-fill-mode: forwards; */
@@ -258,7 +252,7 @@ watchEffect(() => {
   }
 
   100% {
-    letter-spacing: normal;
+    letter-spacing: 12px;
     opacity: 1;
   }
 }
@@ -274,7 +268,7 @@ watchEffect(() => {
   }
 
   100% {
-    letter-spacing: normal;
+    letter-spacing: 12px;
     opacity: 1;
   }
 }
