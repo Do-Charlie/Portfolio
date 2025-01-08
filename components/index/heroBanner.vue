@@ -65,13 +65,7 @@ const updateTitleClass = () => {
 };
 
 const appearNav = async () => {
-  // setTimeout(() => {
-  //   const navLinks = document.querySelectorAll('.nav-link');
-  //   navLinks.forEach((link) => {
 
-  //     link.classList.remove('appear');
-  //   });
-  // }, 0); // Duration of both animations combined
 
   setTimeout(() => {
     if (!document) return;
@@ -158,7 +152,7 @@ watchEffect(() => {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 300;
   margin-top: 20px;
   gap: 50px;
@@ -171,7 +165,7 @@ watchEffect(() => {
 }
 
 .nav-link.appear {
-  animation: appear 2s ease-in-out;
+  animation: appear 1s ease-in-out;
   animation-fill-mode: forwards;
 
 }
@@ -188,7 +182,7 @@ watchEffect(() => {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 30px;
+  gap: 0px;
 
 }
 
@@ -198,6 +192,8 @@ watchEffect(() => {
   height: 100%;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding-bottom: 10px;
 
 }
 
@@ -210,7 +206,7 @@ watchEffect(() => {
   width: fit-content;
   transition: color .2s ease-in-out;
   color: rgba(0, 0, 0, 0);
-  line-height: 90%;
+  line-height: 80%;
   letter-spacing: 12px;
 
   background-position: right;

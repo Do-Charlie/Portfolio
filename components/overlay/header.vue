@@ -2,16 +2,18 @@
     <header v-if="!isHomePage()">
         <div class="title-container">
 
-            <NuxtLink to="/" class="title-logo ">
+            <NuxtLink to="/" class="title-logo header-nav-link">
                 Charlie Do
 
             </NuxtLink>
 
         </div>
         <nav>
-            <NuxtLink to="/" class="linear "> Projets</NuxtLink>
-            <NuxtLink to="/" class="linear "> Services</NuxtLink>
-            <NuxtLink to="/" class="linear "> A propos</NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link"> [ Accueil ]</NuxtLink>
+
+            <NuxtLink to="/" class=" header-nav-link" :class="{ 'active': isPage('/projets') }"> [ Projets ]</NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link"> [ Services ]</NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link">[ A propos ]</NuxtLink>
 
         </nav>
     </header>
@@ -29,8 +31,42 @@ const route = useRoute();
 function isHomePage() {
     return route.path === '/';
 }
+function isPage(page) {
+    console.log(route.path)
+    return route.path == page;
+}
+
+const appearNav = async () => {
+
+    setTimeout(() => {
+        if (!document) return;
+        const navLinks = document.querySelectorAll('.header-nav-link');
+
+        let delay = 0;
+        navLinks.forEach((link) => {
+
+            link.style.animationDelay = `${delay}s`;
+            link.classList.add('appear');
+            delay += 0.3; // Increment the delay for each element
+        });
+        myStore.refreshHoverCursor = true;
+
+    }, 100); // Duration of both animations combined
 
 
+}
+
+
+
+
+watchEffect(() => {
+    if ((myStore.theme || route) && !isHomePage()) {
+
+        appearNav();
+
+    }
+
+})
 </script>
 
 <style scoped>
@@ -45,7 +81,9 @@ header {
     justify-content: space-between;
     z-index: 100;
     box-sizing: border-box;
-    height: 22px;
+
+    padding-top: 20px;
+
 
 }
 
@@ -57,20 +95,55 @@ header {
 
 
 .title-logo {
-    font-weight: 100;
+    font-weight: 200;
     text-transform: uppercase;
-    font-size: 50px;
+    font-size: 32px;
     letter-spacing: 2px;
 
     transition: opacity 0.2s ease-in-out;
     color: var(--main-color);
-    margin-top: 20px;
 }
 
 .title-logo:hover {
-    color: var(--main-color);
+    color: var(--color);
 }
 
+nav {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 20px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.header-nav-link {
+    opacity: 0;
+}
+
+.header-nav-link.appear {
+    animation: appear 1s ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+.active {
+    font-weight: 400;
+    color: var(--color);
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
 
 @media only screen and (max-width: 768px) {
     .title-logo {

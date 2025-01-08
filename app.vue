@@ -137,7 +137,7 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
-  --background: #0a0a0a;
+  --background: #151414;
   --color: #d6d2d2;
 
   --animation-color: #1f2a52;
