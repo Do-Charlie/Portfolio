@@ -13,7 +13,7 @@
 
             <NuxtLink to="/" class=" header-nav-link" :class="{ 'active': isPage('/projets') }"> [ Projets ]</NuxtLink>
             <NuxtLink to="/" class=" header-nav-link"> [ Services ]</NuxtLink>
-            <NuxtLink to="/" class=" header-nav-link">[ A propos ]</NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link">[ Contact ]</NuxtLink>
 
         </nav>
     </header>

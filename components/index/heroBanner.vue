@@ -13,10 +13,10 @@
         </span>
         <nav>
           <NuxtLink to="/projets" class="nav-link pointer">
-            [ Projet ]
+            [ Projets ]
           </NuxtLink>
           <NuxtLink class="nav-link pointer">
-            [ A propos ]
+            [ Services ]
           </NuxtLink>
           <NuxtLink class="nav-link pointer">
             [ Contact ]
