@@ -9,7 +9,6 @@
 
         </div>
         <nav>
-            <NuxtLink to="/" class=" header-nav-link appear"> [ Accueil ]</NuxtLink>
 
             <NuxtLink to="/projets" class=" header-nav-link appear" :class="{ 'active': isActive('/projets') }"> [
                 Projets
@@ -18,7 +17,6 @@
             <NuxtLink to="/services" class=" header-nav-link appear" :class="{ 'active': isActive('/services') }"> [
                 Services ]
             </NuxtLink>
-            <NuxtLink to="/" class=" header-nav-link appear">[ Contact ]</NuxtLink>
 
         </nav>
     </header>
@@ -116,8 +114,9 @@ nav {
     display: flex;
     flex: 1;
     flex-direction: row;
-    justify-content: center;
-    gap: 3rem;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-right: 1rem;
     font-size: 20px;
     font-weight: 300;
     text-transform: uppercase;

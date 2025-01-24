@@ -18,9 +18,7 @@
           <NuxtLink to="/services" class="nav-link pointer">
             [ Services ]
           </NuxtLink>
-          <NuxtLink class="nav-link pointer">
-            [ Contact ]
-          </NuxtLink>
+
         </nav>
       </div>
 
