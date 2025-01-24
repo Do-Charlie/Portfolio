@@ -39,6 +39,8 @@ html.is-animating .transition-fade {
 .page-container {
   /* scroll-behavior: smooth; */
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 .container-component {

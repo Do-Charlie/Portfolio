@@ -3,7 +3,7 @@
 
     /* Durée de l'animation */
     --duration-fadein: 1s;
-    --delay-fadein:4s;
+    --delay-fadein:1.5s;
     /* Toutes les propriétés d'animation en une seule déclaration */
     animation: fadein linear var(--duration-fadein) var(--delay-fadein) forwards;
     

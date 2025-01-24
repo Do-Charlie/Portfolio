@@ -1,6 +1,6 @@
 <template>
     <div class="options-container fadein">
-        <div class="socials fadein">
+        <div class="socials ">
             <a href="https://www.linkedin.com/in/charlie-do-3a6a07201/" target="_blank">
                 <svg xmlns="http://www.w3.org/2000/svg" class="socials-icons" width="24" height="24"
                     viewBox="0 0 24 24">
@@ -41,8 +41,6 @@ const myStore = useMyStore();
 </script>
 
 <style scoped>
-@import url("~/assets/css/fadein.css");
-
 .options-container {
     color: white;
     position: fixed;
@@ -76,5 +74,64 @@ const myStore = useMyStore();
     fill: var(--main-color);
 }
 
-.socials img {}
+.fadein {
+    opacity: 0;
+
+    /* Durée de l'animation */
+    --duration-fadein: 1s;
+    --delay-fadein: 1s;
+    /* Toutes les propriétés d'animation en une seule déclaration */
+    animation: fadein linear var(--duration-fadein) var(--delay-fadein) forwards;
+
+    /* Compatibilité pour Firefox, Safari, Chrome et Opera */
+    -moz-animation: fadein linear var(--duration-fadein) var(--delay-fadein) forwards;
+    -webkit-animation: fadein linear var(--duration-fadein) var(--delay-fadein) forwards;
+    -o-animation: fadein linear var(--duration-fadein) var(--delay-fadein) forwards;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadein {
+
+    /* sur Firefox */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein {
+
+    /* sur Safari et Chrome */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein {
+
+    /* sur Opera */
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
 </style>
