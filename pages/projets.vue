@@ -3,8 +3,8 @@
         <main>
             <div class="slider" ref="slider">
                 <div class="slider-inner">
-                    <div class="item" v-for="(image, index) in imagesList" :key="index">
-                        <div class="img" :style="{ backgroundImage: `url(${image})` }"></div>
+                    <div class="item" v-for="(projet, index) in projets" :key="index">
+                        <div class="img" :style="{ backgroundImage: `url(${projet.src})` }"></div>
                     </div>
                 </div>
             </div>
@@ -14,7 +14,8 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-
+import projetsJson from '~/assets/data/projets.json';
+const projets = projetsJson;
 // Référence aux éléments
 const images = ref([]);
 const slider = ref(null);
@@ -23,7 +24,7 @@ const current = ref(0);
 const target = ref(0);
 const ease = 0.1;
 const pageContainer = ref();
-
+const imageWidth = ref();
 // Liste d'images pour le défilement
 const imagesList = [
     "/slider_projet/viaresp.webp",
@@ -46,9 +47,9 @@ function setTransform(el, transform) {
 // Initialisation de la largeur du slider
 function init() {
     // Calcul de la largeur totale du slider
-    sliderWidth.value = images.value.length * (400 + 20); // 400px largeur + 20px marge
+    sliderWidth.value = images.value.length * (800 + 50); // 400px largeur + 20px marge
     slider.value.style.width = `${sliderWidth.value}px`;
-
+    imageWidth.value = sliderWidth.value / imagesList.length;
     // Ajuster la hauteur du body pour activer le scroll
     pageContainer.value.style.height = `${sliderWidth.value - window.innerWidth + window.innerHeight}px`;
 }
@@ -61,20 +62,39 @@ function animate() {
 
     // Appliquer la transformation au slider
     setTransform(slider.value, `translateX(-${current.value}px)`);
-
+    // animateImages();
     // Boucle d'animation
     requestAnimationFrame(animate);
 }
 
-// Montage
+// Animation des images individuelles
+function animateImages() {
+    if (!imageWidth.value) return;
+
+    const ratio = current.value / imageWidth.value;
+
+    images.value.forEach((image, index) => {
+        const intersectionRatioValue = ratio - index;
+        const offset = intersectionRatioValue * 10; // Ajuste l'effet de décalage
+        setTransform(image, `translateX(${offset}px)`);
+    });
+}
+function handleResize() {
+    init(); // Recalculer les dimensions
+}// Montage
 onMounted(() => {
     // Obtenir les images
     images.value = [...document.querySelectorAll(".img")];
     // Initialiser le slider
     init();
+    window.addEventListener("resize", handleResize);
 
     // Démarrer l'animation
     animate();
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener("resize", handleResize);
 });
 </script>
 
@@ -84,8 +104,8 @@ onMounted(() => {
 main {
     position: fixed;
     top: 0;
-    left: 10%;
-    width: 80%;
+    left: 5%;
+    width: 90%;
     height: 100vh;
     overflow: hidden;
 }
@@ -98,25 +118,37 @@ main {
     height: 100%;
     display: flex;
     will-change: transform;
-    /* Optimisation pour les animations */
+
 }
 
 /* Conteneur interne pour alignement */
 .slider-inner {
     position: absolute;
-    top: 15%;
-    height: 70%;
+    top: 10%;
+    height: 80%;
     display: flex;
     justify-content: space-between;
+
+
+    /* Activation du défilement */
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    /* Snap horizontal obligatoire */
+    scroll-behavior: smooth;
+    /* Comportement lisse */
 }
 
 /* Éléments individuels */
 .item {
     flex: 0 0 auto;
-    width: 400px;
+    width: 800px;
     height: 100%;
-    margin-right: 20px;
+    margin-right: 200px;
     overflow: hidden;
+
+    /* Point d'arrêt pour le snap */
+    scroll-snap-align: center;
+    /* Chaque item s'aligne au centre */
 }
 
 /* Images avec styles */
