@@ -15,7 +15,7 @@
           <NuxtLink to="/projets" class="nav-link pointer">
             [ Projets ]
           </NuxtLink>
-          <NuxtLink class="nav-link pointer">
+          <NuxtLink to="/services" class="nav-link pointer">
             [ Services ]
           </NuxtLink>
           <NuxtLink class="nav-link pointer">

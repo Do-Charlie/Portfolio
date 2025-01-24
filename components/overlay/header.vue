@@ -1,5 +1,5 @@
 <template>
-    <header v-if="!isHomePage()">
+    <header>
         <div class="title-container">
 
             <NuxtLink to="/" class="title-logo header-nav-link">
@@ -9,11 +9,16 @@
 
         </div>
         <nav>
-            <NuxtLink to="/" class=" header-nav-link"> [ Accueil ]</NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link appear"> [ Accueil ]</NuxtLink>
 
-            <NuxtLink to="/" class=" header-nav-link" :class="{ 'active': isPage('/projets') }"> [ Projets ]</NuxtLink>
-            <NuxtLink to="/" class=" header-nav-link"> [ Services ]</NuxtLink>
-            <NuxtLink to="/" class=" header-nav-link">[ Contact ]</NuxtLink>
+            <NuxtLink to="/projets" class=" header-nav-link appear" :class="{ 'active': isActive('/projets') }"> [
+                Projets
+                ]
+            </NuxtLink>
+            <NuxtLink to="/services" class=" header-nav-link appear" :class="{ 'active': isActive('/services') }"> [
+                Services ]
+            </NuxtLink>
+            <NuxtLink to="/" class=" header-nav-link appear">[ Contact ]</NuxtLink>
 
         </nav>
     </header>
@@ -28,12 +33,9 @@ import { useMyStore } from '~/stores/myStore.js';
 const myStore = useMyStore();
 const route = useRoute();
 
-function isHomePage() {
-    return route.path === '/';
-}
-function isPage(page) {
-    console.log(route.path)
-    return route.path == page;
+
+function isActive(path) {
+    return route.path.startsWith(path)
 }
 
 const appearNav = async () => {
@@ -42,6 +44,10 @@ const appearNav = async () => {
         if (!document) return;
         const navLinks = document.querySelectorAll('.header-nav-link');
 
+        navLinks.forEach((link) => {
+
+            link.classList.remove('appear');
+        });
         let delay = 0;
         navLinks.forEach((link) => {
 
@@ -56,17 +62,15 @@ const appearNav = async () => {
 
 }
 
+onMounted(() => {
+    console.log('la')
+    appearNav();
 
-
-
-watchEffect(() => {
-    if ((myStore.theme || route) && !isHomePage()) {
-
-        appearNav();
-
-    }
 
 })
+
+
+
 </script>
 
 <style scoped>
