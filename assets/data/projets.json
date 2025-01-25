@@ -1,14 +1,12 @@
 [
   {
-    "id": 0,
     "src": "/slider_projet/valeos.webp",
     "title": "Valeos",
-    "alt": "Description de l'image 1",
     "tags": [
       "Vitrine",
-      "Energies",
-      "Nuxt"
+      "Energies"
     ],
+    "techs": "Nuxt.js",
     "link": "/projets/valeos",
     "name": "valeos",
     "banner": {
@@ -18,8 +16,6 @@
       "description": "Intégration d'une maquette pour le site vitrine d'une entreprise spécialisée dans les énergies.",
       "date": "2023 - 2 jours",
       "role": "Développeur, Integrateur",
-      "tags": " Vitrine, Energies, Integration",
-      "techs": "Nuxt.js",
       "link_site":"https://valeos.fr/"
     },
     "content": {
@@ -48,15 +44,14 @@
     }
   },
   {
-    "id": 1,
     "src": "/slider_projet/viaresp.webp",
     "title": "Viaresp",
-    "alt": "Description de l'image AFFEZA",
     "tags": [
       "Site",
       "Viager",
-      "Nuxt"
+      "API"
     ],
+    "techs": "Nuxt.js, Express.js, MySQL",
     "link": "/projets/viaresp",
     "name": "viaresp",
     "banner": {
@@ -67,7 +62,6 @@
       "date": "2024",
       "role": "Développeur FullStack, Integration",
       "tags": " Site, Viager, API, Simulateur",
-      "techs": "Nuxt.js, Express.js, MySQL",
       "link_site":null
 
     },
@@ -98,26 +92,24 @@
     }
   },
   {
-    "id": 2,
     "src": "/slider_projet/topgameserver.webp",
-    "title": "VPS",
-    "alt": "Description de l'image 3",
+    "title": "TopGames",
     "tags": [
       "Site",
       "Serveurs",
       "Nuxt"
     ],
+    "techs": "Nuxt.js, Express.js, MySQL",
     "link": "/projets/topgameserver",
     "name": "topgameserver",
     "banner": {
-      "title":"Top Game Servers",
+      "title":"TopGames",
       "src":"/projets/topgameservers/banner.webp",
       "logo": "/projets/topgameservers/logo.webp",
       "description": "Site communautaire de recensement de serveur privé de jeux vidéo",
       "date": "2023 ",
       "role": "Développeur FullStack, Integrateur",
       "tags": " Site, Communautaire,  VPS",
-      "techs": "Nuxt.js, Express.js, MySQL",
       "link_site":"https://top-gameservers.com/"
 
     },
@@ -152,15 +144,13 @@
     }
   },
   {
-    "id": 3,
     "src": "/slider_projet/niceweb.webp",
-    "title": "ISI NiceWeb",
-    "alt": "Description de l'image 4",
+    "title": "NiceWeb",
     "tags": [
       "ERP",
-      "Interne",
-      "PHP"
+      "Interne"
     ],
+    "techs": "PHP, MySQL",
     "link": "/projets/niceweb",
     "name": "niceweb",
     "banner": {
@@ -170,8 +160,6 @@
       "description": "Refonte de l'ERP interne, ajouts de fonctions, comptabilité, statistiques, facturations.",
       "date": "2022 ",
       "role": "Développeur FullStack",
-      "tags": " ERP, Interne",
-      "techs": "PHP, MySQL",
       "link_site":null
     },
     "content": {
@@ -209,15 +197,14 @@
     }
   },
   {
-    "id": 4,
     "src": "/slider_projet/planning.webp",
     "title": "Rplanning",
-    "alt": "Application de plannification d'équipe pour Rcarré",
     "tags": [
       "Application",
-      "Planning",
-      "Laravel"
+      "Planning"
     ],
+    "techs": "Laravel, Vue.js, API, EWS",
+
     "link": "/projets/rcarre",
     "name": "rcarre",
     "banner": {
@@ -227,8 +214,7 @@
       "description": "Application dedié au manager permettant de gerer le planning des techniciens. Relié via API à l'ERP de la boite (congés, absence, homeworking automatiquement importées) et à Outlook via EWS afin que les techniciens aient directement leurs tâches retranscrisent dans leur calendrier Outlook.",
       "date": "2024 ",
       "role": "Développeur FullStack, Designeur",
-      "tags": " Application, Planning, Interne",
-      "techs": "Laravel, Vue.js, API, EWS",
+ 
       "link_site":null
     },
     "content": {
@@ -259,25 +245,24 @@
     }
   },
   {
-    "id": 5,
     "src": "/slider_projet/portfolio.webp",
-    "title": "Ecompetence",
-    "alt": "Description de l'image 6",
+    "title": "Ecomp",
     "tags": [
       "Vitrine",
-      "Nuxt"
+      "Formation"
     ],
+    "techs": "Nuxt.js",
+
     "link": "/projets/ecompetence",
     "name": "ecompetence",
     "banner": {
-      "title": "Ecompetence",
+      "title": "Ecomp",
       "src":"/projets/integrations/banner.webp",
       "logo": "/projets/integrations/logo.webp",
       "description": "Réalisation d'un site vitrine",
       "date": "2023",
       "role": "Développeur, Integrateur",
-      "tags": " Vitrine",
-      "techs": "Nuxt.js",
+   
       "link_site":null
     },
     "content": {

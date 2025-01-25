@@ -3,160 +3,149 @@
         <main>
             <div class="slider" ref="slider">
                 <div class="slider-inner">
-                    <div class="item" v-for="(projet, index) in projets" :key="index">
-                        <div class="img" :style="{ backgroundImage: `url(${projet.src})` }">
+                    <div class="item pointer" v-for="(projet, index) in projets" :key="index" :class="getScrollClass()"
+                        :style="index === 0 ? { marginLeft: `30vw` } : {}" @click="itemSelected = index">
+                        <div class="img" :style="{ backgroundImage: `url(${projet.src})` }"
+                            :class="{ 'active': itemSelected == index }">
 
-                            <h4 style="display:flex;align-items: center;justify-content: center;font-size:50px;">
+                        </div>
+                        <div class="techs-container">
 
-                                {{ projet.name }}
-                            </h4>
+                        </div>
+                        <div class="item-container">
+                            <h3>
+                                {{ projet.banner.title }}
+                            </h3>
+                            <p class="tags-container">
+                                <span v-for="(tag, index) in projet.tags" :key="index" class="tag">
+                                    [ {{ tag }} ]
+                                </span>
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="discover linear pointer" :class="{ hide: myStore.scrollY > 100 }">Scroll Down</div>
         </main>
     </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
-import projetsJson from '~/assets/data/projets.json';
-const projets = projetsJson;
-// Référence aux éléments
-const items = ref([]);
+import { ref, onMounted, onBeforeUnmount } from "vue";
+import { useMyStore } from "~/stores/myStore.js";
+
+const myStore = useMyStore();
+const projets = (await import("~/assets/data/projets.json")).default;
+
 const slider = ref(null);
-const sliderWidth = ref(0);
-const current = ref(0);
-const target = ref(0);
-const ease = 1;
 const pageContainer = ref();
-const imageWidth = ref();
-// Liste d'images pour le défilement
+const items = ref([]);
+
+const currentScroll = ref(0);
+const lastScroll = ref(0);
+const target = ref(0);
+const current = ref(0);
+const ease = 0.1;
+const imageWidth = ref(0);
+
+const itemSelected = ref();
+
+// Fonction pour appliquer les classes CSS en fonction du sens du scroll
+function getScrollClass() {
 
 
-// Fonction d'interpolation linéaire
+    // Tolérance pour ignorer les petites variations
+    const tolerance = 5;
+
+    // Si le défilement est à zéro
+    if (currentScroll.value === 0 || Math.abs(currentScroll.value - lastScroll.value) > 50) {
+        return "is-not-scroll";
+    }
+
+    // Si le défilement va vers le bas
+    if (currentScroll.value > lastScroll.value + tolerance) {
+        return "is-scroll-down";
+    }
+
+    // Si le défilement va vers le haut
+    if (currentScroll.value < lastScroll.value - tolerance) {
+        return "is-scroll-up";
+    }
+
+    // Sinon, aucune action de défilement significative
+    return "is-not-scroll";
+}
+
+
+// Fonction d'interpolation pour lisser le défilement
 function lerp(start, end, t) {
     return start * (1 - t) + end * t;
 }
 
-// Fonction pour appliquer une transformation
-function setTransform(el, transform) {
-    el.style.transform = transform;
-}
-
-
-
-// Initialisation de la largeur du slider
-function init() {
-    // Calcul de la largeur totale du slider
-    sliderWidth.value = items.value.length * (window.innerWidth * 0.4 + window.innerWidth * 0.12); // 400px largeur + 20px marge
-    slider.value.style.width = `${sliderWidth.value}px`;
-    imageWidth.value = sliderWidth.value / projets.length;
-    // Ajuster la hauteur du body pour activer le scroll
-    pageContainer.value.style.height = `${sliderWidth.value - window.innerWidth + window.innerHeight}px`;
-}
-
-// Animation lissée du défilement
+// Fonction pour mettre à jour le positionnement du slider
 function animate() {
-    // Interpolation linéaire entre la position actuelle et la cible
-    current.value = lerp(current.value, target.value, ease);
-    target.value = window.scrollY;
+    current.value = lerp(current.value, target.value, ease); // Lissage
+    slider.value.style.transform = `translateX(-${current.value}px)`;
+    slider.value.classList.remove("is-scroll-up", "is-scroll-down", "is-not-scroll");
+    slider.value.classList.add(getScrollClass());
+    // Mise à jour des classes des items en fonction du scroll
+    // items.value.forEach((item) => {
+    //     item.classList.remove("is-scroll-up", "is-scroll-down", "is-not-scroll");
+    //     item.classList.add(getScrollClass());
+    // });
 
-    // Appliquer la transformation au slider
-    setTransform(slider.value, `translateX(-${current.value}px)`);
-    animateImages();
-    // Boucle d'animation
     requestAnimationFrame(animate);
 }
 
+// Initialisation du slider
+function initSlider() {
+    const item = document.querySelector(".item");
+    const itemWidth = item.offsetWidth + parseFloat(getComputedStyle(item).marginRight);
+    const sliderWidth = projets.length * itemWidth + itemWidth; // Ajout de la marge gauche pour le premier élément
 
-let isScrolling = null; // Timer pour détecter l'inactivité du scroll
-let isUserScrolling = false; // Flag pour détecter si un défilement est en cours
-
-function animateImages() {
-    if (!imageWidth.value || !isUserScrolling) return; // Ne rien faire si pas de défilement
-
-    // Déterminer la direction du scroll
-    const direction = current.value > target.value ? 1 : -1;
-    const skewAmount = 5 * direction;
-
-    items.value.forEach((item) => {
-        // Inclinaison fixe pendant le défilement
-        setTransform(item, `skew(${skewAmount}deg)`);
-    });
+    slider.value.style.width = `${sliderWidth}px`;
+    pageContainer.value.style.height = `${sliderWidth - window.innerWidth + window.innerHeight}px`;
+    imageWidth.value = sliderWidth / projets.length;
 }
 
-// Fonction pour réinitialiser les images lorsque le défilement s'arrête
-function resetImages() {
-    items.value.forEach((item) => {
-        setTransform(item, `skew(0deg)`);
-
-    });
-}
-
+// Gestion du défilement
 function handleScroll() {
-    isUserScrolling = true; // Détecter que l'utilisateur défile
-    target.value = window.scrollY; // Mettre à jour la position cible
-
-    // Réinitialiser immédiatement si l'utilisateur arrête de scroller
-    clearTimeout(isScrolling);
-    isScrolling = setTimeout(() => {
-        isUserScrolling = false; // L'utilisateur a cessé de défiler
-        resetImages(); // Réinitialiser immédiatement les images
-    }, 20); // Délai à zéro pour un effet instantané
+    lastScroll.value = currentScroll.value;
+    currentScroll.value = window.scrollY;
+    target.value = currentScroll.value; // Synchronisation
 }
 
-// Fonction pour arrêter le défilement après un délai d'inactivité
-function stopScroll() {
-    isUserScrolling = false; // Marquer la fin du défilement
-}
-
+// Gestion du redimensionnement
 function handleResize() {
-    init(); // Recalculer les dimensions
-}// Montage
+    initSlider();
+}
+
+// Montage du composant
 onMounted(() => {
-    // Obtenir les images
     items.value = [...document.querySelectorAll(".item")];
-
-    // Initialiser le slider
-    init();
-    window.addEventListener("resize", handleResize);
+    initSlider();
     window.addEventListener("scroll", handleScroll);
-
-    // Détecter l'arrêt du défilement
-    document.addEventListener(
-        "scroll",
-        () => {
-            clearTimeout(isScrolling);
-            isScrolling = stopScroll;
-        },
-        false
-    );
-
-    // Démarrer l'animation
-    animate();
+    window.addEventListener("resize", handleResize);
+    animate(); // Démarrer l'animation
 });
 
 onBeforeUnmount(() => {
-    window.removeEventListener("resize", handleResize);
     window.removeEventListener("scroll", handleScroll);
-
+    window.removeEventListener("resize", handleResize);
 });
 </script>
-
 
 <style scoped>
 /* Page et conteneur principal */
 main {
     position: fixed;
     top: 0;
-    left: 5%;
-    width: 90%;
+    left: 0;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
 }
 
-/* Slider global */
 .slider {
     position: absolute;
     top: 0;
@@ -164,24 +153,16 @@ main {
     height: 100%;
     display: flex;
     will-change: transform;
-
 }
 
-/* Conteneur interne pour alignement */
 .slider-inner {
     position: absolute;
     top: 20%;
     height: 60%;
     display: flex;
     justify-content: space-between;
-
-
-    /* Activation du défilement */
-    overflow-x: scroll;
-
 }
 
-/* Éléments individuels */
 .item {
     flex: 0 0 auto;
     width: 40vw;
@@ -190,25 +171,115 @@ main {
     overflow: hidden;
     transition: transform 0.3s ease-in-out;
     border-radius: 5px;
-
-
 }
 
-/* Images avec styles */
+.is-scroll-up .item {
+    transform: skew(5deg);
+}
+
+.is-scroll-down .item {
+    transform: skew(-5deg);
+}
+
+.is-not-scroll .item {
+    transform: skew(0deg);
+}
+
 .img {
-    position: relative;
+    position: absolute;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: grayscale(100%);
+    filter: grayscale(80%) brightness(80%);
+
     transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
-    /* Inclure transform */
 
 }
 
-.img:hover {
-    filter: grayscale(0%);
+
+
+.item:hover .img {
+    filter: grayscale(0%) brightness(100%);
     transform: scale(1.05);
+}
+
+.item:hover .item-container {
+    transform: scale(1.1);
+
+}
+
+
+.item-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+    font-weight: 100;
+
+
+}
+
+.is-scroll-up .item-container {
+    transform: translate(10px, 2px) skew(-5deg);
+
+}
+
+.is-scroll-down .item-container {
+    transform: translate(-10px, 2px) skew(5deg);
+
+}
+
+.is-not-scroll .item-container {
+    transform: translate(0px);
+}
+
+h3 {
+    font-size: 10vw;
+    text-transform: capitalize;
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    /* Ajoute une ombre au texte */
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    height: fit-content;
+    line-height: 70%;
+
+
+}
+
+.tag {
+    text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+
+    font-size: 24px;
+}
+
+
+
+.discover {
+    position: absolute;
+    color: grey;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 32px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 300;
+    transition: opacity var(--duration-opacity) ease-out;
+    opacity: 1;
+    z-index: 5;
+}
+
+.hide {
+    opacity: 0;
 }
 </style>
